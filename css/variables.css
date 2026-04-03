@@ -1,0 +1,58 @@
+
+
+:root {
+  --color-black:     #0d0d0d;
+  --color-white:     #f5f2ed;
+  --color-red:       #e3281b;
+  --color-red-dark:  #c01e13;
+  --color-red-light: #ff3b2e;
+  --color-gray:      #8a8478;
+  --color-light:     #e8e4dc;
+  --color-dark-card: #1a1a1a;
+  --color-dark-bg:   #0a0a0a;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body:    'DM Mono', monospace;
+  --font-serif:   'Playfair Display', serif;
+
+  /* Font sizes */
+  --fs-xs:   0.65rem;
+  --fs-sm:   0.75rem;
+  --fs-base: 0.85rem;
+  --fs-md:   1rem;
+  --fs-lg:   1.4rem;
+  --fs-xl:   2rem;
+  --fs-2xl:  3.5rem;
+  --fs-3xl:  clamp(3rem, 6vw, 6rem);
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  3rem;
+  --space-xl:  5rem;
+  --space-2xl: 7rem;
+
+  /* Border */
+  --border-accent: 3px solid var(--color-red);
+  --border-thin:   1px solid #222;
+  --border-light:  1px solid var(--color-light);
+
+  /* Transitions */
+  --transition-fast:   0.2s ease;
+  --transition-medium: 0.4s ease;
+
+  /* Layout */
+  --nav-height: 70px;
+  --max-width:  1400px;
+  --side-padding: 5rem;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --side-padding: 1.5rem;
+    --space-2xl:    4rem;
+    --space-xl:     3rem;
+  }
+}

@@ -1,0 +1,193 @@
+.hero {
+  min-height: 100vh;
+  background: var(--color-black);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-xl) var(--space-2xl) var(--side-padding);
+}
+
+.hero-eyebrow {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 10vw, 10rem);
+  line-height: 0.9;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+.hero-title .outline {
+  -webkit-text-stroke: 2px var(--color-red);
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: var(--fs-base);
+  line-height: 1.9;
+  color: var(--color-gray);
+  max-width: 32ch;
+  margin-bottom: var(--space-lg);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  width: fit-content;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--color-red-light);
+  transform: translateX(4px);
+}
+.btn-primary .arrow { font-size: 1.1rem; }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: transparent;
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  width: fit-content;
+  border: 2px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+.btn-secondary:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+/* Hero right — animated grid */
+.hero-right {
+  background: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-left: var(--border-accent);
+}
+
+.print-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100%;
+  height: 100%;
+  gap: 3px;
+  padding: 3px;
+}
+.print-cell {
+  background: var(--color-black);
+  transition: background 0.6s;
+}
+.print-cell:nth-child(3n+1)  { background: #111; }
+.print-cell:nth-child(3n+2)  { background: #0c0c0c; }
+.print-cell:nth-child(3n+3)  { background: #161616; }
+.print-cell.red   { background: var(--color-red) !important; }
+.print-cell.light { background: #1d1d1d !important; }
+
+.hero-right-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.big-year {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 14vw, 14rem);
+  color: rgba(245,242,237,0.04);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+.since-label {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-top: -1.5rem;
+}
+
+/* ── PAGE HERO (inner pages) ── */
+.page-hero {
+  min-height: 38vh;
+  background: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-2xl) var(--side-padding) var(--space-xl);
+  padding-top: calc(var(--nav-height) + var(--space-xl));
+  border-bottom: var(--border-accent);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: attr(data-bg-text);
+  position: absolute;
+  right: var(--side-padding);
+  bottom: -1rem;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 20rem);
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.page-hero-label {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 0.8rem;
+}
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  color: var(--color-white);
+  line-height: 1;
+  max-width: 14ch;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-right {
+    display: none;
+  }
+  .hero-left {
+    padding: var(--space-2xl) var(--side-padding);
+  }
+  .page-hero::before { display: none; }
+}

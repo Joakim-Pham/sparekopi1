@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Om oss – Sparekopi</title>
+  <meta name="description" content="Sparekopi er et av Oslos mest erfarne trykkerier, etablert i 1997 og lokalisert midt i Oslo sentrum." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/nav-footer.css" />
+  <link rel="stylesheet" href="../css/hero.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/forms.css" />
+
+  <style>
+    /* Page-specific styles */
+    .timeline {
+      padding: var(--space-2xl) var(--side-padding);
+      background: var(--color-black);
+    }
+    .timeline-items {
+      position: relative;
+      padding-left: 3rem;
+      margin-top: var(--space-xl);
+    }
+    .timeline-items::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-red), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: var(--space-xl);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -3.4rem;
+      top: 0.3rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--color-red);
+      box-shadow: 0 0 0 3px var(--color-black), 0 0 0 5px var(--color-red);
+    }
+    .timeline-year {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--color-red);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-white);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-desc {
+      font-size: var(--fs-base);
+      color: var(--color-gray);
+      line-height: 1.85;
+      max-width: 55ch;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: var(--space-xl);
+    }
+    .value-card {
+      padding: var(--space-lg) 2.5rem;
+      background: var(--color-light);
+    }
+    .value-num {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      color: rgba(0,0,0,0.08);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .value-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .value-desc {
+      font-size: var(--fs-sm);
+      color: var(--color-gray);
+      line-height: 1.85;
+    }
+
+    @media (max-width: 900px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <a href="../index.html" class="nav-logo">Spare<span>Kopi</span></a>
+    <button class="nav-toggle" aria-label="Åpne meny">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Hjem</a></li>
+      <li><a href="tjenester.html">Tjenester</a></li>
+      <li><a href="priser.html">Priser</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <header class="page-hero" data-bg-text="1997">
+    <p class="page-hero-label">Vår historie</p>
+    <h1 class="page-hero-title">Om Sparekopi</h1>
+  </header>
+
+  <!-- ── ABOUT SECTION ── -->
+  <section class="about-section">
+    <div class="about-left">
+      <p class="about-label fade-up">Hvem er vi?</p>
+      <h2 class="about-heading fade-up">Siden<br/>1997</h2>
+      <p class="about-body fade-up">
+        Sparekopi ble stiftet i 1997 og ligger midt i Oslo sentrum på Torggata 17B —
+        rett ovenfor Starbucks Coffee. Vi har toppmoderne maskinpark og de nyeste
+        maskinene innen moderne teknologi.<br/><br/>
+        Med snart tre tiår daglig erfaring kan vi gjøre de fleste jobber innen reklamer,
+        kopiering og trykk. Vi jobber side om side med alt fra store bedrifter til
+        studenter og privatpersoner — og vi bryr oss genuint om <em>hvert eneste oppdrag.</em>
+      </p>
+      <div class="stats-row fade-up">
+        <div>
+          <span class="stat-num">27+</span>
+          <div class="stat-label">Års erfaring</div>
+        </div>
+        <div>
+          <span class="stat-num">∞</span>
+          <div class="stat-label">Fornøyde kunder</div>
+        </div>
+        <div>
+          <span class="stat-num">Oslo</span>
+          <div class="stat-label">Sentrum</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual fade-up">
+      <div class="visual-card c1">
+        <div class="vc-big">KOPI</div>
+        <div class="vc-label-sm">Toppmoderne maskinpark</div>
+      </div>
+      <div class="visual-card c2">
+        <div class="vc-label-lg">Torggata 17B<br/>2. etasje<br/>Oslo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TIMELINE ── -->
+  <section class="timeline">
+    <div class="section-header fade-up" style="border-color: #333;">
+      <div class="section-num" style="color: #333;">02</div>
+      <h2 class="section-title" style="color: var(--color-white);">Vår Reise</h2>
+    </div>
+
+    <div class="timeline-items">
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">1997</div>
+        <div class="timeline-title">Sparekopi åpner dørene</div>
+        <p class="timeline-desc">Vi starter som en liten kopieringsbutikk midt i Oslo sentrum med ett mål: gi folk god service til riktig pris.</p>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">2003</div>
+        <div class="timeline-title">Digitalt trykk inntog</div>
+        <p class="timeline-desc">Vi investerer i den første digitale trykkmaskin og kan nå levere trykte produkter av profesjonell kvalitet på kort tid.</p>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-title">Sparekopi AS stiftes</div>
+        <p class="timeline-desc">Virksomheten omstruktureres som aksjeselskap. Vi utvider maskinparken og tilbyr nå full service innen trykk og reklamemateriell.</p>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">2020+</div>
+        <div class="timeline-title">Fortsatt i fremste rekke</div>
+        <p class="timeline-desc">Vi fornyer jevnlig utstyret og holder oss oppdatert på den nyeste teknologien — slik at du alltid får det beste resultatet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUES ── -->
+  <section class="services-section">
+    <div class="section-header fade-up">
+      <div class="section-num">03</div>
+      <h2 class="section-title">Våre Verdier</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-up">
+        <div class="value-num">01</div>
+        <h3 class="value-title">Kvalitet</h3>
+        <p class="value-desc">Vi bruker toppmoderne utstyr og tar aldri snarveier. Hvert oppdrag fortjener det beste resultatet vi kan levere.</p>
+      </div>
+      <div class="value-card fade-up delay-1">
+        <div class="value-num">02</div>
+        <h3 class="value-title">Rask levering</h3>
+        <p class="value-desc">Vi vet at tid er penger. Vi jobber effektivt og leverer raskt — uten at det går ut over kvaliteten.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-num">03</div>
+        <h3 class="value-title">Ærlig pris</h3>
+        <p class="value-desc">Ingen skjulte gebyrer eller overraskelser. Du får alltid et klart og ærlig tilbud før vi starter.</p>
+      </div>
+      <div class="value-card fade-up delay-1">
+        <div class="value-num">04</div>
+        <h3 class="value-title">Personlig service</h3>
+        <p class="value-desc">Vi er et lite team som bryr oss. Du møter ekte mennesker som lytter og hjelper deg å finne den beste løsningen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <div class="map-strip">
+    <div class="map-pin">📍</div>
+    <div>
+      <div class="map-address">Besøk oss!</div>
+      <div class="map-sub">Torggata 17B, 2. etg · 0183 Oslo · Man–Fre 09–17</div>
+      <a class="map-link" href="https://maps.google.com/?q=Torggata+17B,+0183+Oslo" target="_blank" rel="noopener">Åpne i Google Maps →</a>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-logo">Spare<span>Kopi</span></div>
+    <nav class="footer-links">
+      <a href="tjenester.html">Tjenester</a>
+      <a href="priser.html">Priser</a>
+      <a href="om-oss.html">Om oss</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
