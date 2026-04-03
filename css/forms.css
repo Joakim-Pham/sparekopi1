@@ -1,8 +1,7 @@
 .contact-section {
   padding: var(--space-2xl) var(--side-padding);
-  background: var(--color-white);
+  background: var(--color-cream);
 }
-
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -10,140 +9,100 @@
   margin-top: var(--space-xl);
 }
 
-/* ── Contact Info ── */
-.contact-info { }
-
+/* ── Kontaktinfo ── */
 .contact-item {
+  padding: 1.5rem 0;
+  border-bottom: var(--border-light);
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  padding: 1.6rem 0;
-  border-bottom: var(--border-light);
+  gap: .3rem;
 }
-.contact-item:first-child {
-  border-top: var(--border-light);
-}
-
+.contact-item:first-child { border-top: var(--border-light); }
 .contact-item-label {
   font-size: var(--fs-xs);
-  letter-spacing: 0.3em;
+  font-weight: 500;
+  letter-spacing: .15em;
   text-transform: uppercase;
-  color: var(--color-gray);
+  color: var(--color-gold);
 }
 .contact-item-value {
-  font-size: var(--fs-md);
-  color: var(--color-black);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-navy);
+  font-weight: 300;
 }
-.contact-item-value a {
-  transition: color var(--transition-fast);
-}
-.contact-item-value a:hover {
-  color: var(--color-red);
-}
+.contact-item-value a { transition: color var(--transition-fast); }
+.contact-item-value a:hover { color: var(--color-gold); }
 
-/* Opening hours mini-table */
-.hours-table {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  margin-top: 0.5rem;
-}
-.hours-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: var(--fs-base);
-  color: var(--color-black);
-}
-.hours-row .day { color: var(--color-gray); }
+/* Åpningstider tabell */
+.hours-table { display: flex; flex-direction: column; gap: .3rem; margin-top: .5rem; }
+.hours-row { display: flex; justify-content: space-between; font-size: var(--fs-base); }
+.hours-row .day { color: var(--color-muted); }
 
-/* ── Contact Form ── */
-.contact-form { }
+/* ── Skjema — elegant underline-stil ── */
+.contact-form, .form { }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-bottom: 1.4rem;
-}
-
+.form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.5rem; }
 .form-group label {
   font-size: var(--fs-xs);
-  letter-spacing: 0.25em;
+  font-weight: 500;
+  letter-spacing: .15em;
   text-transform: uppercase;
-  color: var(--color-gray);
+  color: var(--color-muted);
 }
-
 .form-group input,
 .form-group textarea,
 .form-group select {
-  background: var(--color-light);
-  border: 2px solid transparent;
-  padding: 0.9rem 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-cream3);
+  padding: .65rem 0;
   font-family: var(--font-body);
   font-size: var(--fs-base);
-  color: var(--color-black);
+  color: var(--color-text);
   outline: none;
-  transition: border-color var(--transition-fast), background var(--transition-fast);
-  resize: none;
   width: 100%;
   appearance: none;
+  transition: border-color var(--transition-fast);
+  resize: none;
 }
 .form-group input:focus,
 .form-group textarea:focus,
-.form-group select:focus {
-  border-color: var(--color-red);
-  background: #fff;
-}
+.form-group select:focus { border-color: var(--color-gold); }
 .form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: var(--color-gray);
-}
+.form-group textarea::placeholder { color: var(--color-cream3); }
 
-.form-group select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8478' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-  cursor: pointer;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
 .form-submit {
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--color-navy);
+  color: var(--color-cream);
   border: none;
-  padding: 1rem 2.5rem;
-  font-size: var(--fs-sm);
-  letter-spacing: 0.2em;
+  padding: .9rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .1em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background var(--transition-fast);
-  width: 100%;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  margin-top: .5rem;
 }
-.form-submit:hover {
-  background: var(--color-red);
-}
+.form-submit:hover { background: var(--color-gold); transform: translateY(-2px); }
 
-/* Form success message */
 .form-success {
   display: none;
-  background: var(--color-red);
-  color: var(--color-white);
-  padding: 1.5rem;
-  text-align: center;
-  font-size: var(--fs-base);
-  letter-spacing: 0.05em;
   margin-top: 1rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 1rem;
+  font-size: var(--fs-base);
+  text-align: center;
 }
-.form-success.visible { display: block; }
+.form-success.visible, .form-success.show { display: block; }
 
-/* ── RESPONSIVE ── */
+/* ── Responsive ── */
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; }
   .form-row     { grid-template-columns: 1fr; }

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Mobile Nav ──
+  // ── 1. Mobilmeny ──
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks  = document.querySelector('.nav-links');
   if (navToggle && navLinks) {
@@ -8,91 +8,76 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.classList.toggle('open');
       navLinks.classList.toggle('open');
     });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('open');
-        navLinks.classList.remove('open');
-      });
-    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+    }));
   }
 
-  // ── Active nav link ──
+  // ── 2. Aktiv nav-lenke ──
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(link => {
     if (link.getAttribute('href') === currentPage) link.classList.add('active');
   });
 
-  // ── Scroll fade-up ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+  // ── 3. Scroll fade-up animasjoner ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const siblings = entry.target.parentElement?.querySelectorAll('.fade-up') || [];
-        let delay = 0;
-        siblings.forEach((el, idx) => { if (el === entry.target) delay = idx * 80; });
-        setTimeout(() => entry.target.classList.add('visible'), delay);
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // ── EmailJS contact form ──
-  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  // ── 4. Kontaktskjema med EmailJS ──
+  //
+  // OPPSETT (5 min, gratis):
+  // 1. Gå til https://emailjs.com og lag gratis konto
+  // 2. Legg til Gmail-tjeneste → koble til Gmail-kontoen din
+  // 3. Lag en e-postmal med disse variablene:
+  //    {{from_name}}, {{from_email}}, {{phone}}, {{service}}, {{message}}
+  // 4. Lim inn dine ID-er nedenfor:
+  //
+  const SERVICE_ID  = 'YOUR_SERVICE_ID';   // f.eks. 'service_abc123'
+  const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // f.eks. 'template_xyz789'
+  // Public Key limes inn i HTML-filen (<script>emailjs.init(...)</script>)
 
-  const contactForm = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
+  const form    = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name    = contactForm.querySelector('[name="name"]')?.value.trim();
-      const email   = contactForm.querySelector('[name="email"]')?.value.trim();
-      const message = contactForm.querySelector('[name="message"]')?.value.trim();
-      if (!name || !email || !message) {
-        alert('Vennligst fyll inn alle obligatoriske felt.');
-        return;
-      }
-      const btn = contactForm.querySelector('.form-submit');
-      btn.textContent = 'Sender…';
-      btn.disabled = true;
-      try {
-        await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm);
-        contactForm.reset();
-        formSuccess?.classList.add('visible');
-        setTimeout(() => formSuccess?.classList.remove('visible'), 6000);
-      } catch (err) {
-        alert('Noe gikk galt. Ring oss på 22 11 47 55.');
-      } finally {
-        btn.textContent = 'Send melding →';
-        btn.disabled = false;
-      }
-    });
-  }
+  form?.addEventListener('submit', async e => {
+    e.preventDefault();
+    const name    = form.querySelector('[name="from_name"]')?.value.trim();
+    const email   = form.querySelector('[name="from_email"]')?.value.trim();
+    const message = form.querySelector('[name="message"]')?.value.trim();
+    if (!name || !email || !message) {
+      alert('Fyll inn navn, e-post og melding.');
+      return;
+    }
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Sender…';
+    btn.disabled = true;
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form);
+      form.reset();
+      if (success) { success.classList.add('visible'); setTimeout(() => success.classList.remove('visible'), 6000); }
+    } catch {
+      alert('Noe gikk galt. Ring oss på 22 11 47 55.');
+    } finally {
+      btn.textContent = 'Send melding →';
+      btn.disabled = false;
+    }
+  });
 
-  // ── Animated print grid (homepage) ──
-  const printGrid = document.querySelector('.print-grid');
-  if (printGrid) {
-    const cells = printGrid.querySelectorAll('.print-cell');
-    setInterval(() => {
-      const count = Math.floor(Math.random() * 4) + 1;
-      for (let i = 0; i < count; i++) {
-        const cell = cells[Math.floor(Math.random() * cells.length)];
-        const roll = Math.random();
-        cell.classList.remove('red', 'light');
-        if (roll < 0.15) cell.classList.add('red');
-        else if (roll < 0.35) cell.classList.add('light');
-      }
-    }, 600);
-  }
-
-  // ── Smooth scroll ──
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
+  // ── 5. Smooth scroll ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+        window.scrollTo({ top: target.getBoundingClientRect().top + scrollY - 72, behavior: 'smooth' });
       }
     });
   });

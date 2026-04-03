@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tjenester – Sparekopi</title>
-  <meta name="description" content="Sparekopi tilbyr digitalt trykk, kopiering, laminering, innbinding og reklamemateriell i Oslo sentrum." />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/variables.css" />
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/nav-footer.css" />
@@ -18,163 +14,53 @@
   <link rel="stylesheet" href="../css/forms.css" />
 </head>
 <body>
-
-  <!-- ── NAV ── -->
   <nav class="site-nav">
-    <a href="../index.html" class="nav-logo">Spare<span>Kopi</span></a>
-    <button class="nav-toggle" aria-label="Åpne meny">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="../index.html">Hjem</a></li>
-      <li><a href="tjenester.html">Tjenester</a></li>
-      <li><a href="priser.html">Priser</a></li>
-      <li><a href="om-oss.html">Om oss</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="tjenester.html">Tjenester</a></li><li><a href="priser.html">Priser</a></li>
+      <li><a href="om-oss.html">Om oss</a></li><li><a href="kontakt.html">Kontakt</a></li>
     </ul>
+    <a href="kontakt.html" class="nav-cta">Kontakt oss</a>
   </nav>
 
-  <!-- ── PAGE HERO ── -->
   <header class="page-hero" data-bg-text="TRYKK">
     <p class="page-hero-label">Hva vi gjør</p>
-    <h1 class="page-hero-title">Våre Tjenester</h1>
+    <h1 class="page-hero-title">Våre<br/><em>Tjenester</em></h1>
   </header>
 
-  <!-- ── MARQUEE ── -->
   <div class="marquee-wrapper">
     <div class="marquee-track">
-      <span>Digitalt Trykk</span><span class="dot">·</span>
-      <span>Kopiering</span><span class="dot">·</span>
-      <span>Reklame</span><span class="dot">·</span>
-      <span>Plakater</span><span class="dot">·</span>
-      <span>Visittkort</span><span class="dot">·</span>
-      <span>Brosjyrer</span><span class="dot">·</span>
-      <span>Banner</span><span class="dot">·</span>
-      <span>Laminering</span><span class="dot">·</span>
-      <span>Innbinding</span><span class="dot">·</span>
-      <span>Digitalt Trykk</span><span class="dot">·</span>
-      <span>Kopiering</span><span class="dot">·</span>
-      <span>Reklame</span><span class="dot">·</span>
-      <span>Plakater</span><span class="dot">·</span>
-      <span>Visittkort</span><span class="dot">·</span>
-      <span>Brosjyrer</span><span class="dot">·</span>
-      <span>Banner</span><span class="dot">·</span>
-      <span>Laminering</span><span class="dot">·</span>
-      <span>Innbinding</span><span class="dot">·</span>
+      <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span><span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span><span>Bannere</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span><span>Laminering</span><span class="dot"> ✦ </span><span>Innbinding</span><span class="dot"> ✦ </span>
+      <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span><span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span><span>Bannere</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span><span>Laminering</span><span class="dot"> ✦ </span><span>Innbinding</span><span class="dot"> ✦ </span>
     </div>
   </div>
 
-  <!-- ── ALL SERVICES ── -->
   <section class="services-section">
-    <div class="section-header fade-up">
-      <div class="section-num">01</div>
-      <h2 class="section-title">Trykk & Kopiering</h2>
-    </div>
+    <div class="sec-header"><div class="section-tag fade-up">Trykk & Kopiering</div><h2 class="section-title fade-up delay-1">Alt under<br/><em>ett tak</em></h2></div>
     <div class="services-grid">
-      <div class="service-card fade-up">
-        <span class="service-icon">🖨️</span>
-        <h3>Digitalt Trykk</h3>
-        <p>Rask og presis digital utskrift i høy kvalitet. Perfekt for alt fra enkeltark til store opplag. Vi bruker toppmoderne utstyr for skarp detalj og ekte farger.</p>
-      </div>
-      <div class="service-card fade-up delay-1">
-        <span class="service-icon">📋</span>
-        <h3>Svart-hvitt Kopiering</h3>
-        <p>Lynrask kopiering av dokumenter, kontrakter, notat og mer. Vi kan håndtere alt fra ett enkelt ark til tusenvis av kopier.</p>
-      </div>
-      <div class="service-card fade-up delay-2">
-        <span class="service-icon">🎨</span>
-        <h3>Fargekopiering</h3>
-        <p>Levende og nøyaktig fargekopiering av presentasjoner, bilder og designmateriale — med profesjonelt resultat hver gang.</p>
-      </div>
+      <div class="service-card fade-up"><div class="service-icon">01</div><h3>Digitalt trykk</h3><p>Rask og presis digital utskrift i høy kvalitet — fra enkeltark til store opplag av brosjyrer og kataloger.</p></div>
+      <div class="service-card fade-up delay-1"><div class="service-icon">02</div><h3>Svart-hvitt kopiering</h3><p>Lynrask kopiering av dokumenter, kontrakter og notater. Fra ett enkelt ark til tusenvis av kopier.</p></div>
+      <div class="service-card fade-up delay-2"><div class="service-icon">03</div><h3>Fargekopiering</h3><p>Levende og nøyaktig fargekopiering av presentasjoner og bilder med profesjonelt resultat.</p></div>
+      <div class="service-card fade-up"><div class="service-icon">04</div><h3>Reklameplakater</h3><p>Store og små plakater for events og kampanjer. Alle standardformater og egendefinerte størrelser.</p></div>
+      <div class="service-card fade-up delay-1"><div class="service-icon">05</div><h3>Bannere & Roll-ups</h3><p>Profesjonelle bannere og roll-ups for messer og konferanser. Holdbart materiale og klart trykk.</p></div>
+      <div class="service-card fade-up delay-2"><div class="service-icon">06</div><h3>Visittkort</h3><p>Gjør det riktige inntrykket med høykvalitets visittkort i ulike papirtyper og finish.</p></div>
+      <div class="service-card fade-up"><div class="service-icon">07</div><h3>Brosjyrer & Kataloger</h3><p>Fra enkle trefoldede brosjyrer til flersiders kataloger med profesjonell innbinding.</p></div>
+      <div class="service-card fade-up delay-1"><div class="service-icon">08</div><h3>Spiralinnbinding</h3><p>Plastspiral eller metall — perfekt for presentasjoner og manualer som skal bla lett.</p></div>
+      <div class="service-card fade-up delay-2"><div class="service-icon">09</div><h3>Laminering</h3><p>Matt eller blank laminering — beskytter og gir ekstra glans til menyer, sertifikater og plakater.</p></div>
     </div>
   </section>
 
-  <section class="services-section" style="padding-top: 0;">
-    <div class="section-header fade-up">
-      <div class="section-num">02</div>
-      <h2 class="section-title">Reklame & Design</h2>
-    </div>
-    <div class="services-grid">
-      <div class="service-card fade-up">
-        <span class="service-icon">📢</span>
-        <h3>Reklameplakater</h3>
-        <p>Store og små plakater for butikker, events og kampanjer. Vi trykker i alle standardformater og egendefinerte størrelser.</p>
-      </div>
-      <div class="service-card fade-up delay-1">
-        <span class="service-icon">🏷️</span>
-        <h3>Bannere & Roll-ups</h3>
-        <p>Profesjonelle bannere og roll-ups for messer, konferanser og butikk. Holdbart materiale og klart trykk som varer lenge.</p>
-      </div>
-      <div class="service-card fade-up delay-2">
-        <span class="service-icon">💼</span>
-        <h3>Visittkort</h3>
-        <p>Gjør det riktige inntrykket med høykvalitets visittkort i ulike papirtyper, formater og finish — inkl. matt og blank laminering.</p>
-      </div>
-      <div class="service-card fade-up">
-        <span class="service-icon">📰</span>
-        <h3>Brosjyrer & Kataloger</h3>
-        <p>Fra enkle trefoldede brosjyrer til flersiders kataloger med profesjonell innbinding. Vi hjelper deg med hele prosessen.</p>
-      </div>
-      <div class="service-card fade-up delay-1">
-        <span class="service-icon">🗓️</span>
-        <h3>Kalendere & Plansjer</h3>
-        <p>Egendefinerte kalendere og plansjer med firmalogo eller egne bilder — perfekte gaveidéer og markedsføringsverktøy.</p>
-      </div>
-      <div class="service-card fade-up delay-2">
-        <span class="service-icon">✉️</span>
-        <h3>Konvolutter & Brevpapir</h3>
-        <p>Profesjonelt merkevarebygging ned til minste detalj — konvolutter, brevark og forretningsmateriell med din logo og profil.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="services-section" style="padding-top: 0;">
-    <div class="section-header fade-up">
-      <div class="section-num">03</div>
-      <h2 class="section-title">Etterbehandling</h2>
-    </div>
-    <div class="services-grid">
-      <div class="service-card fade-up">
-        <span class="service-icon">📎</span>
-        <h3>Spiralinnbinding</h3>
-        <p>Plastspiral eller metallspiral — perfekt for presentasjoner, manualer og rapporter som skal bla lett og ligge flatt.</p>
-      </div>
-      <div class="service-card fade-up delay-1">
-        <span class="service-icon">📗</span>
-        <h3>Limrygsbinding</h3>
-        <p>Profesjonell limt binding for tykkere hefter og kataloger — gir et slitt og solid uttrykk som ligner ekte bok.</p>
-      </div>
-      <div class="service-card fade-up delay-2">
-        <span class="service-icon">✨</span>
-        <h3>Laminering</h3>
-        <p>Matt eller blank laminering for å beskytte og gi ekstra glans til menyer, sertifikater, plakater og referanseark.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA STRIP ── -->
   <div class="map-strip">
-    <div>
-      <div class="map-address">Klar for å bestille?</div>
-      <div class="map-sub">Ta kontakt — vi svarer raskt og gir deg et tilbud.</div>
-    </div>
-    <a href="kontakt.html" class="btn-primary" style="flex-shrink:0;">
-      Kontakt oss <span class="arrow">→</span>
-    </a>
+    <div><div class="map-tag">Klar til å bestille?</div><div class="map-address">Ta kontakt — vi svarer raskt</div></div>
+    <a href="kontakt.html" class="map-btn">Kontakt oss →</a>
   </div>
 
-  <!-- ── FOOTER ── -->
   <footer class="site-footer">
-    <div class="footer-logo">Spare<span>Kopi</span></div>
-    <nav class="footer-links">
-      <a href="tjenester.html">Tjenester</a>
-      <a href="priser.html">Priser</a>
-      <a href="om-oss.html">Om oss</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
+    <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
+    <nav class="footer-links"><a href="tjenester.html">Tjenester</a><a href="priser.html">Priser</a><a href="om-oss.html">Om oss</a><a href="kontakt.html">Kontakt</a></nav>
     <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
   </footer>
-
   <script src="../js/main.js"></script>
 </body>
 </html>

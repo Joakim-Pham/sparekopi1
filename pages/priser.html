@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Priser – Sparekopi</title>
-  <meta name="description" content="Oversikt over priser for trykk, kopiering og etterbehandling hos Sparekopi Oslo." />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/variables.css" />
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/nav-footer.css" />
@@ -18,148 +14,53 @@
   <link rel="stylesheet" href="../css/forms.css" />
 </head>
 <body>
-
-  <!-- ── NAV ── -->
   <nav class="site-nav">
-    <a href="../index.html" class="nav-logo">Spare<span>Kopi</span></a>
-    <button class="nav-toggle" aria-label="Åpne meny">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="../index.html">Hjem</a></li>
-      <li><a href="tjenester.html">Tjenester</a></li>
-      <li><a href="priser.html">Priser</a></li>
-      <li><a href="om-oss.html">Om oss</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="tjenester.html">Tjenester</a></li><li><a href="priser.html">Priser</a></li>
+      <li><a href="om-oss.html">Om oss</a></li><li><a href="kontakt.html">Kontakt</a></li>
     </ul>
+    <a href="kontakt.html" class="nav-cta">Kontakt oss</a>
   </nav>
 
-  <!-- ── PAGE HERO ── -->
   <header class="page-hero" data-bg-text="NOK">
-    <p class="page-hero-label">Oversiktlig & Ærlig</p>
-    <h1 class="page-hero-title">Priser</h1>
+    <p class="page-hero-label">Oversiktlig & ærlig</p>
+    <h1 class="page-hero-title">Våre<br/><em>Priser</em></h1>
   </header>
 
-  <!-- ── PRICING CARDS ── -->
   <section class="pricing-section">
-    <div class="section-header fade-up">
-      <div class="section-num">01</div>
-      <h2 class="section-title">Kopiering</h2>
-    </div>
-
+    <div class="sec-header"><div class="section-tag fade-up">Kopiering</div><h2 class="section-title fade-up delay-1">Enkle priser,<br/><em>god kvalitet</em></h2></div>
     <div class="pricing-grid">
-      <div class="pricing-card fade-up">
-        <div class="pricing-name">Svart-hvitt</div>
-        <div class="pricing-price">2,-</div>
-        <div class="pricing-unit">per A4-ark</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature">Enkeltsidig</li>
-          <li class="pricing-feature">A4 og A3 format</li>
-          <li class="pricing-feature">Raskt utlevert</li>
-          <li class="pricing-feature">Mengderabatt tilgjengelig</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card featured fade-up delay-1">
-        <div class="pricing-name">Farge</div>
-        <div class="pricing-price">8,-</div>
-        <div class="pricing-unit">per A4-ark</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature">Enkeltsidig</li>
-          <li class="pricing-feature">A4 og A3 format</li>
-          <li class="pricing-feature">Fotokvalitet</li>
-          <li class="pricing-feature">Mengderabatt tilgjengelig</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card fade-up delay-2">
-        <div class="pricing-name">Storformat</div>
-        <div class="pricing-price">Fra 40,-</div>
-        <div class="pricing-unit">per ark (A2–A0)</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature">A2, A1, A0 format</li>
-          <li class="pricing-feature">Farge eller s/h</li>
-          <li class="pricing-feature">Tekniske tegninger</li>
-          <li class="pricing-feature">Plakater</li>
-        </ul>
-      </div>
+      <div class="pricing-card fade-up"><div class="pricing-name">Svart-hvitt</div><div class="pricing-price">2,-</div><div class="pricing-unit">per A4-ark</div><ul class="pricing-features"><li class="pricing-feature">Enkeltsidig</li><li class="pricing-feature">A4 og A3</li><li class="pricing-feature">Mengderabatt tilgjengelig</li></ul></div>
+      <div class="pricing-card featured fade-up delay-1"><div class="pricing-name">Farge</div><div class="pricing-price">8,-</div><div class="pricing-unit">per A4-ark</div><ul class="pricing-features"><li class="pricing-feature">Enkeltsidig</li><li class="pricing-feature">A4 og A3</li><li class="pricing-feature">Fotokvalitet</li><li class="pricing-feature">Mengderabatt tilgjengelig</li></ul></div>
+      <div class="pricing-card fade-up delay-2"><div class="pricing-name">Storformat</div><div class="pricing-price">Fra 40,-</div><div class="pricing-unit">per ark (A2–A0)</div><ul class="pricing-features"><li class="pricing-feature">A2, A1, A0</li><li class="pricing-feature">Farge eller s/h</li><li class="pricing-feature">Tekniske tegninger</li></ul></div>
     </div>
   </section>
 
-  <section class="pricing-section" style="padding-top:0;">
-    <div class="section-header fade-up">
-      <div class="section-num">02</div>
-      <h2 class="section-title">Etterbehandling</h2>
-    </div>
-
+  <section class="pricing-section" style="padding-top:0">
+    <div class="sec-header"><div class="section-tag fade-up">Etterbehandling</div><h2 class="section-title fade-up delay-1">Finish som<br/><em>løfter resultatet</em></h2></div>
     <div class="pricing-grid">
-      <div class="pricing-card fade-up">
-        <div class="pricing-name">Laminering</div>
-        <div class="pricing-price">20,-</div>
-        <div class="pricing-unit">per A4-ark</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature">Matt eller blank</li>
-          <li class="pricing-feature">A4 og A3</li>
-          <li class="pricing-feature">Enkelt- eller dobbeltsidig</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card featured fade-up delay-1">
-        <div class="pricing-name">Spiralinnbinding</div>
-        <div class="pricing-price">45,-</div>
-        <div class="pricing-unit">per dokument</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature">Plastspiral eller metall</li>
-          <li class="pricing-feature">Inkluderer forside</li>
-          <li class="pricing-feature">Opp til 200 sider</li>
-          <li class="pricing-feature">Raskt utlevert</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card fade-up delay-2">
-        <div class="pricing-name">Limrygsbinding</div>
-        <div class="pricing-price">Fra 80,-</div>
-        <div class="pricing-unit">per dokument</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature">Profesjonell bok-finish</li>
-          <li class="pricing-feature">Opp til 400 sider</li>
-          <li class="pricing-feature">Hard eller myk rygg</li>
-        </ul>
-      </div>
+      <div class="pricing-card fade-up"><div class="pricing-name">Laminering</div><div class="pricing-price">20,-</div><div class="pricing-unit">per A4-ark</div><ul class="pricing-features"><li class="pricing-feature">Matt eller blank</li><li class="pricing-feature">A4 og A3</li></ul></div>
+      <div class="pricing-card featured fade-up delay-1"><div class="pricing-name">Spiralinnbinding</div><div class="pricing-price">45,-</div><div class="pricing-unit">per dokument</div><ul class="pricing-features"><li class="pricing-feature">Plastspiral eller metall</li><li class="pricing-feature">Inkluderer forside</li><li class="pricing-feature">Opp til 200 sider</li></ul></div>
+      <div class="pricing-card fade-up delay-2"><div class="pricing-name">Limrygsbinding</div><div class="pricing-price">Fra 80,-</div><div class="pricing-unit">per dokument</div><ul class="pricing-features"><li class="pricing-feature">Profesjonell bok-finish</li><li class="pricing-feature">Opp til 400 sider</li></ul></div>
     </div>
   </section>
 
-  <!-- ── NOTE ── -->
-  <section style="padding: 3rem var(--side-padding); background: var(--color-light);">
-    <p class="fade-up" style="font-size: var(--fs-sm); color: var(--color-gray); max-width: 60ch; line-height: 1.9;">
-      <strong style="color: var(--color-black);">Merk:</strong> Prisene over er veiledende. Endelig pris avhenger av format,
-      mengde, papirkvalitet og eventuelle tillegg. Kontakt oss for et nøyaktig tilbud — vi svarer raskt!
-    </p>
-  </section>
-
-  <!-- ── CTA ── -->
-  <div class="map-strip">
-    <div>
-      <div class="map-address">Trenger du et tilbud?</div>
-      <div class="map-sub">Ring oss på 22 11 47 55 eller send en melding.</div>
-    </div>
-    <a href="kontakt.html" class="btn-primary" style="flex-shrink:0;">
-      Kontakt oss <span class="arrow">→</span>
-    </a>
+  <div style="padding:2.5rem var(--side-padding);background:var(--color-cream2);border-top:1px solid var(--color-cream3)">
+    <p class="fade-up" style="font-size:var(--fs-base);color:var(--color-muted);max-width:60ch;line-height:1.9"><strong style="color:var(--color-navy)">Merk:</strong> Prisene er veiledende. Endelig pris avhenger av format, mengde og papirkvalitet. Kontakt oss for et nøyaktig tilbud!</p>
   </div>
 
-  <!-- ── FOOTER ── -->
+  <div class="map-strip">
+    <div><div class="map-tag">Trenger du et tilbud?</div><div class="map-address">Ring oss: 22 11 47 55</div></div>
+    <a href="kontakt.html" class="map-btn">Send forespørsel →</a>
+  </div>
+
   <footer class="site-footer">
-    <div class="footer-logo">Spare<span>Kopi</span></div>
-    <nav class="footer-links">
-      <a href="tjenester.html">Tjenester</a>
-      <a href="priser.html">Priser</a>
-      <a href="om-oss.html">Om oss</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
+    <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
+    <nav class="footer-links"><a href="tjenester.html">Tjenester</a><a href="priser.html">Priser</a><a href="om-oss.html">Om oss</a><a href="kontakt.html">Kontakt</a></nav>
     <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
   </footer>
-
   <script src="../js/main.js"></script>
 </body>
 </html>

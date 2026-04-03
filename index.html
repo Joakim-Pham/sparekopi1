@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sparekopi – Trykkeri & Kopiering Oslo</title>
-  <meta name="description" content="Sparekopi — Oslos erfarne trykkeri siden 1997. Digitalt trykk, kopiering, reklame og mer. Torggata 17B, Oslo." />
-
+  <meta name="description" content="Sparekopi — Oslos erfarne trykkeri siden 1997. Torggata 17B, Oslo sentrum." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/nav-footer.css" />
@@ -19,192 +17,106 @@
 </head>
 <body>
 
-  <!-- ── NAV ── -->
   <nav class="site-nav">
-    <a href="index.html" class="nav-logo">Spare<span>Kopi</span></a>
-    <button class="nav-toggle" aria-label="Åpne meny">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="index.html">Hjem</a></li>
       <li><a href="pages/tjenester.html">Tjenester</a></li>
       <li><a href="pages/priser.html">Priser</a></li>
       <li><a href="pages/om-oss.html">Om oss</a></li>
       <li><a href="pages/kontakt.html">Kontakt</a></li>
     </ul>
+    <a href="pages/kontakt.html" class="nav-cta">Kontakt oss</a>
   </nav>
 
-  <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-left">
-      <p class="hero-eyebrow">Trykkeri & Kopiering — Oslo Sentrum</p>
-      <h1 class="hero-title">
-        SPARE<br/>
-        <span class="outline">KOPI</span>
-      </h1>
-      <p class="hero-sub">
-        Toppmoderne trykkeri i hjertet av Oslo. Vi leverer kvalitetstrykk,
-        kopiering og reklamemateriell — med nesten tre tiår daglig erfaring.
-      </p>
-      <a href="pages/kontakt.html" class="btn-primary">
-        Kontakt oss <span class="arrow">→</span>
-      </a>
-    </div>
-
-    <div class="hero-right">
-      <!-- Animated grid background -->
-      <div class="print-grid">
-        <div class="print-cell red"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell light"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell light"></div>
-        <div class="print-cell red"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell light"></div>
-        <div class="print-cell red"></div>
-        <div class="print-cell light"></div>
-        <div class="print-cell red"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell light"></div>
-        <div class="print-cell red"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell"></div>
-        <div class="print-cell light"></div>
-        <div class="print-cell red"></div>
+      <div class="hero-tag fade-up">Trykkeri & Kopiering — Oslo sentrum</div>
+      <h1 class="hero-title fade-up delay-1">Kvalitet<br/>som <em>varer</em><br/><strong>siden 1997</strong></h1>
+      <p class="hero-sub fade-up delay-2">Toppmoderne trykkeri midt i Oslo. Vi leverer trykk, kopiering og reklamemateriell med nesten tre tiår daglig erfaring bak oss.</p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="pages/kontakt.html" class="btn-gold">Send forespørsel →</a>
+        <a href="pages/tjenester.html" class="btn-ghost">Se tjenester</a>
       </div>
-      <div class="hero-right-overlay">
-        <div class="big-year">1997</div>
-        <div class="since-label">Etablert siden</div>
+      <div class="hero-stats fade-up delay-4">
+        <div><span class="stat-num">27+</span><div class="stat-label">Års erfaring</div></div>
+        <div><span class="stat-num">Oslo</span><div class="stat-label">Sentrum</div></div>
+        <div><span class="stat-num">∞</span><div class="stat-label">Fornøyde kunder</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-graphic">
+        <div class="hg-ring r1"></div>
+        <div class="hg-ring r2"></div>
+        <div class="hg-year-bg">1997</div>
+        <div class="info-pills">
+          <div class="pill"><span class="pill-label">Adresse</span><span class="pill-val">Torggata 17B</span><div class="pill-dot"></div></div>
+          <div class="pill"><span class="pill-label">Etasje</span><span class="pill-val">2. etasje</span><div class="pill-dot"></div></div>
+          <div class="pill"><span class="pill-label">Åpent</span><span class="pill-val">Man–Fre 09–17</span><div class="pill-dot"></div></div>
+          <div class="pill"><span class="pill-label">Telefon</span><span class="pill-val">22 11 47 55</span><div class="pill-dot"></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── MARQUEE ── -->
   <div class="marquee-wrapper">
     <div class="marquee-track">
-      <span>Digitalt Trykk</span><span class="dot">·</span>
-      <span>Kopiering</span><span class="dot">·</span>
-      <span>Reklame</span><span class="dot">·</span>
-      <span>Plakater</span><span class="dot">·</span>
-      <span>Visittkort</span><span class="dot">·</span>
-      <span>Brosjyrer</span><span class="dot">·</span>
-      <span>Banner</span><span class="dot">·</span>
-      <span>Laminering</span><span class="dot">·</span>
-      <span>Innbinding</span><span class="dot">·</span>
-      <!-- Repeat for seamless loop -->
-      <span>Digitalt Trykk</span><span class="dot">·</span>
-      <span>Kopiering</span><span class="dot">·</span>
-      <span>Reklame</span><span class="dot">·</span>
-      <span>Plakater</span><span class="dot">·</span>
-      <span>Visittkort</span><span class="dot">·</span>
-      <span>Brosjyrer</span><span class="dot">·</span>
-      <span>Banner</span><span class="dot">·</span>
-      <span>Laminering</span><span class="dot">·</span>
-      <span>Innbinding</span><span class="dot">·</span>
+      <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
+      <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
+      <span>Bannere</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
+      <span>Laminering</span><span class="dot"> ✦ </span><span>Innbinding</span><span class="dot"> ✦ </span>
+      <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
+      <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
+      <span>Bannere</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
+      <span>Laminering</span><span class="dot"> ✦ </span><span>Innbinding</span><span class="dot"> ✦ </span>
     </div>
   </div>
 
-  <!-- ── SERVICES (preview) ── -->
   <section class="services-section">
-    <div class="section-header fade-up">
-      <div class="section-num">01</div>
-      <h2 class="section-title">Våre Tjenester</h2>
+    <div class="sec-header">
+      <div class="section-tag fade-up">Hva vi tilbyr</div>
+      <h2 class="section-title fade-up delay-1">Tjenester som<br/><em>gjør inntrykk</em></h2>
     </div>
     <div class="services-grid">
-      <div class="service-card fade-up">
-        <span class="service-icon">🖨️</span>
-        <h3>Digitalt Trykk</h3>
-        <p>Rask og presis digital utskrift i høy kvalitet — fra enkeltark til større opplag av brosjyrer og kataloger.</p>
-      </div>
-      <div class="service-card fade-up delay-1">
-        <span class="service-icon">📋</span>
-        <h3>Kopiering</h3>
-        <p>Svart-hvitt og farge. Vi kopierer dokumenter, tegninger og bilder raskt og effektivt med nøyaktig fargegjengivelse.</p>
-      </div>
-      <div class="service-card fade-up delay-2">
-        <span class="service-icon">📢</span>
-        <h3>Reklamemateriell</h3>
-        <p>Plakater, bannere, roll-ups og stands. Vi hjelper deg å bli sett — fra det lille lokale til det store nasjonale.</p>
-      </div>
-      <div class="service-card fade-up">
-        <span class="service-icon">💼</span>
-        <h3>Visittkort</h3>
-        <p>Profesjonelle visittkort i ulike formater og papirkvaliteter. Gjør det riktige inntrykket — hver gang.</p>
-      </div>
-      <div class="service-card fade-up delay-1">
-        <span class="service-icon">📎</span>
-        <h3>Innbinding</h3>
-        <p>Spiralinnbinding, limrygg og stifting. Rapporter, presentasjoner og oppgaver — profesjonelt bundet.</p>
-      </div>
-      <div class="service-card fade-up delay-2">
-        <span class="service-icon">✨</span>
-        <h3>Laminering</h3>
-        <p>Beskytt og forsterke trykt materiale med matt eller blank laminering for et varig og eksklusivt uttrykk.</p>
-      </div>
+      <div class="service-card fade-up"><div class="service-icon">01</div><h3>Digitalt trykk</h3><p>Rask og presis utskrift i høy kvalitet — fra enkeltark til store opplag.</p></div>
+      <div class="service-card fade-up delay-1"><div class="service-icon">02</div><h3>Kopiering</h3><p>Svart-hvitt og farge med nøyaktig fargegjengivelse, raskt og effektivt.</p></div>
+      <div class="service-card fade-up delay-2"><div class="service-icon">03</div><h3>Reklamemateriell</h3><p>Plakater, bannere og roll-ups. Vi hjelper deg å bli sett.</p></div>
+      <div class="service-card fade-up"><div class="service-icon">04</div><h3>Visittkort</h3><p>Profesjonelle visittkort i ulike formater og papirkvaliteter.</p></div>
+      <div class="service-card fade-up delay-1"><div class="service-icon">05</div><h3>Innbinding</h3><p>Spiral, limrygg og stifting — rapporter bundet profesjonelt.</p></div>
+      <div class="service-card fade-up delay-2"><div class="service-icon">06</div><h3>Laminering</h3><p>Matt eller blank laminering for et varig og eksklusivt uttrykk.</p></div>
     </div>
   </section>
 
-  <!-- ── ABOUT ── -->
   <section class="about-section">
-    <div class="about-left">
-      <p class="about-label fade-up">Om Sparekopi</p>
-      <h2 class="about-heading fade-up">Siden<br/>1997</h2>
-      <p class="about-body fade-up">
-        Vi er et av Oslos mest erfarne trykkerier. Siden oppstarten i 1997 har
-        vi jobbet side om side med bedrifter, studenter og privatpersoner for å
-        levere <em>trykk som faktisk holder mål.</em><br/><br/>
-        Med toppmoderne maskinpark og nesten tre tiår daglig erfaring kan vi ta
-        på oss det meste innen moderne trykk og reklameproduksjon.
-      </p>
-      <div class="stats-row fade-up">
-        <div>
-          <span class="stat-num">27+</span>
-          <div class="stat-label">Års erfaring</div>
-        </div>
-        <div>
-          <span class="stat-num">Oslo</span>
-          <div class="stat-label">Sentrum</div>
-        </div>
-        <div>
-          <span class="stat-num">∞</span>
-          <div class="stat-label">Fornøyde kunder</div>
-        </div>
+    <div class="fade-up">
+      <div class="about-label">Om Sparekopi</div>
+      <h2 class="about-heading">Nesten tre<br/><em>tiår med</em><br/>erfaring</h2>
+      <p class="about-body">Vi er et av Oslos mest erfarne trykkerier. Siden oppstarten i 1997 har vi jobbet side om side med bedrifter, studenter og privatpersoner for å levere trykk som faktisk holder mål.<br/><br/>Med toppmoderne maskinpark kan vi ta på oss det meste innen moderne trykk og reklameproduksjon.</p>
+      <div class="stats-row">
+        <div><span class="stat-num">1997</span><div class="stat-label">Etablert</div></div>
+        <div><span class="stat-num">27+</span><div class="stat-label">Års erfaring</div></div>
+        <div><span class="stat-num">∞</span><div class="stat-label">Kunder</div></div>
       </div>
     </div>
-
-    <div class="about-visual fade-up">
-      <div class="visual-card c1">
-        <div class="vc-big">PRINT</div>
-        <div class="vc-label-sm">Toppmoderne maskinpark</div>
-      </div>
-      <div class="visual-card c2">
-        <div class="vc-label-lg">Torggata 17B<br/>Oslo Sentrum</div>
-      </div>
+    <div class="about-right fade-up delay-2">
+      <div class="about-card"><div class="about-card-label">Adresse</div><div class="about-card-val">Torggata 17B, 2. etasje<br/>0183 Oslo</div></div>
+      <div class="about-card"><div class="about-card-label">Telefon</div><div class="about-card-val">22 11 47 55</div></div>
+      <div class="about-card"><div class="about-card-label">Åpningstider</div><div class="about-card-val">Mandag – Fredag<br/>09:00 – 17:00</div></div>
+      <div class="about-card"><div class="about-card-label">Daglig leder</div><div class="about-card-val">Tri Thuc Pham</div></div>
     </div>
   </section>
 
-  <!-- ── MAP STRIP ── -->
   <div class="map-strip">
-    <div class="map-pin">📍</div>
     <div>
+      <div class="map-tag">Finn oss</div>
       <div class="map-address">Torggata 17B, Oslo</div>
-      <div class="map-sub">2. etasje · Rett ved Starbucks · T-bane: Stortinget / Grønland</div>
-      <a class="map-link" href="https://maps.google.com/?q=Torggata+17B,+0183+Oslo" target="_blank" rel="noopener">
-        Åpne i Google Maps →
-      </a>
+      <div class="map-sub">2. etasje · Rett ved Starbucks · T-bane: Stortinget</div>
     </div>
+    <a href="https://maps.google.com/?q=Torggata+17B,+0183+Oslo" target="_blank" rel="noopener" class="map-btn">Åpne Google Maps →</a>
   </div>
 
-  <!-- ── FOOTER ── -->
   <footer class="site-footer">
-    <div class="footer-logo">Spare<span>Kopi</span></div>
+    <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
     <nav class="footer-links">
       <a href="pages/tjenester.html">Tjenester</a>
       <a href="pages/priser.html">Priser</a>
