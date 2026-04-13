@@ -1,13 +1,340 @@
-.service-card {
-  cursor: pointer !important;
+/* ============================================================
+   SPAREKOPI — Komponenter
+   ============================================================ */
+
+/* ── TJENESTEKORT ── */
+.services-section {
+  padding: var(--space-2xl) var(--side-padding);
+  background: var(--color-cream);
 }
-.service-card:hover .svc-num,
-.service-card:hover .service-icon {
-  color: var(--color-gold2);
+.sec-header { margin-bottom: 4.5rem; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--color-cream3);
+  border: 1px solid var(--color-cream3);
+}
+.service-card {
+  background: var(--color-cream);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background .3s;
+  cursor: pointer;
+}
+.service-card:hover { background: var(--color-cream2); }
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+.service-card:hover::after { transform: scaleX(1); }
+
+.service-icon, .svc-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--color-cream3);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  display: block;
   transition: color .3s;
 }
- 
-/* ── MODAL BAKGRUNN ── */
+.service-card:hover .service-icon,
+.service-card:hover .svc-num { color: var(--color-gold2); }
+
+.service-card h3, .svc-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-navy);
+  margin-bottom: .6rem;
+  letter-spacing: .01em;
+}
+.service-card p, .svc-desc {
+  font-size: var(--fs-base);
+  line-height: 1.8;
+  color: var(--color-muted);
+}
+
+/* ── OM-OSS SEKSJON ── */
+.about-section {
+  padding: var(--space-2xl) var(--side-padding);
+  background: var(--color-navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.about-section::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,146,46,.08);
+  right: -120px; bottom: -120px;
+  pointer-events: none;
+}
+
+.about-label {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--color-gold2);
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+.about-label::before { content: ''; width: 24px; height: 1px; background: var(--color-gold2); }
+
+.about-heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.about-heading em { font-style: italic; color: var(--color-gold3); }
+
+.about-body {
+  font-size: var(--fs-base);
+  line-height: 2;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 2.5rem;
+}
+.about-body em { font-style: normal; font-weight: 600; color: rgba(255,255,255,.85); }
+
+/* Stats */
+.stats-row, .about-stats {
+  display: flex;
+  gap: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--color-gold2);
+  display: block;
+  line-height: 1;
+}
+.stat-label {
+  font-size: var(--fs-xs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-top: .3rem;
+}
+
+/* About right — info-kort */
+.about-right, .about-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  position: relative;
+  z-index: 1;
+}
+.about-card, .info-card {
+  background: rgba(255,255,255,.04);
+  border-left: 2px solid rgba(184,146,46,.25);
+  padding: 1.5rem 2rem;
+  transition: border-color .3s, background .3s;
+}
+.about-card:hover, .info-card:hover {
+  background: rgba(255,255,255,.07);
+  border-color: var(--color-gold);
+}
+.about-card-label, .info-card-label {
+  font-size: var(--fs-xs);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: .4rem;
+}
+.about-card-val, .info-card-val {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: rgba(255,255,255,.85);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* ── PRISER ── */
+.pricing-section {
+  padding: var(--space-2xl) var(--side-padding);
+  background: var(--color-cream);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--color-cream3);
+  border: 1px solid var(--color-cream3);
+  margin-top: var(--space-xl);
+}
+.pricing-card {
+  background: var(--color-cream);
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: background .3s;
+}
+.pricing-card:hover { background: var(--color-cream2); }
+.pricing-card.featured { background: var(--color-navy); }
+.pricing-card.featured::before {
+  content: 'Populær';
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: var(--color-gold);
+  color: #fff;
+  font-size: var(--fs-xs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .25rem .75rem;
+}
+.pricing-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-navy);
+  margin-bottom: .5rem;
+}
+.pricing-card.featured .pricing-name { color: #fff; }
+.pricing-price {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: .25rem;
+}
+.pricing-card.featured .pricing-price { color: var(--color-gold3); }
+.pricing-unit {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  letter-spacing: .1em;
+  margin-bottom: var(--space-md);
+}
+.pricing-card.featured .pricing-unit { color: rgba(255,255,255,.4); }
+.pricing-features {
+  border-top: 1px solid var(--color-cream3);
+  padding-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.pricing-card.featured .pricing-features { border-color: rgba(255,255,255,.08); }
+.pricing-feature {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  padding-left: 1.2rem;
+  position: relative;
+}
+.pricing-card.featured .pricing-feature { color: rgba(255,255,255,.6); }
+.pricing-feature::before { content: '→'; position: absolute; left: 0; color: var(--color-gold); }
+
+/* ── TIMELINE (Om oss) ── */
+.timeline { padding: var(--space-2xl) var(--side-padding); background: var(--color-navy); }
+.timeline-items {
+  position: relative;
+  padding-left: 3rem;
+  margin-top: var(--space-xl);
+}
+.timeline-items::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
+}
+.timeline-item { position: relative; padding-bottom: var(--space-xl); }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -3.35rem; top: .4rem;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-navy), 0 0 0 5px var(--color-gold);
+}
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--color-gold2);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: .5rem;
+}
+.timeline-desc {
+  font-size: var(--fs-base);
+  color: rgba(255,255,255,.4);
+  line-height: 1.85;
+  max-width: 55ch;
+}
+
+/* ── VERDIER (Om oss) ── */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--color-cream3);
+  border: 1px solid var(--color-cream3);
+  margin-top: var(--space-xl);
+}
+.value-card {
+  background: var(--color-cream);
+  padding: 2.5rem 2rem;
+  transition: background .3s;
+}
+.value-card:hover { background: var(--color-cream2); }
+.value-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--color-cream3);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.value-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-navy);
+  margin-bottom: .5rem;
+}
+.value-desc { font-size: var(--fs-base); color: var(--color-muted); line-height: 1.85; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .services-grid  { grid-template-columns: 1fr; }
+  .about-section  { grid-template-columns: 1fr; }
+  .about-right, .about-cards { display: none; }
+  .pricing-grid   { grid-template-columns: 1fr; }
+  .values-grid    { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   MODAL — Tjeneste popup
+   ============================================================ */
+
 .modal-overlay {
   display: none;
   position: fixed;
@@ -24,8 +351,7 @@
   display: flex;
   animation: fadeIn .25s ease;
 }
- 
-/* ── MODAL VINDU ── */
+
 .modal {
   background: var(--color-cream);
   max-width: 860px;
@@ -35,19 +361,16 @@
   position: relative;
   animation: slideUp .3s ease;
 }
- 
+
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
- 
-/* ── LUKK-KNAPP ── */
+
 .modal-close {
   position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  width: 36px;
-  height: 36px;
+  top: 1.25rem; right: 1.25rem;
+  width: 36px; height: 36px;
   background: var(--color-cream2);
   border: 1px solid var(--color-cream3);
   cursor: pointer;
@@ -61,17 +384,14 @@
   line-height: 1;
 }
 .modal-close:hover { background: var(--color-navy); color: #fff; }
- 
-/* ── MODAL INNHOLD ── */
+
 .modal-image {
   width: 100%;
   height: 300px;
   object-fit: cover;
   display: block;
-  background: var(--color-cream3);
 }
- 
-/* Placeholder hvis ingen bilde */
+
 .modal-image-placeholder {
   width: 100%;
   height: 300px;
@@ -83,13 +403,10 @@
   font-size: 6rem;
   font-weight: 300;
   color: var(--color-cream3);
-  letter-spacing: -.02em;
 }
- 
-.modal-body {
-  padding: 2.5rem 3rem 3rem;
-}
- 
+
+.modal-body { padding: 2.5rem 3rem 3rem; }
+
 .modal-tag {
   font-size: var(--fs-xs);
   font-weight: 500;
@@ -102,7 +419,7 @@
   margin-bottom: 1rem;
 }
 .modal-tag::before { content: ''; width: 20px; height: 1px; background: var(--color-gold); }
- 
+
 .modal-title {
   font-family: var(--font-display);
   font-size: 2.5rem;
@@ -111,8 +428,7 @@
   line-height: 1.1;
   margin-bottom: 1.25rem;
 }
-.modal-title em { font-style: italic; color: var(--color-gold); }
- 
+
 .modal-desc {
   font-size: var(--fs-base);
   line-height: 1.9;
@@ -120,7 +436,7 @@
   margin-bottom: 2rem;
   max-width: 55ch;
 }
- 
+
 .modal-features {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -136,13 +452,8 @@
   position: relative;
   line-height: 1.6;
 }
-.modal-feature::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--color-gold);
-}
- 
+.modal-feature::before { content: '→'; position: absolute; left: 0; color: var(--color-gold); }
+
 .modal-cta {
   display: inline-flex;
   align-items: center;
@@ -160,8 +471,7 @@
   text-decoration: none;
 }
 .modal-cta:hover { background: var(--color-gold); }
- 
-/* ── Responsive ── */
+
 @media (max-width: 600px) {
   .modal-body { padding: 1.5rem; }
   .modal-features { grid-template-columns: 1fr; }
