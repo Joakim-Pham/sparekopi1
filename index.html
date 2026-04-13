@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/forms.css" />
 </head>
 <body>
- 
+
   <nav class="site-nav">
     <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
     <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
@@ -28,7 +28,7 @@
     </ul>
     <a href="pages/kontakt.html" class="nav-cta">Kontakt oss</a>
   </nav>
- 
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
@@ -59,105 +59,104 @@
       </div>
     </div>
   </section>
- 
+
   <!-- TICKER -->
   <div class="marquee-wrapper">
     <div class="marquee-track">
       <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
       <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
-      <span>Bannere</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
+      <span>Roll-ups</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
       <span>Laminering</span><span class="dot"> ✦ </span><span>Innbinding</span><span class="dot"> ✦ </span>
       <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
       <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
-      <span>Bannere</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
+      <span>Roll-ups</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
       <span>Laminering</span><span class="dot"> ✦ </span><span>Innbinding</span><span class="dot"> ✦ </span>
     </div>
   </div>
- 
-  <!-- TJENESTER — klikk på et kort for å åpne modal -->
+
+  <!-- TJENESTER — klikk på kort for å åpne modal med bilde -->
   <section class="services-section">
     <div class="sec-header">
       <div class="section-tag fade-up">Hva vi tilbyr</div>
       <h2 class="section-title fade-up delay-1">Tjenester som<br/><em>gjør inntrykk</em></h2>
     </div>
     <div class="services-grid">
- 
-      <!--
-        data-modal="..." kobler kortet til riktig modal.
-        Bytt ut image-stien med ditt eget bilde:
-        f.eks.  data-image="assets/images/trykk.jpg"
-        Legg bildene i mappen: assets/images/
-      -->
- 
+
+      <!-- Brosjyrer -->
       <div class="service-card fade-up"
-           data-modal="trykk"
-           data-title="Digitalt trykk"
-           data-desc="Rask og presis digital utskrift i høy kvalitet — fra enkeltark til store opplag av brosjyrer og kataloger. Vi bruker toppmoderne utstyr for skarp detalj og ekte farger."
-           data-features="A4, A3, A2 og storformat|Svart-hvitt og farge|Fotokvalitet fargegjengivelse|Rask levering|Mengderabatt ved store opplag|Enkelt- og dobbeltsidig"
-           data-image="assets/images/trykk.jpg">
+        data-modal="brosjyrer"
+        data-title="Brosjyrer & Digitalt trykk"
+        data-desc="Vi trykker profesjonelle brosjyrer og markedsmateriell i høy kvalitet. Enten det er en enkel folder eller en flersiders katalog — vi leverer skarpe farger og presis detalj hver gang."
+        data-features="Enkelt- og trefoldede brosjyrer|Kataloger opp til 100+ sider|A4, A5 og egendefinerte formater|Matt eller blank finish|Mengderabatt fra 100 stk|Rask levering"
+        data-image="assets/images/brosjyrer.jpg">
         <div class="service-icon">01</div>
         <h3>Digitalt trykk</h3>
         <p>Rask og presis utskrift i høy kvalitet — fra enkeltark til store opplag.</p>
       </div>
- 
+
+      <!-- Flyer -->
       <div class="service-card fade-up delay-1"
-           data-modal="kopiering"
-           data-title="Kopiering"
-           data-desc="Svart-hvitt og farge. Vi kopierer dokumenter, tegninger og bilder raskt og effektivt med nøyaktig fargegjengivelse — til alltid riktig pris."
-           data-features="Svart-hvitt fra 2,- per ark|Farge fra 8,- per ark|A4, A3 og storformat|Enkelt- og dobbeltsidig|Mengderabatt|Rask utlevering"
-           data-image="assets/images/kopiering.jpg">
+        data-modal="flyer"
+        data-title="Flyere & Kopiering"
+        data-desc="Flyere er et av de mest effektive markedsføringsverktøyene — og vi trykker dem raskt og skarpt. Vi tilbyr også kopiering av dokumenter i svart-hvitt og farge til fornuftige priser."
+        data-features="A4 og A5 flyere|Svart-hvitt fra kr 2,- per ark|Farge fra kr 8,- per ark|Enkelt- og dobbeltsidig|Mengderabatt tilgjengelig|Rask utlevering"
+        data-image="assets/images/flyer.jpg">
         <div class="service-icon">02</div>
-        <h3>Kopiering</h3>
-        <p>Svart-hvitt og farge med nøyaktig fargegjengivelse, raskt og effektivt.</p>
+        <h3>Flyere & Kopiering</h3>
+        <p>Profesjonelle flyere og rask kopiering i svart-hvitt og farge.</p>
       </div>
- 
+
+      <!-- Roll-up -->
       <div class="service-card fade-up delay-2"
-           data-modal="reklame"
-           data-title="Reklamemateriell"
-           data-desc="Plakater, bannere og roll-ups i alle størrelser. Vi hjelper deg å bli sett — fra det lille lokale til det store nasjonale."
-           data-features="Plakater i alle formater|Bannere og roll-ups|Vindusdekor|Messestand materiell|Veggplakater|Rask levering"
-           data-image="assets/images/reklame.jpg">
+        data-modal="rollup"
+        data-title="Roll-ups & Reklamemateriell"
+        data-desc="Roll-ups er perfekte for messer, konferanser, butikkvinduer og events. Vi trykker på holdbart materiale med klare farger som varer lenge — og leverer raskt når du trenger det."
+        data-features="Standard 85x200cm og 100x200cm|Inkluderer stativ og bag|Flerfarget høykvalitetstrykk|Holdbart materiale|Bannere og veggplakater|Klar på 1–3 virkedager"
+        data-image="assets/images/ROLLUP.jpg">
         <div class="service-icon">03</div>
-        <h3>Reklamemateriell</h3>
+        <h3>Roll-ups & Reklame</h3>
         <p>Plakater, bannere og roll-ups. Vi hjelper deg å bli sett.</p>
       </div>
- 
+
+      <!-- Visittkort -->
       <div class="service-card fade-up"
-           data-modal="visittkort"
-           data-title="Visittkort"
-           data-desc="Profesjonelle visittkort i ulike formater og papirkvaliteter. Gjør det riktige inntrykket — hver eneste gang du møter noen nytt."
-           data-features="Standard 85x55mm|Avrundede hjørner|350g kvalitetspaper|Matt eller blank finish|Laminering tilgjengelig|Fra 500 stk"
-           data-image="assets/images/visittkort.jpg">
+        data-modal="visittkort"
+        data-title="Visittkort"
+        data-desc="Et godt visittkort gjør det riktige inntrykket fra første møte. Vi trykker visittkort i ulike formater, papirkvaliteter og finish — slik at kortet ditt skiller seg ut på bordet."
+        data-features="Standard format 85x55mm|350g og 400g papirkvalitet|Matt eller blank laminering|Ensidig og tosidig trykk|Avrundede hjørner tilgjengelig|Fra 100 stk"
+        data-image="assets/images/visittkort.jpg">
         <div class="service-icon">04</div>
         <h3>Visittkort</h3>
         <p>Profesjonelle visittkort i ulike formater og papirkvaliteter.</p>
       </div>
- 
+
+      <!-- Innbinding -->
       <div class="service-card fade-up delay-1"
-           data-modal="innbinding"
-           data-title="Innbinding"
-           data-desc="Spiral, limrygg og stifting. Rapporter, presentasjoner og oppgaver bundet profesjonelt og raskt — klare til innlevering."
-           data-features="Plastspiral og metallspiral|Limrygsbinding|Stifting|Inkluderer forside og bakside|Opp til 400 sider|Rask utlevering"
-           data-image="assets/images/innbinding.jpg">
+        data-modal="innbinding"
+        data-title="Innbinding"
+        data-desc="Vi binder inn rapporter, oppgaver, presentasjoner og manualer profesjonelt og raskt. Med spiralinnbinding eller limrygg får dokumentet ditt et solid og ryddig uttrykk."
+        data-features="Plastspiral og metallspiral|Limrygsbinding|Stifting for tynnere hefter|Inkluderer for- og bakside|Opp til 400 sider|Rask utlevering — ofte samme dag"
+        data-image="">
         <div class="service-icon">05</div>
         <h3>Innbinding</h3>
         <p>Spiral, limrygg og stifting — rapporter bundet profesjonelt.</p>
       </div>
- 
+
+      <!-- Laminering / Meny -->
       <div class="service-card fade-up delay-2"
-           data-modal="laminering"
-           data-title="Laminering"
-           data-desc="Matt eller blank laminering for et varig og eksklusivt uttrykk på ditt materiale. Perfekt for menyer, sertifikater og plakater."
-           data-features="Matt laminering|Blank laminering|A4 og A3 format|Enkelt- og dobbeltsidig|Beskytter mot fukt og slitasje|Fra 20,- per ark"
-           data-image="assets/images/laminering.jpg">
+        data-modal="laminering"
+        data-title="Laminering & Menyer"
+        data-desc="Laminering beskytter trykket ditt mot fukt, søl og slitasje — perfekt for menyer, prislister, sertifikater og skilt. Vi leverer i matt eller blank finish og alle standardformater."
+        data-features="Matt og blank laminering|A4, A3 og egendefinerte størrelser|Enkelt- og dobbeltsidig|Perfekt for restaurantmenyer|Beskytter mot fukt og flekker|Fra kr 20,- per ark"
+        data-image="assets/images/meny.jpg">
         <div class="service-icon">06</div>
-        <h3>Laminering</h3>
-        <p>Matt eller blank laminering for et varig og eksklusivt uttrykk.</p>
+        <h3>Laminering & Menyer</h3>
+        <p>Matt eller blank laminering — perfekt for menyer og sertifikater.</p>
       </div>
- 
+
     </div>
   </section>
- 
+
   <!-- OM OSS -->
   <section class="about-section">
     <div class="fade-up">
@@ -172,11 +171,11 @@
     </div>
     <div class="about-right fade-up delay-2">
       <div class="about-card"><div class="about-card-label">Adresse</div><div class="about-card-val">Torggata 17B, 2. etasje<br/>0183 Oslo</div></div>
-      <div class="about-card"><div class="about-card-label">Telefon</div><div class="about-card-val">22 11 47 55</div></div>
+      <div class="about-card"><div class="about-card-label">Telefon</div><div class="about-card-val">47 29 34 43</div></div>
       <div class="about-card"><div class="about-card-label">Åpningstider</div><div class="about-card-val">Mandag – Fredag<br/>09:00 – 17:00</div></div>
     </div>
   </section>
- 
+
   <!-- MAP -->
   <div class="map-strip">
     <div>
@@ -186,7 +185,7 @@
     </div>
     <a href="https://maps.google.com/?q=Torggata+17B,+0183+Oslo" target="_blank" rel="noopener" class="map-btn">Åpne Google Maps →</a>
   </div>
- 
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
@@ -198,19 +197,14 @@
     </nav>
     <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
   </footer>
- 
-  <!-- ══════════════════════════════
-       MODAL — åpner når man klikker på et tjenestekort
-  ══════════════════════════════ -->
+
+  <!-- ══ MODAL ══ -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" id="modal">
       <button class="modal-close" id="modalClose">✕</button>
- 
-      <!-- Bilde (eller placeholder hvis ingen bilde er satt) -->
       <div id="modalImageWrap"></div>
- 
       <div class="modal-body">
-        <div class="modal-tag" id="modalTag">Tjeneste</div>
+        <div class="modal-tag">Tjeneste</div>
         <h2 class="modal-title" id="modalTitle"></h2>
         <p class="modal-desc" id="modalDesc"></p>
         <div class="modal-features" id="modalFeatures"></div>
@@ -218,62 +212,50 @@
       </div>
     </div>
   </div>
- 
+
   <script src="js/main.js"></script>
- 
   <script>
-  /* ── MODAL LOGIKK ── */
-  const overlay   = document.getElementById('modalOverlay');
-  const modal     = document.getElementById('modal');
-  const closeBtn  = document.getElementById('modalClose');
-  const imgWrap   = document.getElementById('modalImageWrap');
-  const tagEl     = document.getElementById('modalTag');
-  const titleEl   = document.getElementById('modalTitle');
-  const descEl    = document.getElementById('modalDesc');
-  const featEl    = document.getElementById('modalFeatures');
- 
-  // Åpne modal når man klikker på et tjenestekort
-  document.querySelectorAll('.service-card[data-modal]').forEach(card => {
-    card.addEventListener('click', () => {
-      const title    = card.dataset.title    || '';
-      const desc     = card.dataset.desc     || '';
-      const features = card.dataset.features || '';
-      const image    = card.dataset.image    || '';
- 
-      // Sett innhold
-      tagEl.textContent   = 'Tjeneste';
-      titleEl.textContent = title;
-      descEl.textContent  = desc;
- 
-      // Bilde — vis bilde hvis fil finnes, ellers vis nummer-placeholder
-      if (image) {
-        imgWrap.innerHTML = `<img class="modal-image" src="${image}" alt="${title}" onerror="this.parentElement.innerHTML='<div class=modal-image-placeholder>${card.querySelector('.service-icon').textContent}</div>'" />`;
-      } else {
-        imgWrap.innerHTML = `<div class="modal-image-placeholder">${card.querySelector('.service-icon').textContent}</div>`;
-      }
- 
-      // Egenskaper/features
-      featEl.innerHTML = features
-        .split('|')
-        .map(f => `<div class="modal-feature">${f.trim()}</div>`)
-        .join('');
- 
-      // Åpne
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
+    const overlay  = document.getElementById('modalOverlay');
+    const closeBtn = document.getElementById('modalClose');
+    const imgWrap  = document.getElementById('modalImageWrap');
+    const titleEl  = document.getElementById('modalTitle');
+    const descEl   = document.getElementById('modalDesc');
+    const featEl   = document.getElementById('modalFeatures');
+
+    document.querySelectorAll('.service-card[data-modal]').forEach(card => {
+      card.addEventListener('click', () => {
+        titleEl.textContent = card.dataset.title || '';
+        descEl.textContent  = card.dataset.desc  || '';
+
+        const img = card.dataset.image;
+        const num = card.querySelector('.service-icon').textContent;
+
+        if (img) {
+          imgWrap.innerHTML = `<img class="modal-image" src="${img}" alt="${card.dataset.title}"
+            onerror="this.parentElement.innerHTML='<div class=modal-image-placeholder>${num}</div>'" />`;
+        } else {
+          imgWrap.innerHTML = `<div class="modal-image-placeholder">${num}</div>`;
+        }
+
+        featEl.innerHTML = (card.dataset.features || '')
+          .split('|')
+          .map(f => `<div class="modal-feature">${f.trim()}</div>`)
+          .join('');
+
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
     });
-  });
- 
-  // Lukk modal
-  function closeModal() {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
- 
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   </script>
- 
+
 </body>
 </html>
