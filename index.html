@@ -14,6 +14,111 @@
   <link rel="stylesheet" href="css/hero.css" />
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/forms.css" />
+  <style>
+    /* ── GALLERI ── */
+    .gallery-section {
+      padding: var(--space-2xl) var(--side-padding);
+      background: var(--color-cream2);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+      display: block;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(12,26,46,0);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      transition: background .3s;
+    }
+    .gallery-item:hover .gallery-item-overlay {
+      background: rgba(12,26,46,.55);
+    }
+    .gallery-item-label {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .3s, transform .3s;
+    }
+    .gallery-item:hover .gallery-item-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Stort bilde i grid */
+    .gallery-item.large {
+      grid-column: span 2;
+    }
+    @media (max-width: 900px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.large { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.large { grid-column: span 1; }
+    }
+
+    /* Lightbox for galleri */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(8,18,31,.95);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      animation: slideUp .3s ease;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+    .lightbox-close:hover { background: var(--color-gold); }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 2rem;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.6);
+      letter-spacing: .05em;
+    }
+  </style>
 </head>
 <body>
 
@@ -54,7 +159,7 @@
           <div class="pill"><span class="pill-label">Adresse</span><span class="pill-val">Torggata 17B</span><div class="pill-dot"></div></div>
           <div class="pill"><span class="pill-label">Etasje</span><span class="pill-val">2. etasje</span><div class="pill-dot"></div></div>
           <div class="pill"><span class="pill-label">Åpent</span><span class="pill-val">Man–Fre 09–17</span><div class="pill-dot"></div></div>
-          <div class="pill"><span class="pill-label">Telefon</span><span class="pill-val">47 29 34 43</span><div class="pill-dot"></div></div>
+          <div class="pill"><span class="pill-label">Telefon</span><span class="pill-val">22 11 47 55</span><div class="pill-dot"></div></div>
         </div>
       </div>
     </div>
@@ -66,15 +171,15 @@
       <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
       <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
       <span>Roll-ups</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
-      <span>Laminering</span><span class="dot"> ✦ </span><span>Innbinding</span><span class="dot"> ✦ </span>
+      <span>Veggdekor</span><span class="dot"> ✦ </span><span>Vindusdekor</span><span class="dot"> ✦ </span>
       <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
       <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
       <span>Roll-ups</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
-      <span>Laminering</span><span class="dot"> ✦ </span><span>Innbinding</span><span class="dot"> ✦ </span>
+      <span>Veggdekor</span><span class="dot"> ✦ </span><span>Vindusdekor</span><span class="dot"> ✦ </span>
     </div>
   </div>
 
-  <!-- TJENESTER — klikk på kort for å åpne modal med bilde -->
+  <!-- TJENESTER -->
   <section class="services-section">
     <div class="sec-header">
       <div class="section-tag fade-up">Hva vi tilbyr</div>
@@ -82,7 +187,6 @@
     </div>
     <div class="services-grid">
 
-      <!-- Brosjyrer -->
       <div class="service-card fade-up"
         data-modal="brosjyrer"
         data-title="Brosjyrer & Digitalt trykk"
@@ -94,64 +198,115 @@
         <p>Rask og presis utskrift i høy kvalitet — fra enkeltark til store opplag.</p>
       </div>
 
-      <!-- Flyer -->
       <div class="service-card fade-up delay-1"
         data-modal="flyer"
         data-title="Flyere & Kopiering"
-        data-desc="Flyere er et av de mest effektive markedsføringsverktøyene — og vi trykker dem raskt og skarpt. Vi tilbyr også kopiering av dokumenter i svart-hvitt og farge til fornuftige priser."
-        data-features="A4 og A5 flyere|Svart-hvitt fra kr 2,- per ark|Farge fra kr 8,- per ark|Enkelt- og dobbeltsidig|Mengderabatt tilgjengelig|Rask utlevering"
+        data-desc="Profesjonelle flyere og rask kopiering i svart-hvitt og farge. Vi kopierer dokumenter og bilder effektivt med nøyaktig fargegjengivelse — til alltid riktig pris."
+        data-features="Svart-hvitt fra kr 2,- per ark|Farge fra kr 8,- per ark|A4, A3 og storformat|Enkelt- og dobbeltsidig|Mengderabatt|Rask utlevering"
         data-image="assets/images/flyer.jpg">
         <div class="service-icon">02</div>
         <h3>Flyere & Kopiering</h3>
         <p>Profesjonelle flyere og rask kopiering i svart-hvitt og farge.</p>
       </div>
 
-      <!-- Roll-up -->
       <div class="service-card fade-up delay-2"
-        data-modal="rollup"
-        data-title="Roll-ups & Reklamemateriell"
-        data-desc="Roll-ups er perfekte for messer, konferanser, butikkvinduer og events. Vi trykker på holdbart materiale med klare farger som varer lenge — og leverer raskt når du trenger det."
-        data-features="Standard 85x200cm og 100x200cm|Inkluderer stativ og bag|Flerfarget høykvalitetstrykk|Holdbart materiale|Bannere og veggplakater|Klar på 1–3 virkedager"
-        data-image="assets/images/ROLLUP.jpg">
+        data-modal="reklame"
+        data-title="Roll-ups, Bannere & Reklameskilt"
+        data-desc="Vi produserer roll-ups, bannere, kundestoppere, veggdekorasjon og vindusdekor. Se eksempler på ekte oppdrag vi har levert — alt fra salonger til butikker i Oslo."
+        data-features="Roll-ups i alle størrelser|Bannere og kundestoppere|Veggdekorasjon storformat|Vindusdekor og skilt|Beach flags / flaggstenger|Klar på 1–3 virkedager"
+        data-image="assets/images/skilt.jpg">
         <div class="service-icon">03</div>
         <h3>Roll-ups & Reklame</h3>
-        <p>Plakater, bannere og roll-ups. Vi hjelper deg å bli sett.</p>
+        <p>Plakater, bannere, skilt og veggdekor. Vi hjelper deg å bli sett.</p>
       </div>
 
-      <!-- Visittkort -->
       <div class="service-card fade-up"
         data-modal="visittkort"
         data-title="Visittkort"
-        data-desc="Et godt visittkort gjør det riktige inntrykket fra første møte. Vi trykker visittkort i ulike formater, papirkvaliteter og finish — slik at kortet ditt skiller seg ut på bordet."
-        data-features="Standard format 85x55mm|350g og 400g papirkvalitet|Matt eller blank laminering|Ensidig og tosidig trykk|Avrundede hjørner tilgjengelig|Fra 100 stk"
+        data-desc="Profesjonelle visittkort i ulike formater og papirkvaliteter. Gjør det riktige inntrykket — hver eneste gang du møter noen nytt."
+        data-features="Standard 85x55mm|350g og 400g papirkvalitet|Matt eller blank laminering|Ensidig og tosidig trykk|Avrundede hjørner tilgjengelig|Fra 100 stk"
         data-image="assets/images/visittkort.jpg">
         <div class="service-icon">04</div>
         <h3>Visittkort</h3>
         <p>Profesjonelle visittkort i ulike formater og papirkvaliteter.</p>
       </div>
 
-      <!-- Innbinding -->
       <div class="service-card fade-up delay-1"
         data-modal="innbinding"
         data-title="Innbinding"
         data-desc="Vi binder inn rapporter, oppgaver, presentasjoner og manualer profesjonelt og raskt. Med spiralinnbinding eller limrygg får dokumentet ditt et solid og ryddig uttrykk."
         data-features="Plastspiral og metallspiral|Limrygsbinding|Stifting for tynnere hefter|Inkluderer for- og bakside|Opp til 400 sider|Rask utlevering — ofte samme dag"
-        data-image="">
+        data-image="assets/images/banner.jpg">
         <div class="service-icon">05</div>
         <h3>Innbinding</h3>
         <p>Spiral, limrygg og stifting — rapporter bundet profesjonelt.</p>
       </div>
 
-      <!-- Laminering / Meny -->
       <div class="service-card fade-up delay-2"
         data-modal="laminering"
         data-title="Laminering & Menyer"
-        data-desc="Laminering beskytter trykket ditt mot fukt, søl og slitasje — perfekt for menyer, prislister, sertifikater og skilt. Vi leverer i matt eller blank finish og alle standardformater."
+        data-desc="Laminering beskytter trykket ditt mot fukt, søl og slitasje — perfekt for menyer, prislister, sertifikater og skilt som skal tåle daglig bruk."
         data-features="Matt og blank laminering|A4, A3 og egendefinerte størrelser|Enkelt- og dobbeltsidig|Perfekt for restaurantmenyer|Beskytter mot fukt og flekker|Fra kr 20,- per ark"
         data-image="assets/images/meny.jpg">
         <div class="service-icon">06</div>
         <h3>Laminering & Menyer</h3>
         <p>Matt eller blank laminering — perfekt for menyer og sertifikater.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERI — Eksempler på vårt arbeid -->
+  <section class="gallery-section">
+    <div class="sec-header fade-up">
+      <div class="section-tag">Vårt arbeid</div>
+      <h2 class="section-title">Eksempler fra<br/><em>virkeligheten</em></h2>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="gallery-item large fade-up"
+           data-lightbox="assets/images/veggdekor.jpg"
+           data-caption="Veggdekorasjon — Happy Nails">
+        <img src="assets/images/veggdekor.jpg" alt="Veggdekorasjon" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-label">Veggdekorasjon storformat</div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-up delay-1"
+           data-lightbox="assets/images/vindusdekor.jpg"
+           data-caption="Vindusdekor — Happy Nails">
+        <img src="assets/images/vindusdekor.jpg" alt="Vindusdekor" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-label">Vindusdekor & skilt</div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-up"
+           data-lightbox="assets/images/skilt.jpg"
+           data-caption="Kundestopperplakat — Extend Your Beauty">
+        <img src="assets/images/skilt.jpg" alt="Kundestopperplakat" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-label">Kundestopperplakat</div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-up delay-1"
+           data-lightbox="assets/images/beachflagg.jpg"
+           data-caption="Beach flags / flaggstenger">
+        <img src="assets/images/beachflagg.jpg" alt="Beach flags" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-label">Beach flags</div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-up delay-2"
+           data-lightbox="assets/images/banner.jpg"
+           data-caption="Digitalt banner">
+        <img src="assets/images/banner.jpg" alt="Banner" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-label">Digitalt banner</div>
+        </div>
       </div>
 
     </div>
@@ -171,7 +326,7 @@
     </div>
     <div class="about-right fade-up delay-2">
       <div class="about-card"><div class="about-card-label">Adresse</div><div class="about-card-val">Torggata 17B, 2. etasje<br/>0183 Oslo</div></div>
-      <div class="about-card"><div class="about-card-label">Telefon</div><div class="about-card-val">47 29 34 43</div></div>
+      <div class="about-card"><div class="about-card-label">Telefon</div><div class="about-card-val">22 11 47 55</div></div>
       <div class="about-card"><div class="about-card-label">Åpningstider</div><div class="about-card-val">Mandag – Fredag<br/>09:00 – 17:00</div></div>
     </div>
   </section>
@@ -198,7 +353,7 @@
     <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
   </footer>
 
-  <!-- ══ MODAL ══ -->
+  <!-- TJENESTE MODAL -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" id="modal">
       <button class="modal-close" id="modalClose">✕</button>
@@ -213,8 +368,16 @@
     </div>
   </div>
 
+  <!-- LIGHTBOX for galleri -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
   <script src="js/main.js"></script>
   <script>
+    /* ── TJENESTE MODAL ── */
     const overlay  = document.getElementById('modalOverlay');
     const closeBtn = document.getElementById('modalClose');
     const imgWrap  = document.getElementById('modalImageWrap');
@@ -226,35 +389,46 @@
       card.addEventListener('click', () => {
         titleEl.textContent = card.dataset.title || '';
         descEl.textContent  = card.dataset.desc  || '';
-
         const img = card.dataset.image;
         const num = card.querySelector('.service-icon').textContent;
-
         if (img) {
           imgWrap.innerHTML = `<img class="modal-image" src="${img}" alt="${card.dataset.title}"
             onerror="this.parentElement.innerHTML='<div class=modal-image-placeholder>${num}</div>'" />`;
         } else {
           imgWrap.innerHTML = `<div class="modal-image-placeholder">${num}</div>`;
         }
-
         featEl.innerHTML = (card.dataset.features || '')
-          .split('|')
-          .map(f => `<div class="modal-feature">${f.trim()}</div>`)
-          .join('');
-
+          .split('|').map(f => `<div class="modal-feature">${f.trim()}</div>`).join('');
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
       });
     });
 
-    function closeModal() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
+    function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    /* ── LIGHTBOX for galleri ── */
+    const lightbox        = document.getElementById('lightbox');
+    const lightboxImg     = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose   = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item[data-lightbox]').forEach(item => {
+      item.addEventListener('click', () => {
+        lightboxImg.src         = item.dataset.lightbox;
+        lightboxCaption.textContent = item.dataset.caption || '';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeModal(); closeLightbox(); }
+    });
   </script>
 
 </body>
