@@ -15,66 +15,85 @@
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/forms.css" />
   <style>
-    /* ── GALLERI ── */
-    .gallery-section {
-      padding: var(--space-2xl) var(--side-padding);
-      background: var(--color-cream2);
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 3rem;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      cursor: pointer;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s ease;
-      display: block;
-    }
-    .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-item-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(12,26,46,0);
-      display: flex;
-      align-items: flex-end;
-      padding: 1.5rem;
-      transition: background .3s;
-    }
-    .gallery-item:hover .gallery-item-overlay {
-      background: rgba(12,26,46,.55);
-    }
-    .gallery-item-label {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: #fff;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity .3s, transform .3s;
-    }
-    .gallery-item:hover .gallery-item-label {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* Stort bilde i grid */
-    .gallery-item.large {
-      grid-column: span 2;
-    }
+
+/* ── GALLERI ── */
+.gallery-section {
+  padding: var(--space-2xl) 0;
+  background: var(--color-cream2);
+}
+.gallery-section-header {
+  padding: 0 var(--side-padding);
+  margin-bottom: 2rem;
+}
+.gallery-track-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-track-wrapper::-webkit-scrollbar { display: none; }
+.gallery-track-wrapper.grabbing { cursor: grabbing; }
+.gallery-track {
+  display: flex;
+  gap: 8px;
+  padding: 0 var(--side-padding);
+  width: max-content;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-cream3);
+  height: 260px;
+  width: 340px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+.gallery-item.tall { height: 260px; width: 200px; }
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .5s ease;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item-overlay {
+  position: absolute; inset: 0;
+  background: rgba(12,26,46,0);
+  display: flex; align-items: flex-end;
+  padding: 1rem 1.2rem;
+  transition: background .3s;
+}
+.gallery-item:hover .gallery-item-overlay { background: rgba(12,26,46,.5); }
+.gallery-item-label {
+  font-family: var(--font-display);
+  font-size: 1rem; font-style: italic;
+  color: #fff; opacity: 0;
+  transform: translateY(5px);
+  transition: opacity .3s, transform .3s;
+}
+.gallery-item:hover .gallery-item-label { opacity: 1; transform: translateY(0); }
+.gallery-hint {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 1rem var(--side-padding) 0;
+  display: flex; align-items: center; gap: .5rem;
+}
+.gallery-hint::before { content: '←'; color: var(--color-gold); }
+.gallery-hint::after  { content: '→'; color: var(--color-gold); }
+
+
     @media (max-width: 900px) {
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
       .gallery-item.large { grid-column: span 2; }
     }
     @media (max-width: 600px) {
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-item.large { grid-column: span 1; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.large { grid-column: span 2; }
     }
 
     /* Lightbox for galleri */
@@ -258,60 +277,61 @@
 
   <!-- GALLERI — Eksempler på vårt arbeid -->
   <section class="gallery-section">
-    <div class="sec-header fade-up">
-      <div class="section-tag">Vårt arbeid</div>
-      <h2 class="section-title">Eksempler fra<br/><em>virkeligheten</em></h2>
+    <div class="gallery-section-header">
+      <div class="section-tag fade-up">Vårt arbeid</div>
+      <h2 class="section-title fade-up delay-1">Eksempler fra<br/><em>virkeligheten</em></h2>
     </div>
-    <div class="gallery-grid">
-
-      <div class="gallery-item large fade-up"
-           data-lightbox="assets/images/veggdekor.jpg"
-           data-caption="Veggdekorasjon — Happy Nails">
-        <img src="assets/images/veggdekor.jpg" alt="Veggdekorasjon" />
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-label">Veggdekorasjon storformat</div>
+  
+    <div class="gallery-track-wrapper" id="galleryTrack">
+      <div class="gallery-track">
+  
+        <div class="gallery-item"
+             data-lightbox="assets/images/veggdekor.jpg"
+             data-caption="Veggdekorasjon — Happy Nails">
+          <img src="assets/images/veggdekor.jpg" alt="Veggdekorasjon" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Veggdekorasjon storformat</div></div>
         </div>
-      </div>
-
-      <div class="gallery-item fade-up delay-1"
-           data-lightbox="assets/images/vindusdekor.jpg"
-           data-caption="Vindusdekor — Happy Nails">
-        <img src="assets/images/vindusdekor.jpg" alt="Vindusdekor" />
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-label">Vindusdekor & skilt</div>
+  
+        <div class="gallery-item tall"
+             data-lightbox="assets/images/skilt.jpg"
+             data-caption="Kundestopperplakat — Extend Your Beauty">
+          <img src="assets/images/skilt.jpg" alt="Kundestopperplakat" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Kundestopperplakat</div></div>
         </div>
-      </div>
-
-      <div class="gallery-item fade-up"
-           data-lightbox="assets/images/skilt.jpg"
-           data-caption="Kundestopperplakat — Extend Your Beauty">
-        <img src="assets/images/skilt.jpg" alt="Kundestopperplakat" />
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-label">Kundestopperplakat</div>
+  
+        <div class="gallery-item"
+             data-lightbox="assets/images/vindusdekor.jpg"
+             data-caption="Vindusdekor — Happy Nails">
+          <img src="assets/images/vindusdekor.jpg" alt="Vindusdekor" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Vindusdekor & skilt</div></div>
         </div>
-      </div>
-
-      <div class="gallery-item fade-up delay-1"
-           data-lightbox="assets/images/beachflagg.jpg"
-           data-caption="Beach flags / flaggstenger">
-        <img src="assets/images/beachflagg.jpg" alt="Beach flags" />
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-label">Beach flags</div>
+  
+        <div class="gallery-item tall"
+             data-lightbox="assets/images/beachflagg.jpg"
+             data-caption="Beach flags">
+          <img src="assets/images/beachflagg.jpg" alt="Beach flags" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Beach flags</div></div>
         </div>
-      </div>
-
-      <div class="gallery-item fade-up delay-2"
-           data-lightbox="assets/images/banner.jpg"
-           data-caption="Digitalt banner">
-        <img src="assets/images/banner.jpg" alt="Banner" />
-        <div class="gallery-item-overlay">
-          <div class="gallery-item-label">Digitalt banner</div>
+  
+        <div class="gallery-item"
+             data-lightbox="assets/images/banner.jpg"
+             data-caption="Digitalt banner">
+          <img src="assets/images/banner.jpg" alt="Banner" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Digitalt banner</div></div>
         </div>
+  
+        <div class="gallery-item"
+             data-lightbox="assets/images/ROLLUP.jpg"
+             data-caption="Roll-up">
+          <img src="assets/images/ROLLUP.jpg" alt="Roll-up" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Roll-up</div></div>
+        </div>
+  
       </div>
-
     </div>
+    <div class="gallery-hint">Dra for å scrolle</div>
   </section>
-
+  
   <!-- OM OSS -->
   <section class="about-section">
     <div class="fade-up">
