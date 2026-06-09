@@ -539,3 +539,92 @@
 }
 .service-card .card-body h3 { margin-bottom: .5rem; }
 .service-card .card-body p  { margin: 0; }
+
+/* ── GALLERI ── */
+.gallery-section {
+  padding: var(--space-2xl) var(--side-padding);
+  background: var(--color-cream);
+}
+.gallery-section-header { margin-bottom: 3rem; }
+.gallery-track-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.gallery-track-wrapper::-webkit-scrollbar { display: none; }
+.gallery-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  padding-bottom: 4px;
+}
+.gallery-item {
+  position: relative;
+  width: 280px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.gallery-item.tall { height: 260px; }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 50%, rgba(20,20,24,.7) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+.gallery-item-label {
+  font-size: .75rem;
+  letter-spacing: .06em;
+  color: #fff;
+  font-weight: 500;
+}
+.gallery-hint {
+  margin-top: 1rem;
+  font-size: .75rem;
+  color: var(--color-muted);
+  letter-spacing: .06em;
+  text-align: center;
+  opacity: .6;
+}
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 90vw; max-height: 80vh; object-fit: contain; border-radius: 4px; }
+.lightbox-caption { color: rgba(255,255,255,.7); font-size: .8125rem; margin-top: 1rem; letter-spacing: .04em; }
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: none; border: none;
+  color: #fff; font-size: 1.5rem;
+  cursor: pointer; opacity: .7;
+}
+.lightbox-close:hover { opacity: 1; }
+@media (max-width: 768px) {
+  .gallery-item { width: 220px; height: 160px; }
+  .gallery-item.tall { height: 210px; }
+}
