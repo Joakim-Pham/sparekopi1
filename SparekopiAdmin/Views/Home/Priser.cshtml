@@ -1,3 +1,5 @@
+@model IEnumerable<SparekopiAdmin.Models.ServiceItem>
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -6,22 +8,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/variables.css" />
-  <link rel="stylesheet" href="../css/base.css" />
-  <link rel="stylesheet" href="../css/nav-footer.css" />
-  <link rel="stylesheet" href="../css/hero.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/forms.css" />
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/nav-footer.css" />
+  <link rel="stylesheet" href="/css/hero.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/forms.css" />
 </head>
 <body>
   <nav class="site-nav">
-    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
+    <a href="/" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
     <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="tjenester.html">Tjenester</a></li><li><a href="priser.html">Priser</a></li>
-      <li><a href="om-oss.html">Om oss</a></li><li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="/Home/Tjenester">Tjenester</a></li>
+      <li><a href="/Home/Priser">Priser</a></li>
+      <li><a href="/Home/OmOss">Om oss</a></li>
+      <li><a href="/Home/Kontakt">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Kontakt oss</a>
+    <a href="/Home/Kontakt" class="nav-cta">Kontakt oss</a>
   </nav>
 
   <header class="page-hero" data-bg-text="NOK">
@@ -29,38 +33,75 @@
     <h1 class="page-hero-title">Våre<br/><em>Priser</em></h1>
   </header>
 
-  <section class="pricing-section">
-    <div class="sec-header"><div class="section-tag fade-up">Kopiering</div><h2 class="section-title fade-up delay-1">Enkle priser,<br/><em>god kvalitet</em></h2></div>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-up"><div class="pricing-name">Svart-hvitt</div><div class="pricing-price">2,-</div><div class="pricing-unit">per A4-ark</div><ul class="pricing-features"><li class="pricing-feature">Enkeltsidig</li><li class="pricing-feature">A4 og A3</li><li class="pricing-feature">Mengderabatt tilgjengelig</li></ul></div>
-      <div class="pricing-card featured fade-up delay-1"><div class="pricing-name">Farge</div><div class="pricing-price">8,-</div><div class="pricing-unit">per A4-ark</div><ul class="pricing-features"><li class="pricing-feature">Enkeltsidig</li><li class="pricing-feature">A4 og A3</li><li class="pricing-feature">Fotokvalitet</li><li class="pricing-feature">Mengderabatt tilgjengelig</li></ul></div>
-      <div class="pricing-card fade-up delay-2"><div class="pricing-name">Storformat</div><div class="pricing-price">Fra 40,-</div><div class="pricing-unit">per ark (A2–A0)</div><ul class="pricing-features"><li class="pricing-feature">A2, A1, A0</li><li class="pricing-feature">Farge eller s/h</li><li class="pricing-feature">Tekniske tegninger</li></ul></div>
-    </div>
-  </section>
+  @{
+      var sectionHeadings = new Dictionary<string, string>
+      {
+          ["Kopiering"]       = "Enkle priser,<br/><em>god kvalitet</em>",
+          ["Etterbehandling"] = "Finish som<br/><em>løfter resultatet</em>",
+      };
+      var sections = Model
+          .GroupBy(x => x.Section)
+          .OrderBy(g => g.Min(x => x.SortOrder))
+          .ToList();
+      int sIdx = 0;
+  }
 
-  <section class="pricing-section" style="padding-top:0">
-    <div class="sec-header"><div class="section-tag fade-up">Etterbehandling</div><h2 class="section-title fade-up delay-1">Finish som<br/><em>løfter resultatet</em></h2></div>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-up"><div class="pricing-name">Laminering</div><div class="pricing-price">20,-</div><div class="pricing-unit">per A4-ark</div><ul class="pricing-features"><li class="pricing-feature">Matt eller blank</li><li class="pricing-feature">A4 og A3</li></ul></div>
-      <div class="pricing-card featured fade-up delay-1"><div class="pricing-name">Spiralinnbinding</div><div class="pricing-price">45,-</div><div class="pricing-unit">per dokument</div><ul class="pricing-features"><li class="pricing-feature">Plastspiral eller metall</li><li class="pricing-feature">Inkluderer forside</li><li class="pricing-feature">Opp til 200 sider</li></ul></div>
-      <div class="pricing-card fade-up delay-2"><div class="pricing-name">Limrygsbinding</div><div class="pricing-price">Fra 80,-</div><div class="pricing-unit">per dokument</div><ul class="pricing-features"><li class="pricing-feature">Profesjonell bok-finish</li><li class="pricing-feature">Opp til 400 sider</li></ul></div>
-    </div>
-  </section>
+  @foreach (var grp in sections)
+  {
+      string secStyle = sIdx > 0 ? " style=\"padding-top:0\"" : "";
+      <section class="pricing-section"@Html.Raw(secStyle)>
+        <div class="sec-header">
+          <div class="section-tag fade-up">@grp.Key</div>
+          <h2 class="section-title fade-up delay-1">@Html.Raw(sectionHeadings.GetValueOrDefault(grp.Key, grp.Key))</h2>
+        </div>
+        <div class="pricing-grid">
+          @foreach (var item in grp.OrderBy(x => x.SortOrder))
+          {
+              <div class="pricing-card @(item.IsFeatured ? "featured" : "") fade-up">
+                <div class="pricing-name">@item.Name</div>
+                <div class="pricing-price">@item.PricePrefix@item.Price.ToString("N0"),-</div>
+                <div class="pricing-unit">@item.PriceUnit</div>
+                @if (!string.IsNullOrEmpty(item.Features))
+                {
+                    <ul class="pricing-features">
+                      @foreach (var feat in item.Features.Split('\n', System.StringSplitOptions.RemoveEmptyEntries))
+                      {
+                          <li class="pricing-feature">@feat.Trim()</li>
+                      }
+                    </ul>
+                }
+              </div>
+          }
+        </div>
+      </section>
+      sIdx++;
+  }
 
   <div style="padding:2.5rem var(--side-padding);background:var(--color-cream2);border-top:1px solid var(--color-cream3)">
-    <p class="fade-up" style="font-size:var(--fs-base);color:var(--color-muted);max-width:60ch;line-height:1.9"><strong style="color:var(--color-navy)">Merk:</strong> Prisene er veiledende. Endelig pris avhenger av format, mengde og papirkvalitet. Kontakt oss for et nøyaktig tilbud!</p>
+    <p class="fade-up" style="font-size:var(--fs-base);color:var(--color-muted);max-width:60ch;line-height:1.9">
+      <strong style="color:var(--color-navy)">Merk:</strong> Prisene er veiledende. Endelig pris avhenger av format, mengde og papirkvalitet. Kontakt oss for et nøyaktig tilbud!
+    </p>
   </div>
 
   <div class="map-strip">
-    <div><div class="map-tag">Trenger du et tilbud?</div><div class="map-address">Ring oss: 47 29 34 43</div></div>
-    <a href="kontakt.html" class="map-btn">Send forespørsel →</a>
+    <div>
+      <div class="map-tag">Trenger du et tilbud?</div>
+      <div class="map-address">Ring oss: @ViewBag.Phone</div>
+    </div>
+    <a href="/Home/Kontakt" class="map-btn">Send forespørsel →</a>
   </div>
 
   <footer class="site-footer">
     <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
-    <nav class="footer-links"><a href="tjenester.html">Tjenester</a><a href="priser.html">Priser</a><a href="om-oss.html">Om oss</a><a href="kontakt.html">Kontakt</a></nav>
+    <nav class="footer-links">
+      <a href="/Home/Tjenester">Tjenester</a>
+      <a href="/Home/Priser">Priser</a>
+      <a href="/Home/OmOss">Om oss</a>
+      <a href="/Home/Kontakt">Kontakt</a>
+    </nav>
     <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
   </footer>
-  <script src="../js/main.js"></script>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>

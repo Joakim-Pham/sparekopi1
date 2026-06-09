@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SparekopiAdmin.Data;
 using SparekopiAdmin.Models;
 
@@ -16,49 +17,54 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.HeroTitle = _context.SiteContents
-            .FirstOrDefault(x => x.Key == "hero_title")?.Value ?? "Sparekopi Oslo";
-
-        ViewBag.HeroSubtitle = _context.SiteContents
-            .FirstOrDefault(x => x.Key == "hero_subtitle")?.Value ?? "Profesjonell printing og design";
-
-        ViewBag.Phone = _context.SiteContents
-            .FirstOrDefault(x => x.Key == "phone")?.Value ?? "47 29 34 43";
-
+        ViewBag.HeroTitle    = _context.SiteContents.FirstOrDefault(x => x.Key == "hero_title")?.Value    ?? "Sparekopi Oslo";
+        ViewBag.HeroSubtitle = _context.SiteContents.FirstOrDefault(x => x.Key == "hero_subtitle")?.Value ?? "Profesjonell printing og design";
+        ViewBag.Phone        = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value         ?? "47 29 34 43";
         return View();
     }
 
-    public IActionResult Tjenester()
+    public async Task<IActionResult> Tjenester()
     {
-        return View();
+        var items = await _context.ServiceItems
+            .Where(x => x.Category == "tjeneste")
+            .OrderBy(x => x.SortOrder)
+            .ThenBy(x => x.Id)
+            .ToListAsync();
+        return View(items);
     }
 
-    public IActionResult Priser()
+    public async Task<IActionResult> Priser()
     {
-        return View();
+        var items = await _context.ServiceItems
+            .Where(x => x.Category == "pris")
+            .OrderBy(x => x.SortOrder)
+            .ThenBy(x => x.Id)
+            .ToListAsync();
+
+        ViewBag.Phone = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value ?? "47 29 34 43";
+        return View(items);
     }
 
     public IActionResult OmOss()
     {
+        ViewBag.Phone        = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value        ?? "47 29 34 43";
+        ViewBag.Address      = _context.SiteContents.FirstOrDefault(x => x.Key == "address")?.Value      ?? "Torggata 17B, 2. etasje, 0183 Oslo";
+        ViewBag.OpeningHours = _context.SiteContents.FirstOrDefault(x => x.Key == "opening_hours")?.Value ?? "Man–Fre 09:00 – 17:00";
         return View();
     }
 
     public IActionResult Kontakt()
     {
+        ViewBag.Phone        = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value        ?? "47 29 34 43";
+        ViewBag.Email        = _context.SiteContents.FirstOrDefault(x => x.Key == "email")?.Value        ?? "post@sparekopi.no";
+        ViewBag.Address      = _context.SiteContents.FirstOrDefault(x => x.Key == "address")?.Value      ?? "Torggata 17B, 2. etasje, 0183 Oslo";
+        ViewBag.OpeningHours = _context.SiteContents.FirstOrDefault(x => x.Key == "opening_hours")?.Value ?? "Man–Fre 09:00 – 17:00";
         return View();
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+    public IActionResult Privacy() => View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel
-        {
-            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-        });
-    }
+    public IActionResult Error() =>
+        View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 }

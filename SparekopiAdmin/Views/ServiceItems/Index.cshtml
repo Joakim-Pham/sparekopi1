@@ -1,47 +1,95 @@
 @model IEnumerable<SparekopiAdmin.Models.ServiceItem>
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+    string cat = ViewBag.Category as string ?? "";
+    bool isTjeneste = cat == "tjeneste";
+    bool isPris     = cat == "pris";
+    string pageTitle = isTjeneste ? "Tjenester" : isPris ? "Priser" : "Tjenester & Priser";
+    ViewData["Title"] = pageTitle;
+    ViewData["PageTitle"] = pageTitle;
 }
 
-<h1>Index</h1>
+<div style="display:flex;gap:8px;margin-bottom:20px;">
+    <a asp-action="Index" asp-route-category="tjeneste"
+       style="padding:7px 16px;border-radius:6px;font-size:0.8125rem;font-weight:500;border:1px solid @(isTjeneste ? "#18181b" : "#e4e4e7");background:@(isTjeneste ? "#18181b" : "#fff");color:@(isTjeneste ? "#fff" : "#3f3f46");">
+        Tjenester
+    </a>
+    <a asp-action="Index" asp-route-category="pris"
+       style="padding:7px 16px;border-radius:6px;font-size:0.8125rem;font-weight:500;border:1px solid @(isPris ? "#18181b" : "#e4e4e7");background:@(isPris ? "#18181b" : "#fff");color:@(isPris ? "#fff" : "#3f3f46");">
+        Priser
+    </a>
+    <div style="margin-left:auto;">
+        <a asp-action="Create" asp-route-category="@cat" class="btn-save">+ Legg til</a>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@if (!Model.Any())
+{
+    <div class="content-card" style="text-align:center;padding:56px 32px;">
+        <p style="color:#71717a;margin-bottom:20px;font-size:0.9375rem;">Ingen elementer ennå.</p>
+        <a asp-action="Create" asp-route-category="@cat" class="btn-save">Legg til det første</a>
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    <div class="content-card" style="padding:0;overflow:hidden;">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th style="width:40px;">#</th>
+                    <th>@(isTjeneste ? "Tjeneste" : "Navn")</th>
+                    @if (isPris)
+                    {
+                        <th>Pris</th>
+                        <th>Enhet</th>
+                    }
+                    else
+                    {
+                        <th>Seksjon</th>
+                    }
+                    <th style="width:130px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="color:#a1a1aa;font-size:0.75rem;">@item.SortOrder</td>
+                        <td style="font-weight:500;color:#18181b;">
+                            @item.Name
+                            @if (item.IsFeatured)
+                            {
+                                <span style="margin-left:6px;background:#fef3c7;color:#92400e;font-size:0.65rem;padding:2px 6px;border-radius:4px;font-weight:600;">FREMHEVET</span>
+                            }
+                        </td>
+                        @if (isPris)
+                        {
+                            <td style="font-weight:600;">
+                                @if (item.Price == 0)
+                                {
+                                    <span style="color:#71717a;">—</span>
+                                }
+                                else
+                                {
+                                    <span>@item.PricePrefix@item.Price.ToString("N0"),-</span>
+                                }
+                            </td>
+                            <td style="color:#71717a;font-size:0.8125rem;">@item.PriceUnit</td>
+                        }
+                        else
+                        {
+                            <td style="color:#71717a;font-size:0.8125rem;">@item.Section</td>
+                        }
+                        <td style="white-space:nowrap;">
+                            <a asp-action="Edit" asp-route-id="@item.Id" style="color:#18181b;font-size:0.8125rem;">Rediger</a>
+                            <span style="color:#e4e4e7;margin:0 6px;">|</span>
+                            <a asp-action="Delete" asp-route-id="@item.Id" style="color:#ef4444;font-size:0.8125rem;">Slett</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <p style="margin-top:10px;font-size:0.75rem;color:#a1a1aa;">Tips: Endre «Rekkefølge»-nummeret i redigeringsvinduet for å sortere elementene.</p>
+}

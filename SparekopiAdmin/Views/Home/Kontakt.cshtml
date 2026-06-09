@@ -1,3 +1,4 @@
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -15,15 +16,15 @@
 </head>
 <body>
   <nav class="site-nav">
-    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
+    <a href="/" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
     <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="tjenester.html">Tjenester</a></li>
-      <li><a href="priser.html">Priser</a></li>
-      <li><a href="om-oss.html">Om oss</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="/Home/Tjenester">Tjenester</a></li>
+      <li><a href="/Home/Priser">Priser</a></li>
+      <li><a href="/Home/OmOss">Om oss</a></li>
+      <li><a href="/Home/Kontakt">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Kontakt oss</a>
+    <a href="/Home/Kontakt" class="nav-cta">Kontakt oss</a>
   </nav>
  
   <header class="page-hero" data-bg-text="HEI">
@@ -37,16 +38,11 @@
       <!-- Kontaktinfo -->
       <div class="fade-up">
         <div class="contact-item"><div class="contact-item-label">Adresse</div><div class="contact-item-value">Torggata 17B, 2. etasje<br/>0183 Oslo<br/><small style="color:var(--color-muted);font-size:.8rem">Rett ovenfor Starbucks Coffee</small></div></div>
-        <div class="contact-item"><div class="contact-item-label">Telefon</div><div class="contact-item-value"><a href="tel:+4747293443">47 29 34 43</a></div></div>
-        <div class="contact-item"><div class="contact-item-label">E-post</div><div class="contact-item-value"><a href="mailto:post@sparekopi.no">info@sparekopi.no</a></div></div>
+        <div class="contact-item"><div class="contact-item-label">Telefon</div><div class="contact-item-value"><a href="tel:+47@(ViewBag.Phone?.ToString().Replace(" ",""))">@ViewBag.Phone</a></div></div>
+        <div class="contact-item"><div class="contact-item-label">E-post</div><div class="contact-item-value"><a href="mailto:@ViewBag.Email">@ViewBag.Email</a></div></div>
         <div class="contact-item">
           <div class="contact-item-label">Åpningstider</div>
-          <div class="contact-item-value">
-            <div class="hours-table">
-              <div class="hours-row"><span class="day">Mandag – Fredag</span><span>09:00 – 17:00</span></div>
-              <div class="hours-row"><span class="day">Lørdag – Søndag</span><span>Stengt</span></div>
-            </div>
-          </div>
+          <div class="contact-item-value">@ViewBag.OpeningHours</div>
         </div>
         <div class="contact-item"><div class="contact-item-label">Kollektivt</div><div class="contact-item-value">T-bane: Stortinget / Grønland</div></div>
         <div style="margin-top:2rem"><a href="https://maps.google.com/?q=Torggata+17B,+0183+Oslo" target="_blank" rel="noopener" class="map-btn">Åpne i Google Maps →</a></div>
@@ -62,7 +58,7 @@
         >
           <!-- Skjulte Formspree-felt -->
           <input type="hidden" name="_subject" value="Ny henvendelse fra nettsiden – Sparekopi" />
-          <input type="hidden" name="_next" value="kontakt.html?sendt=true" />
+          <input type="hidden" name="_next" value="/Home/Kontakt?sendt=true" />
           <!-- Honeypot: skjult felt som blokkerer spam-roboter -->
           <input type="text" name="_gotcha" style="display:none" />
  
@@ -98,11 +94,11 @@
  
   <footer class="site-footer">
     <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
-    <nav class="footer-links"><a href="tjenester.html">Tjenester</a><a href="priser.html">Priser</a><a href="om-oss.html">Om oss</a><a href="kontakt.html">Kontakt</a></nav>
+    <nav class="footer-links"><a href="/Home/Tjenester">Tjenester</a><a href="/Home/Priser">Priser</a><a href="/Home/OmOss">Om oss</a><a href="/Home/Kontakt">Kontakt</a></nav>
     <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
   </footer>
  
-  <script src="../js/main.js"></script>
+  <script src="/js/main.js"></script>
   <script>
     // Vis suksessmelding hvis Formspree redirectet tilbake med ?sendt=true
     if (window.location.search.includes('sendt=true')) {

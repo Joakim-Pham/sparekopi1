@@ -1,41 +1,38 @@
 @model IEnumerable<SparekopiAdmin.Models.SiteContent>
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Nettstedinnhold (avansert)";
+    ViewData["PageTitle"] = "Nettstedinnhold (avansert)";
 }
 
-<h1>Index</h1>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+    <p style="margin:0;font-size:0.875rem;color:#71717a;">Rådata for nettstedinnhold. Bruk <a asp-controller="Admin" asp-action="Kontaktinfo">Kontaktinfo</a> og <a asp-controller="Admin" asp-action="Forside">Forside-tekst</a> for enklere redigering.</p>
+    <a asp-action="Create" class="btn-save">+ Ny verdi</a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Key)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Value)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Key)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Value)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="content-card" style="padding:0;overflow:hidden;">
+    <table class="table mb-0">
+        <thead>
+            <tr>
+                <th>Nøkkel</th>
+                <th>Verdi</th>
+                <th style="width:120px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-weight:500;color:#18181b;font-family:monospace;font-size:0.8125rem;">@item.Key</td>
+                    <td style="color:#71717a;max-width:400px;">@item.Value</td>
+                    <td style="white-space:nowrap;">
+                        <a asp-action="Edit" asp-route-id="@item.Id" style="color:#18181b;font-size:0.8125rem;">Rediger</a>
+                        <span style="color:#e4e4e7;margin:0 6px;">|</span>
+                        <a asp-action="Delete" asp-route-id="@item.Id" style="color:#ef4444;font-size:0.8125rem;">Slett</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

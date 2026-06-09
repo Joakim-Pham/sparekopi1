@@ -1,0 +1,53 @@
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Dashboard";
+    ViewData["PageTitle"] = "Dashboard";
+}
+
+<div class="row g-3 mb-4">
+    <div class="col-sm-6 col-md-3">
+        <div class="stat-card">
+            <div class="stat-label">Tjenester i databasen</div>
+            <div class="stat-number">@ViewBag.ServiceCount</div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="stat-card">
+            <div class="stat-label">Innholdselementer</div>
+            <div class="stat-number">@ViewBag.ContentCount</div>
+        </div>
+    </div>
+</div>
+
+<h2 style="font-size:0.72rem;font-weight:600;color:#71717a;text-transform:uppercase;letter-spacing:0.09em;margin:0 0 14px;">Hurtiglenker</h2>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="action-card">
+            <h3>Kontaktinfo</h3>
+            <p>Oppdater telefon, adresse og åpningstider som vises på nettsiden.</p>
+            <a asp-controller="Admin" asp-action="Kontaktinfo" class="btn-save">Rediger →</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="action-card">
+            <h3>Forside-tekst</h3>
+            <p>Endre tittel og undertekst som vises øverst på forsiden.</p>
+            <a asp-controller="Admin" asp-action="Forside" class="btn-save">Rediger →</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="action-card">
+            <h3>Tjenester</h3>
+            <p>Rediger tjenestekortene på Tjenester-siden (tekst, beskrivelse, bilder).</p>
+            <a href="/ServiceItems?category=tjeneste" class="btn-save">Rediger →</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="action-card">
+            <h3>Priser</h3>
+            <p>Endre priser og priskort på Priser-siden.</p>
+            <a href="/ServiceItems?category=pris" class="btn-save">Rediger →</a>
+        </div>
+    </div>
+</div>

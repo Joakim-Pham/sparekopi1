@@ -1,41 +1,93 @@
 @model SparekopiAdmin.Models.ServiceItem
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = "_AdminLayout";
+    string cat = ViewBag.Category as string ?? Model?.Category ?? "pris";
+    bool isTjeneste = cat == "tjeneste";
+    string pageTitle = isTjeneste ? "Legg til tjeneste" : "Legg til pris";
+    ViewData["Title"] = pageTitle;
+    ViewData["PageTitle"] = pageTitle;
 }
 
-<h1>Create</h1>
-
-<h4>ServiceItem</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div style="max-width:640px;">
+    <div class="content-card">
+        <div class="content-card-title">@(isTjeneste ? "Ny tjeneste" : "Ny pris")</div>
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+            <input type="hidden" name="Category" value="@cat" />
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3" style="font-size:0.8125rem;"></div>
+
+            <div class="row g-3 mb-3">
+                <div class="col-sm-8">
+                    <label class="form-label">Navn *</label>
+                    <input asp-for="Name" class="form-control" placeholder="@(isTjeneste ? "f.eks. Digitalt trykk" : "f.eks. Svart-hvitt")" />
+                    <span asp-validation-for="Name" class="text-danger" style="font-size:0.8125rem;"></span>
+                </div>
+                <div class="col-sm-4">
+                    <label class="form-label">Seksjon</label>
+                    <input asp-for="Section" class="form-control" placeholder="@(isTjeneste ? "f.eks. Trykk & Kopiering" : "f.eks. Kopiering")" />
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+
+            @if (isTjeneste)
+            {
+                <div class="mb-3">
+                    <label class="form-label">Kort beskrivelse (kortlinje på kortet)</label>
+                    <input asp-for="ShortDescription" class="form-control" placeholder="Vises direkte på tjenestekortet" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Lang beskrivelse (modal)</label>
+                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Detaljert tekst som vises når kunden klikker på kortet"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Bilde-sti</label>
+                    <input asp-for="ImagePath" class="form-control" placeholder="/assets/images/filnavn.jpg" />
+                    <div class="form-text">Sti til bilde i /assets/images/. F.eks. <code>/assets/images/flyer.jpg</code></div>
+                </div>
+            }
+            else
+            {
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-3">
+                        <label class="form-label">Pris (kr) *</label>
+                        <input asp-for="Price" class="form-control" placeholder="0" />
+                        <span asp-validation-for="Price" class="text-danger" style="font-size:0.8125rem;"></span>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="form-label">Prefiks</label>
+                        <input asp-for="PricePrefix" class="form-control" placeholder='Fra ' />
+                        <div class="form-text">Skriv «Fra » for ca-priser</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label">Enhet</label>
+                        <input asp-for="PriceUnit" class="form-control" placeholder="per A4-ark" />
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input asp-for="IsFeatured" class="form-check-input" />
+                        <label asp-for="IsFeatured" class="form-check-label" style="font-size:0.875rem;">Fremhev dette priskortet (vises større)</label>
+                    </div>
+                </div>
+            }
+
+            <div class="mb-3">
+                <label class="form-label">Punktliste (én per linje)</label>
+                <textarea asp-for="Features" class="form-control" rows="5" placeholder="Punkt 1&#10;Punkt 2&#10;Punkt 3"></textarea>
+                <div class="form-text">Disse punktene vises som features-liste @(isTjeneste ? "i modal-vinduet" : "under prisen").</div>
             </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+
+            <div class="mb-4">
+                <label class="form-label">Rekkefølge</label>
+                <input asp-for="SortOrder" class="form-control" style="max-width:100px;" placeholder="0" />
+                <div class="form-text">Lavere tall vises først. Bruk 1, 2, 3 … for å kontrollere rekkefølgen.</div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div style="display:flex;gap:14px;align-items:center;">
+                <button type="submit" class="btn-save">Lagre</button>
+                <a asp-action="Index" asp-route-category="@cat" style="font-size:0.875rem;color:#71717a;">Avbryt</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
