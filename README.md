@@ -81,7 +81,7 @@ Endre verdiene der for å retheme hele siden på én gang:
 |---|---|
 | **Navn** | Sparekopi AS |
 | **Adresse** | Torggata 17B, 2. etasje, 0183 Oslo |
-| **Telefon** | 22 11 47 55 |
+| **Telefon** | 47 29 34 43 |
 | **Mobil** | 472 93 443 |
 | **Org.nr** | 996 379 418 |
 | **Åpningstider** | Man–Fre 09:00–17:00 |
