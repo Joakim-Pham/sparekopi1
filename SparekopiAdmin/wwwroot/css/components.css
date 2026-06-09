@@ -488,35 +488,54 @@
   .modal-features { grid-template-columns: 1fr; }
   .modal-image, .modal-image-placeholder { height: 200px; }
 }
+/* ── KORT MED BILDEBOKS ── */
 .service-card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
-
-.service-card[data-image] .service-icon,
-.service-card[data-image] .svc-num { color: rgba(255,255,255,0.9); text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
-
-.service-card[data-image="/assets/images/brosjyrer.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/brosjyrer.jpg");
+.card-thumb {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: var(--color-navy);
+  flex-shrink: 0;
 }
-
-.service-card[data-image="/assets/images/flyer.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/flyer.jpg");
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
 }
-
-.service-card[data-image="/assets/images/skilt.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/skilt.jpg");
+.service-card:hover .card-thumb img { transform: scale(1.04); }
+.card-thumb-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.15);
 }
-
-.service-card[data-image="/assets/images/visittkort.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/visittkort.jpg");
+.card-num {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1;
+  pointer-events: none;
 }
-
-.service-card[data-image="/assets/images/banner.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/banner.jpg");
+.card-body {
+  padding: 1.6rem 1.8rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-
-.service-card[data-image="/assets/images/meny.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/meny.jpg");
-}
+.service-card .card-body h3 { margin-bottom: .5rem; }
+.service-card .card-body p  { margin: 0; }
