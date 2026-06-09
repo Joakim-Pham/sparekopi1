@@ -31,6 +31,22 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Admin/Forside.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRm9yc2lkZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Admin/Kontaktinfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vS29udGFrdGluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -77,6 +93,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Shared/_ValidationScriptsPartial.cshtml]
