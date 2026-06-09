@@ -1,30 +1,22 @@
 @model SparekopiAdmin.Models.SiteContent
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Innholdselement";
+    ViewData["PageTitle"] = Model.Key;
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>SiteContent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Key)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Key)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div style="max-width:460px;">
+    <div class="content-card">
+        <dl style="font-size:0.875rem;">
+            <dt class="stat-label">Nøkkel</dt>
+            <dd style="font-family:monospace;font-size:1rem;font-weight:600;color:#18181b;margin-bottom:18px;">@Model.Key</dd>
+            <dt class="stat-label">Verdi</dt>
+            <dd style="color:#3f3f46;white-space:pre-wrap;margin:0;">@Model.Value</dd>
+        </dl>
+        <div style="margin-top:24px;padding-top:18px;border-top:1px solid #f4f4f5;display:flex;gap:14px;align-items:center;">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-save">Rediger</a>
+            <a asp-action="Index" style="font-size:0.875rem;color:#71717a;">Tilbake til liste</a>
+        </div>
+    </div>
 </div>

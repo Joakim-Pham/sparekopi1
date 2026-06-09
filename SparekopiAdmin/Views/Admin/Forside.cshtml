@@ -1,0 +1,32 @@
+@model Dictionary<string, string>
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Forside-tekst";
+    ViewData["PageTitle"] = "Rediger forside-tekst";
+    string Get(string key) => Model != null && Model.TryGetValue(key, out var v) ? v : "";
+}
+
+<div style="max-width:580px;">
+    <div class="content-card">
+        <div class="content-card-title">Forsideinnhold</div>
+        <p style="font-size:0.8125rem;color:#71717a;margin-bottom:24px;">
+            Teksten som vises øverst på forsiden av nettsiden (hero-seksjonen).
+        </p>
+        <form asp-action="Forside" method="post">
+            @Html.AntiForgeryToken()
+            <div class="mb-3">
+                <label class="form-label" for="hero_title">Tittel</label>
+                <input type="text" name="hero_title" id="hero_title" class="form-control"
+                       value="@Get("hero_title")" />
+                <div class="form-text">Vises som stor overskrift på forsiden.</div>
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="hero_subtitle">Undertekst</label>
+                <textarea name="hero_subtitle" id="hero_subtitle" class="form-control" rows="3">@Get("hero_subtitle")</textarea>
+                <div class="form-text">Kortbeskrivelse under tittelen.</div>
+            </div>
+            <button type="submit" class="btn-save">Lagre forsideinnhold</button>
+        </form>
+    </div>
+</div>

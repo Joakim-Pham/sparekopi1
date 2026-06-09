@@ -1,3 +1,4 @@
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -15,13 +16,13 @@
 </head>
 <body>
   <nav class="site-nav">
-    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
+    <a href="/" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
     <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="tjenester.html">Tjenester</a></li><li><a href="priser.html">Priser</a></li>
-      <li><a href="om-oss.html">Om oss</a></li><li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="/Home/Tjenester">Tjenester</a></li><li><a href="/Home/Priser">Priser</a></li>
+      <li><a href="/Home/OmOss">Om oss</a></li><li><a href="/Home/Kontakt">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Kontakt oss</a>
+    <a href="/Home/Kontakt" class="nav-cta">Kontakt oss</a>
   </nav>
 
   <header class="page-hero" data-bg-text="1997">
@@ -42,8 +43,8 @@
     </div>
     <div class="about-right fade-up delay-2">
       <div class="about-card"><div class="about-card-label">Adresse</div><div class="about-card-val">Torggata 17B, 2. etasje<br/>0183 Oslo</div></div>
-      <div class="about-card"><div class="about-card-label">Telefon</div><div class="about-card-val">47 29 34 43</div></div>
-      <div class="about-card"><div class="about-card-label">Åpningstider</div><div class="about-card-val">Mandag – Fredag<br/>09:00 – 17:00</div></div>
+      <div class="about-card"><div class="about-card-label">Telefon</div><div class="about-card-val">@ViewBag.Phone</div></div>
+      <div class="about-card"><div class="about-card-label">Åpningstider</div><div class="about-card-val">@ViewBag.OpeningHours</div></div>
     </div>
   </section>
 
@@ -75,9 +76,9 @@
 
   <footer class="site-footer">
     <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
-    <nav class="footer-links"><a href="tjenester.html">Tjenester</a><a href="priser.html">Priser</a><a href="om-oss.html">Om oss</a><a href="kontakt.html">Kontakt</a></nav>
+    <nav class="footer-links"><a href="/Home/Tjenester">Tjenester</a><a href="/Home/Priser">Priser</a><a href="/Home/OmOss">Om oss</a><a href="/Home/Kontakt">Kontakt</a></nav>
     <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
   </footer>
-  <script src="../js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

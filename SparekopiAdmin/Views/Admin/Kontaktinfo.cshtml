@@ -1,0 +1,41 @@
+@model Dictionary<string, string>
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Kontaktinfo";
+    ViewData["PageTitle"] = "Rediger kontaktinfo";
+    string Get(string key) => Model != null && Model.TryGetValue(key, out var v) ? v : "";
+}
+
+<div style="max-width:580px;">
+    <div class="content-card">
+        <div class="content-card-title">Kontaktopplysninger</div>
+        <p style="font-size:0.8125rem;color:#71717a;margin-bottom:24px;">
+            Disse verdiene vises på forsiden og kontaktsiden av nettsiden.
+        </p>
+        <form asp-action="Kontaktinfo" method="post">
+            @Html.AntiForgeryToken()
+            <div class="mb-3">
+                <label class="form-label" for="phone">Telefon</label>
+                <input type="text" name="phone" id="phone" class="form-control"
+                       value="@Get("phone")" placeholder="47 29 34 43" style="max-width:260px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">E-post</label>
+                <input type="email" name="email" id="email" class="form-control"
+                       value="@Get("email")" placeholder="post@sparekopi.no" style="max-width:320px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="address">Adresse</label>
+                <textarea name="address" id="address" class="form-control" rows="2"
+                          placeholder="Torggata 17B, 2. etasje&#10;0183 Oslo">@Get("address")</textarea>
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="opening_hours">Åpningstider</label>
+                <input type="text" name="opening_hours" id="opening_hours" class="form-control"
+                       value="@Get("opening_hours")" placeholder="Mandag – Fredag: 09:00 – 17:00" />
+            </div>
+            <button type="submit" class="btn-save">Lagre kontaktinfo</button>
+        </form>
+    </div>
+</div>
