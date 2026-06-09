@@ -35,8 +35,44 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Home/Kontakt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Lb250YWt0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Home/OmOss.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9PbU9zcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Home/Priser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9QcmlzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Home/Tjenester.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9UamVuZXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/ServiceItems/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljZUl0ZW1zL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/ServiceItems/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljZUl0ZW1zL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/ServiceItems/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljZUl0ZW1zL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/ServiceItems/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljZUl0ZW1zL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/ServiceItems/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljZUl0ZW1zL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Shared/Error.cshtml]
@@ -45,6 +81,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/SiteContents/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2l0ZUNvbnRlbnRzL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/SiteContents/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2l0ZUNvbnRlbnRzL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/SiteContents/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2l0ZUNvbnRlbnRzL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/SiteContents/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2l0ZUNvbnRlbnRzL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/SiteContents/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2l0ZUNvbnRlbnRzL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/joakimpham/Downloads/sparekopi/SparekopiAdmin/Views/_ViewImports.cshtml]

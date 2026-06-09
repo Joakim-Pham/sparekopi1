@@ -1,0 +1,109 @@
+.contact-section {
+  padding: var(--space-2xl) var(--side-padding);
+  background: var(--color-cream);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  margin-top: var(--space-xl);
+}
+
+/* ── Kontaktinfo ── */
+.contact-item {
+  padding: 1.5rem 0;
+  border-bottom: var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+.contact-item:first-child { border-top: var(--border-light); }
+.contact-item-label {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+.contact-item-value {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-navy);
+  font-weight: 300;
+}
+.contact-item-value a { transition: color var(--transition-fast); }
+.contact-item-value a:hover { color: var(--color-gold); }
+
+/* Åpningstider tabell */
+.hours-table { display: flex; flex-direction: column; gap: .3rem; margin-top: .5rem; }
+.hours-row { display: flex; justify-content: space-between; font-size: var(--fs-base); }
+.hours-row .day { color: var(--color-muted); }
+
+/* ── Skjema — elegant underline-stil ── */
+.contact-form, .form { }
+
+.form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.5rem; }
+.form-group label {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-cream3);
+  padding: .65rem 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  outline: none;
+  width: 100%;
+  appearance: none;
+  transition: border-color var(--transition-fast);
+  resize: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { border-color: var(--color-gold); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--color-cream3); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+.form-submit {
+  background: var(--color-navy);
+  color: var(--color-cream);
+  border: none;
+  padding: .9rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  margin-top: .5rem;
+}
+.form-submit:hover { background: var(--color-gold); transform: translateY(-2px); }
+
+.form-success {
+  display: none;
+  margin-top: 1rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 1rem;
+  font-size: var(--fs-base);
+  text-align: center;
+}
+.form-success.visible, .form-success.show { display: block; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row     { grid-template-columns: 1fr; }
+}

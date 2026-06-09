@@ -11,4 +11,6 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<ServiceItem> ServiceItems { get; set; }
+
+    public DbSet<SiteContent> SiteContents { get; set; }
 }

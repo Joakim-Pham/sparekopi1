@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – Sparekopi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/nav-footer.css" />
+  <link rel="stylesheet" href="../css/hero.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/forms.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="tjenester.html">Tjenester</a></li>
+      <li><a href="priser.html">Priser</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="kontakt.html" class="nav-cta">Kontakt oss</a>
+  </nav>
+ 
+  <header class="page-hero" data-bg-text="HEI">
+    <p class="page-hero-label">Ta kontakt</p>
+    <h1 class="page-hero-title">Vi svarer<br/><em>raskt</em></h1>
+  </header>
+ 
+  <section class="contact-section">
+    <div class="contact-grid">
+ 
+      <!-- Kontaktinfo -->
+      <div class="fade-up">
+        <div class="contact-item"><div class="contact-item-label">Adresse</div><div class="contact-item-value">Torggata 17B, 2. etasje<br/>0183 Oslo<br/><small style="color:var(--color-muted);font-size:.8rem">Rett ovenfor Starbucks Coffee</small></div></div>
+        <div class="contact-item"><div class="contact-item-label">Telefon</div><div class="contact-item-value"><a href="tel:+4747293443">47 29 34 43</a></div></div>
+        <div class="contact-item"><div class="contact-item-label">E-post</div><div class="contact-item-value"><a href="mailto:post@sparekopi.no">info@sparekopi.no</a></div></div>
+        <div class="contact-item">
+          <div class="contact-item-label">Åpningstider</div>
+          <div class="contact-item-value">
+            <div class="hours-table">
+              <div class="hours-row"><span class="day">Mandag – Fredag</span><span>09:00 – 17:00</span></div>
+              <div class="hours-row"><span class="day">Lørdag – Søndag</span><span>Stengt</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item"><div class="contact-item-label">Kollektivt</div><div class="contact-item-value">T-bane: Stortinget / Grønland</div></div>
+        <div style="margin-top:2rem"><a href="https://maps.google.com/?q=Torggata+17B,+0183+Oslo" target="_blank" rel="noopener" class="map-btn">Åpne i Google Maps →</a></div>
+      </div>
+ 
+      <!-- Kontaktskjema — Formspree sender direkte til e-posten din -->
+      <div class="fade-up delay-2">
+        <form
+          id="contactForm"
+          class="contact-form"
+          action="https://formspree.io/f/mjgpaown"
+          method="POST"
+        >
+          <!-- Skjulte Formspree-felt -->
+          <input type="hidden" name="_subject" value="Ny henvendelse fra nettsiden – Sparekopi" />
+          <input type="hidden" name="_next" value="kontakt.html?sendt=true" />
+          <!-- Honeypot: skjult felt som blokkerer spam-roboter -->
+          <input type="text" name="_gotcha" style="display:none" />
+ 
+          <div class="form-row">
+            <div class="form-group"><label>Navn *</label><input type="text" name="from_name" placeholder="Ditt navn" required /></div>
+            <div class="form-group"><label>Telefon</label><input type="tel" name="phone" placeholder="Telefonnummer" /></div>
+          </div>
+          <div class="form-group"><label>E-post *</label><input type="email" name="email" placeholder="din@epost.no" required /></div>
+          <div class="form-group"><label>Tjeneste</label>
+            <select name="service">
+              <option value="">Velg tjeneste…</option>
+              <option>Kopiering</option>
+              <option>Digitalt trykk</option>
+              <option>Visittkort</option>
+              <option>Plakater / bannere</option>
+              <option>Innbinding</option>
+              <option>Laminering</option>
+              <option>Annet</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Melding *</label><textarea name="message" rows="6" placeholder="Beskriv jobben — format, antall, spesifikasjoner…" required></textarea></div>
+          <button type="submit" class="form-submit">Send melding →</button>
+          <div class="form-success" id="formSuccess">✓ Sendt! Vi tar kontakt så snart som mulig.</div>
+        </form>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <div style="line-height:0">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d10.750!3d59.916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTorggata+17B+Oslo!5e0!3m2!1sno!2sno!4v1234567890" width="100%" height="360" style="border:0;display:block;filter:sepia(.3) contrast(1.05)" allowfullscreen loading="lazy" title="Sparekopi kart"></iframe>
+  </div>
+ 
+  <footer class="site-footer">
+    <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
+    <nav class="footer-links"><a href="tjenester.html">Tjenester</a><a href="priser.html">Priser</a><a href="om-oss.html">Om oss</a><a href="kontakt.html">Kontakt</a></nav>
+    <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
+  </footer>
+ 
+  <script src="../js/main.js"></script>
+  <script>
+    // Vis suksessmelding hvis Formspree redirectet tilbake med ?sendt=true
+    if (window.location.search.includes('sendt=true')) {
+      const s = document.getElementById('formSuccess');
+      if (s) {
+        s.classList.add('visible');
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+    }
+  </script>
+</body>
+</html>
+ 
+

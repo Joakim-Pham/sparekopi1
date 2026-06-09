@@ -1,0 +1,56 @@
+:root {
+  --color-cream:    #faf7f0;
+  --color-cream2:   #f2ede3;
+  --color-cream3:   #e8e0d0;
+  --color-navy:     #0c1a2e;
+  --color-navy2:    #162440;
+  --color-gold:     #b8922e;
+  --color-gold2:    #d4a843;
+  --color-gold3:    #f0c96a;
+  --color-text:     #1a1a1a;
+  --color-muted:    #6b6050;
+
+  /* Aliases brukt i eldre CSS */
+  --color-black:     var(--color-navy);
+  --color-white:     var(--color-cream);
+  --color-red:       var(--color-gold);
+  --color-gray:      var(--color-muted);
+  --color-light:     var(--color-cream3);
+  --color-dark-bg:   #08121f;
+
+  /* Fonter */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-serif:   'Cormorant Garamond', serif;
+
+  /* Font sizes */
+  --fs-xs:   0.65rem;
+  --fs-sm:   0.78rem;
+  --fs-base: 0.88rem;
+  --fs-md:   1rem;
+  --fs-lg:   1.4rem;
+  --fs-2xl:  3.5rem;
+  --fs-3xl:  clamp(2.5rem, 5vw, 4rem);
+
+  /* Spacing */
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  3rem;
+  --space-xl:  5rem;
+  --space-2xl: 7rem;
+
+  /* Borders */
+  --border-accent: 2px solid var(--color-gold);
+  --border-thin:   1px solid rgba(255,255,255,.08);
+  --border-light:  1px solid var(--color-cream3);
+
+  --transition-fast:   0.2s ease;
+  --transition-medium: 0.4s ease;
+
+  --nav-height:   64px;
+  --side-padding: clamp(1.5rem, 5vw, 4rem);
+}
+
+@media (max-width: 900px) {
+  :root { --space-2xl: 4rem; --space-xl: 3rem; }
+}

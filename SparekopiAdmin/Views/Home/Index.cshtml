@@ -1,8 +1,323 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Sparekopi – Trykkeri & Kopiering Oslo";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<link rel="stylesheet" href="/css/variables.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/nav-footer.css" />
+<link rel="stylesheet" href="/css/hero.css" />
+<link rel="stylesheet" href="/css/components.css" />
+<link rel="stylesheet" href="/css/forms.css" />
+
+
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>Sparekopi</a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="/Home/Tjenester">Tjenester</a></li>
+      <li><a href="/Home/Priser">Priser</a></li>
+      <li><a href="/Home/OmOss">Om oss</a></li>
+      <li><a href="/Home/Kontakt">Kontakt</a></li>
+    </ul>
+    <a href="/Home/Kontakt" class="nav-cta">Kontakt oss</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag fade-up">Trykkeri & Kopiering — Oslo sentrum</div>
+      <h1 class="hero-title fade-up delay-1">Kvalitet<br/>som <em>varer</em><br/><strong>siden 1997</strong></h1>
+      <p class="hero-sub fade-up delay-2">Toppmoderne trykkeri midt i Oslo. Vi leverer trykk, kopiering og reklamemateriell med nesten tre tiår daglig erfaring bak oss.</p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="/Home/Kontakt" class="btn-gold">Send forespørsel →</a>
+        <a href="/Home/Tjenester" class="btn-ghost">Se tjenester</a>
+      </div>
+      <div class="hero-stats fade-up delay-4">
+        <div><span class="stat-num">27+</span><div class="stat-label">Års erfaring</div></div>
+        <div><span class="stat-num">Oslo</span><div class="stat-label">Sentrum</div></div>
+        <div><span class="stat-num">∞</span><div class="stat-label">Fornøyde kunder</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-graphic">
+        <div class="hg-ring r1"></div>
+        <div class="hg-ring r2"></div>
+        <div class="hg-year-bg">1997</div>
+        <div class="info-pills">
+          <div class="pill"><span class="pill-label">Adresse</span><span class="pill-val">Torggata 17B</span><div class="pill-dot"></div></div>
+          <div class="pill"><span class="pill-label">Etasje</span><span class="pill-val">2. etasje</span><div class="pill-dot"></div></div>
+          <div class="pill"><span class="pill-label">Åpent</span><span class="pill-val">Man–Fre 09–17</span><div class="pill-dot"></div></div>
+          <div class="pill"><span class="pill-label">Telefon</span><span class="pill-val">47 29 34 43</span><div class="pill-dot"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
+      <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
+      <span>Roll-ups</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
+      <span>Veggdekor</span><span class="dot"> ✦ </span><span>Vindusdekor</span><span class="dot"> ✦ </span>
+      <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
+      <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
+      <span>Roll-ups</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
+      <span>Veggdekor</span><span class="dot"> ✦ </span><span>Vindusdekor</span><span class="dot"> ✦ </span>
+    </div>
+  </div>
+
+  <!-- TJENESTER -->
+  <section class="services-section">
+    <div class="sec-header">
+      <div class="section-tag fade-up">Hva vi tilbyr</div>
+      <h2 class="section-title fade-up delay-1">Tjenester som<br/><em>gjør inntrykk</em></h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card fade-up"
+        data-modal="brosjyrer"
+        data-title="Brosjyrer & Digitalt trykk"
+        data-desc="Vi trykker profesjonelle brosjyrer og markedsmateriell i høy kvalitet. Enten det er en enkel folder eller en flersiders katalog — vi leverer skarpe farger og presis detalj hver gang."
+        data-features="Enkelt- og trefoldede brosjyrer|Kataloger opp til 100+ sider|A4, A5 og egendefinerte formater|Matt eller blank finish|Mengderabatt fra 100 stk|Rask levering"
+        data-image="/assets/images/brosjyrer.jpg">
+        <div class="service-icon">01</div>
+        <h3>Digitalt trykk</h3>
+        <p>Rask og presis utskrift i høy kvalitet — fra enkeltark til store opplag.</p>
+      </div>
+
+      <div class="service-card fade-up delay-1"
+        data-modal="flyer"
+        data-title="Flyere & Kopiering"
+        data-desc="Profesjonelle flyere og rask kopiering i svart-hvitt og farge. Vi kopierer dokumenter og bilder effektivt med nøyaktig fargegjengivelse — til alltid riktig pris."
+        data-features="Svart-hvitt fra kr 2,- per ark|Farge fra kr 8,- per ark|A4, A3 og storformat|Enkelt- og dobbeltsidig|Mengderabatt|Rask utlevering"
+        data-image="/assets/images/flyer.jpg">
+        <div class="service-icon">02</div>
+        <h3>Flyere & Kopiering</h3>
+        <p>Profesjonelle flyere og rask kopiering i svart-hvitt og farge.</p>
+      </div>
+
+      <div class="service-card fade-up delay-2"
+        data-modal="reklame"
+        data-title="Roll-ups, Bannere & Reklameskilt"
+        data-desc="Vi produserer roll-ups, bannere, kundestoppere, veggdekorasjon og vindusdekor. Se eksempler på ekte oppdrag vi har levert — alt fra salonger til butikker i Oslo."
+        data-features="Roll-ups i alle størrelser|Bannere og kundestoppere|Veggdekorasjon storformat|Vindusdekor og skilt|Beach flags / flaggstenger|Klar på 1–3 virkedager"
+        data-image="/assets/images/skilt.jpg">
+        <div class="service-icon">03</div>
+        <h3>Roll-ups & Reklame</h3>
+        <p>Plakater, bannere, skilt og veggdekor. Vi hjelper deg å bli sett.</p>
+      </div>
+
+      <div class="service-card fade-up"
+        data-modal="visittkort"
+        data-title="Visittkort"
+        data-desc="Profesjonelle visittkort i ulike formater og papirkvaliteter. Gjør det riktige inntrykket — hver eneste gang du møter noen nytt."
+        data-features="Standard 85x55mm|350g og 400g papirkvalitet|Matt eller blank laminering|Ensidig og tosidig trykk|Avrundede hjørner tilgjengelig|Fra 100 stk"
+        data-image="/assets/images/visittkort.jpg">
+        <div class="service-icon">04</div>
+        <h3>Visittkort</h3>
+        <p>Profesjonelle visittkort i ulike formater og papirkvaliteter.</p>
+      </div>
+
+      <div class="service-card fade-up delay-1"
+        data-modal="innbinding"
+        data-title="Innbinding"
+        data-desc="Vi binder inn rapporter, oppgaver, presentasjoner og manualer profesjonelt og raskt. Med spiralinnbinding eller limrygg får dokumentet ditt et solid og ryddig uttrykk."
+        data-features="Plastspiral og metallspiral|Limrygsbinding|Stifting for tynnere hefter|Inkluderer for- og bakside|Opp til 400 sider|Rask utlevering — ofte samme dag"
+        data-image="/assets/images/banner.jpg">
+        <div class="service-icon">05</div>
+        <h3>Innbinding</h3>
+        <p>Spiral, limrygg og stifting — rapporter bundet profesjonelt.</p>
+      </div>
+
+      <div class="service-card fade-up delay-2"
+        data-modal="laminering"
+        data-title="Laminering & Menyer"
+        data-desc="Laminering beskytter trykket ditt mot fukt, søl og slitasje — perfekt for menyer, prislister, sertifikater og skilt som skal tåle daglig bruk."
+        data-features="Matt og blank laminering|A4, A3 og egendefinerte størrelser|Enkelt- og dobbeltsidig|Perfekt for restaurantmenyer|Beskytter mot fukt og flekker|Fra kr 20,- per ark"
+        data-image="/assets/images/meny.jpg">
+        <div class="service-icon">06</div>
+        <h3>Laminering & Menyer</h3>
+        <p>Matt eller blank laminering — perfekt for menyer og sertifikater.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERI — Eksempler på vårt arbeid -->
+  <section class="gallery-section">
+    <div class="gallery-section-header">
+      <div class="section-tag fade-up">Vårt arbeid</div>
+      <h2 class="section-title fade-up delay-1">Eksempler fra<br/><em>virkeligheten</em></h2>
+    </div>
+  
+    <div class="gallery-track-wrapper" id="galleryTrack">
+      <div class="gallery-track">
+  
+        <div class="gallery-item"
+             data-lightbox="/assets/images/veggdekor.jpg"
+             data-caption="Veggdekorasjon — Happy Nails">
+          <img src="/assets/images/veggdekor.jpg" alt="Veggdekorasjon" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Veggdekorasjon storformat</div></div>
+        </div>
+  
+        <div class="gallery-item tall"
+             data-lightbox="/assets/images/skilt.jpg"
+             data-caption="Kundestopperplakat — Extend Your Beauty">
+          <img src="/assets/images/skilt.jpg" alt="Kundestopperplakat" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Kundestopperplakat</div></div>
+        </div>
+  
+        <div class="gallery-item"
+             data-lightbox="/assets/images/vindusdekor.jpg"
+             data-caption="Vindusdekor — Happy Nails">
+          <img src="/assets/images/vindusdekor.jpg" alt="Vindusdekor" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Vindusdekor & skilt</div></div>
+        </div>
+  
+        <div class="gallery-item tall"
+             data-lightbox="/assets/images/beachflagg.jpg"
+             data-caption="Beach flags">
+          <img src="/assets/images/beachflagg.jpg" alt="Beach flags" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Beach flags</div></div>
+        </div>
+  
+        <div class="gallery-item"
+             data-lightbox="/assets/images/banner.jpg"
+             data-caption="Digitalt banner">
+          <img src="/assets/images/banner.jpg" alt="Banner" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Digitalt banner</div></div>
+        </div>
+  
+        <div class="gallery-item"
+             data-lightbox="/assets/images/ROLLUP.jpg"
+             data-caption="Roll-up">
+          <img src="/assets/images/ROLLUP.jpg" alt="Roll-up" />
+          <div class="gallery-item-overlay"><div class="gallery-item-label">Roll-up</div></div>
+        </div>
+  
+      </div>
+    </div>
+    <div class="gallery-hint">Dra for å scrolle</div>
+  </section>
+  
+  <!-- OM OSS -->
+  <section class="about-section">
+    <div class="fade-up">
+      <div class="about-label">Om Sparekopi</div>
+      <h2 class="about-heading">Nesten tre<br/><em>tiår med</em><br/>erfaring</h2>
+      <p class="about-body">Vi er et av Oslos mest erfarne trykkerier. Siden oppstarten i 1997 har vi jobbet side om side med bedrifter, studenter og privatpersoner for å levere trykk som faktisk holder mål.<br/><br/>Med toppmoderne maskinpark kan vi ta på oss det meste innen moderne trykk og reklameproduksjon.</p>
+      <div class="stats-row">
+        <div><span class="stat-num">1997</span><div class="stat-label">Etablert</div></div>
+        <div><span class="stat-num">27+</span><div class="stat-label">Års erfaring</div></div>
+        <div><span class="stat-num">∞</span><div class="stat-label">Kunder</div></div>
+      </div>
+    </div>
+    <div class="about-right fade-up delay-2">
+      <div class="about-card"><div class="about-card-label">Adresse</div><div class="about-card-val">Torggata 17B, 2. etasje<br/>0183 Oslo</div></div>
+      <div class="about-card"><div class="about-card-label">Telefon</div><div class="about-card-val">47 29 34 43</div></div>
+      <div class="about-card"><div class="about-card-label">Åpningstider</div><div class="about-card-val">Mandag – Fredag<br/>09:00 – 17:00</div></div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <div class="map-strip">
+    <div>
+      <div class="map-tag">Finn oss</div>
+      <div class="map-address">Torggata 17B, Oslo</div>
+      <div class="map-sub">2. etasje · Rett ved Starbucks · T-bane: Stortinget</div>
+    </div>
+    <a href="https://maps.google.com/?q=Torggata+17B,+0183+Oslo" target="_blank" rel="noopener" class="map-btn">Åpne Google Maps →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
+    <nav class="footer-links">
+      <a href="/Home/Tjenester">Tjenester</a>
+      <a href="/Home/Priser">Priser</a>
+      <a href="/Home/OmOss">Om oss</a>
+      <a href="/Home/Kontakt">Kontakt</a>
+    </nav>
+    <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
+  </footer>
+
+  <!-- TJENESTE MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div id="modalImageWrap"></div>
+      <div class="modal-body">
+        <div class="modal-tag">Tjeneste</div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-features" id="modalFeatures"></div>
+        <a href="/Home/Kontakt" class="modal-cta">Be om tilbud →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX for galleri -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script>
+    /* ── TJENESTE MODAL ── */
+    const overlay  = document.getElementById('modalOverlay');
+    const closeBtn = document.getElementById('modalClose');
+    const imgWrap  = document.getElementById('modalImageWrap');
+    const titleEl  = document.getElementById('modalTitle');
+    const descEl   = document.getElementById('modalDesc');
+    const featEl   = document.getElementById('modalFeatures');
+
+    document.querySelectorAll('.service-card[data-modal]').forEach(card => {
+      card.addEventListener('click', () => {
+        titleEl.textContent = card.dataset.title || '';
+        descEl.textContent  = card.dataset.desc  || '';
+        const img = card.dataset.image;
+        const num = card.querySelector('.service-icon').textContent;
+        if (img) {
+          imgWrap.innerHTML = `<img class="modal-image" src="${img}" alt="${card.dataset.title}"
+            onerror="this.parentElement.innerHTML='<div class=modal-image-placeholder>${num}</div>'" />`;
+        } else {
+          imgWrap.innerHTML = `<div class="modal-image-placeholder">${num}</div>`;
+        }
+        featEl.innerHTML = (card.dataset.features || '')
+          .split('|').map(f => `<div class="modal-feature">${f.trim()}</div>`).join('');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+    /* ── LIGHTBOX for galleri ── */
+    const lightbox        = document.getElementById('lightbox');
+    const lightboxImg     = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose   = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item[data-lightbox]').forEach(item => {
+      item.addEventListener('click', () => {
+        lightboxImg.src         = item.dataset.lightbox;
+        lightboxCaption.textContent = item.dataset.caption || '';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeModal(); closeLightbox(); }
+    });
+  </script>
+

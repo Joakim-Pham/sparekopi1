@@ -37,6 +37,25 @@ namespace SparekopiAdmin.Migrations
 
                     b.ToTable("ServiceItems");
                 });
+
+            modelBuilder.Entity("SparekopiAdmin.Models.SiteContent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SiteContents");
+                });
 #pragma warning restore 612, 618
         }
     }
