@@ -83,10 +83,24 @@
                    data-desc="@item.Description"
                    data-features="@featPipe"
                    data-image="@item.ImagePath">
-                <div class="service-icon">@item.SortOrder.ToString("D2")</div>
-                <h3>@item.Name</h3>
-                <p>@item.ShortDescription</p>
-                <span class="card-hint">Trykk for å se mer →</span>
+                <div class="card-thumb">
+                  @if (!string.IsNullOrEmpty(item.ImagePath))
+                  {
+                      <img src="@item.ImagePath" alt="@item.Name" loading="lazy"
+                           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                      <div class="card-thumb-fallback" style="display:none">@item.SortOrder.ToString("D2")</div>
+                  }
+                  else
+                  {
+                      <div class="card-thumb-fallback">@item.SortOrder.ToString("D2")</div>
+                  }
+                  <span class="card-num">@item.SortOrder.ToString("D2")</span>
+                </div>
+                <div class="card-body">
+                  <h3>@item.Name</h3>
+                  <p>@item.ShortDescription</p>
+                  <span class="card-hint">Se detaljer →</span>
+                </div>
               </div>
           }
         </div>
