@@ -63,6 +63,14 @@
   line-height: 1.8;
   color: var(--color-muted);
 }
+.card-hint {
+  display: inline-block;
+  margin-top: .8rem;
+  font-size: .75rem;
+  letter-spacing: .06em;
+  color: var(--color-gold);
+  font-weight: 500;
+}
 
 /* ── OM-OSS SEKSJON ── */
 .about-section {
@@ -486,26 +494,29 @@
   background-repeat: no-repeat;
 }
 
+.service-card[data-image] .service-icon,
+.service-card[data-image] .svc-num { color: rgba(255,255,255,0.9); text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+
 .service-card[data-image="/assets/images/brosjyrer.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)), url("/assets/images/brosjyrer.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/brosjyrer.jpg");
 }
 
 .service-card[data-image="/assets/images/flyer.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)), url("/assets/images/flyer.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/flyer.jpg");
 }
 
 .service-card[data-image="/assets/images/skilt.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)), url("/assets/images/skilt.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/skilt.jpg");
 }
 
 .service-card[data-image="/assets/images/visittkort.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)), url("/assets/images/visittkort.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/visittkort.jpg");
 }
 
 .service-card[data-image="/assets/images/banner.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)), url("/assets/images/banner.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/banner.jpg");
 }
 
 .service-card[data-image="/assets/images/meny.jpg"] {
-  background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)), url("/assets/images/meny.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(245,243,237,1) 52%), url("/assets/images/meny.jpg");
 }
