@@ -54,7 +54,7 @@ static void SeedContent(AppDbContext db)
         ["phone"]         = "47 29 34 43",
         ["email"]         = "info@sparekopi.no",
         ["address"]       = "Torggata 17B, 2. etasje, 0183 Oslo",
-        ["opening_hours"] = "Mandag – Fredag: 09:00 – 17:00",
+        ["opening_hours"] = "Mandag – Fredag: 10:00 – 17:00",
         ["hero_title"]    = "Kvalitet som varer siden 1997",
         ["hero_subtitle"] = "Toppmoderne trykkeri midt i Oslo."
     };
