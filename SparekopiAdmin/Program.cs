@@ -98,7 +98,7 @@ static void SeedServices(AppDbContext db)
         new ServiceItem { Category="tjeneste", Section="Reklame & Skilt", SortOrder=4,
             Name="Reklameplakater & Skilt",
             ShortDescription="Store og små plakater for events og kampanjer. Alle standardformater og egendefinerte størrelser.",
-            Description="Store og små plakater, kundestoppere og skilt for butikker, salonger og events. Vi trykker i alle standardformater.",
+            Description="Store og små plakater, kundestoppere og skilt for butikker, salonger og events. Vi trykker i alle standardformater. Vi tilbyr også montering av bilder, motiver og reklame på lette plater — inkludert aluminium og skumplate — for et profesjonelt og holdbart resultat.",
             Features="Alle standardformater\nA2, A1, A0 storformat\nKundestoppere\nInnendørs og utendørs\nLaminering tilgjengelig\nKlar på 1–3 virkedager",
             ImagePath="/assets/images/skilt.jpg" },
         new ServiceItem { Category="tjeneste", Section="Reklame & Skilt", SortOrder=5,
@@ -218,9 +218,12 @@ static void PatchServiceNames(AppDbContext db)
     }
 
     var skilt = db.ServiceItems.FirstOrDefault(x => x.Name == "Reklameplakater & Skilt");
-    if (skilt != null && !skilt.ImagePath.Contains("~"))
+    if (skilt != null)
     {
-        skilt.ImagePath = "/assets/images/skilt.jpg~/assets/images/fasadeskilt.jpg";
+        if (!skilt.ImagePath.Contains("~"))
+            skilt.ImagePath = "/assets/images/skilt.jpg~/assets/images/fasadeskilt.jpg";
+        if (!skilt.Description.Contains("aluminium"))
+            skilt.Description = "Store og små plakater, kundestoppere og skilt for butikker, salonger og events. Vi trykker i alle standardformater. Vi tilbyr også montering av bilder, motiver og reklame på lette plater — inkludert aluminium og skumplate — for et profesjonelt og holdbart resultat.";
         db.SaveChanges();
     }
 }
