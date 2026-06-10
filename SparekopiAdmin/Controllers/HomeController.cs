@@ -21,6 +21,11 @@ public class HomeController : Controller
         ViewBag.HeroSubtitle = _context.SiteContents.FirstOrDefault(x => x.Key == "hero_subtitle")?.Value ?? "Profesjonell printing og design";
         ViewBag.Phone        = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value         ?? "47 29 34 43";
         ViewBag.OpeningHours = _context.SiteContents.FirstOrDefault(x => x.Key == "opening_hours")?.Value ?? "Man–Fre 10:00 – 17:00";
+        ViewBag.ServiceNames = _context.ServiceItems
+            .Where(x => x.Category == "tjeneste")
+            .OrderBy(x => x.SortOrder)
+            .Select(x => x.Name)
+            .ToList();
         return View();
     }
 

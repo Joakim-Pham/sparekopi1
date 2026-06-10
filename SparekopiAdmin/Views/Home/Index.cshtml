@@ -58,14 +58,14 @@
   <!-- TICKER -->
   <div class="marquee-wrapper">
     <div class="marquee-track">
-      <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
-      <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
-      <span>Roll-ups</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
-      <span>Veggdekor</span><span class="dot"> ✦ </span><span>Vindusdekor</span><span class="dot"> ✦ </span>
-      <span>Digitalt trykk</span><span class="dot"> ✦ </span><span>Kopiering</span><span class="dot"> ✦ </span>
-      <span>Visittkort</span><span class="dot"> ✦ </span><span>Plakater</span><span class="dot"> ✦ </span>
-      <span>Roll-ups</span><span class="dot"> ✦ </span><span>Brosjyrer</span><span class="dot"> ✦ </span>
-      <span>Veggdekor</span><span class="dot"> ✦ </span><span>Vindusdekor</span><span class="dot"> ✦ </span>
+      @foreach (var name in (IEnumerable<string>)ViewBag.ServiceNames)
+      {
+          <span>@name</span><span class="dot"> ✦ </span>
+      }
+      @foreach (var name in (IEnumerable<string>)ViewBag.ServiceNames)
+      {
+          <span>@name</span><span class="dot"> ✦ </span>
+      }
     </div>
   </div>
 
