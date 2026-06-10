@@ -78,7 +78,7 @@ static void SeedServices(AppDbContext db)
 
     db.ServiceItems.AddRange(
         new ServiceItem { Category="tjeneste", Section="Trykk & Kopiering", SortOrder=1,
-            Name="Digitalt trykk og oppsett",
+            Name="Digital Trykk & Offsettrykk",
             ShortDescription="Rask og presis utskrift i høy kvalitet — fra enkeltark til store opplag.",
             Description="Rask og presis digital utskrift i høy kvalitet — fra enkeltark til store opplag. Vi bruker vår Xerox PrimeLink C9200 for skarp detalj og ekte farger på alt vi produserer.",
             Features="A4, A3, A2 og storformat\nSvart-hvitt og farge\nFotokvalitet fargegjengivelse\nRask levering\nMengderabatt ved store opplag\nEnkelt- og dobbeltsidig",
@@ -200,10 +200,10 @@ static void SeedPrices(AppDbContext db)
 
 static void PatchServiceNames(AppDbContext db)
 {
-    var digitalTrykk = db.ServiceItems.FirstOrDefault(x => x.Name == "Digitalt trykk");
+    var digitalTrykk = db.ServiceItems.FirstOrDefault(x => x.Name == "Digitalt trykk" || x.Name == "Digitalt trykk og oppsett");
     if (digitalTrykk != null)
     {
-        digitalTrykk.Name = "Digitalt trykk og oppsett";
+        digitalTrykk.Name = "Digital Trykk & Offsettrykk";
         db.SaveChanges();
     }
 
