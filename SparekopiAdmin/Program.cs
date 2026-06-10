@@ -29,6 +29,7 @@ using (var scope = app.Services.CreateScope())
     SeedContent(db);
     SeedServices(db);
     SeedPrices(db);
+    PatchServiceNames(db);
     RemovePricesFromFeatures(db);
 }
 
@@ -125,10 +126,10 @@ static void SeedServices(AppDbContext db)
             Features="Egendefinerte størrelser\nKlar til montering\nPerfekt for butikkfronter\nUV-bestandig\nHoldbart materiale\nProfesjonell finish",
             ImagePath="/assets/images/vindusdekor.jpg" },
         new ServiceItem { Category="tjeneste", Section="Reklame & Skilt", SortOrder=9,
-            Name="Digitale bannere",
-            ShortDescription="Digitale bannere for sosiale medier og nettmarkedsføring.",
-            Description="Digitale bannere for sosiale medier, nettsider og digital markedsføring. Vi designer og leverer skarpe, profesjonelle bannere.",
-            Features="Alle digitale formater\nFacebook og Instagram\nLinkedIn og Google Ads\nHøyoppløselig eksport\nRask levering\nRevisjonsmuligheter",
+            Name="Fasadebanner og vanlig banner",
+            ShortDescription="Bannere og fasadeskilt i alle størrelser — for utendørs og innendørs bruk.",
+            Description="Vi produserer bannere og fasadeskilt i alle størrelser. Perfekt for butikkfronter, messer og arrangementer.",
+            Features="Alle størrelser\nInnendørs og utendørs\nHoldbart materiale\nHøykvalitetstrykk\nRask levering\nKlar på 1–3 virkedager",
             ImagePath="/assets/images/banner.jpg" },
         new ServiceItem { Category="tjeneste", Section="Etterbehandling", SortOrder=10,
             Name="Visittkort",
@@ -195,6 +196,26 @@ static void SeedPrices(AppDbContext db)
             Features="Profesjonell bok-finish\nOpp til 400 sider" }
     );
     db.SaveChanges();
+}
+
+static void PatchServiceNames(AppDbContext db)
+{
+    var digital = db.ServiceItems.FirstOrDefault(x => x.Name == "Digitale bannere");
+    if (digital != null)
+    {
+        digital.Name = "Fasadebanner og vanlig banner";
+        digital.ShortDescription = "Bannere og fasadeskilt i alle størrelser — for utendørs og innendørs bruk.";
+        digital.Description = "Vi produserer bannere og fasadeskilt i alle størrelser. Perfekt for butikkfronter, messer og arrangementer.";
+        digital.Features = "Alle størrelser\nInnendørs og utendørs\nHoldbart materiale\nHøykvalitetstrykk\nRask levering\nKlar på 1–3 virkedager";
+        db.SaveChanges();
+    }
+
+    var skilt = db.ServiceItems.FirstOrDefault(x => x.Name == "Reklameplakater & Skilt");
+    if (skilt != null && skilt.ImagePath == "/assets/images/skilt.jpg")
+    {
+        skilt.ImagePath = "/assets/images/fasadeskilt.jpg";
+        db.SaveChanges();
+    }
 }
 
 static void RemovePricesFromFeatures(AppDbContext db)
