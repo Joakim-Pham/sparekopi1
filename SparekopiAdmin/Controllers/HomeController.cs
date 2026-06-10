@@ -33,16 +33,9 @@ public class HomeController : Controller
         return View(items);
     }
 
-    public async Task<IActionResult> Priser()
+    public IActionResult Priser()
     {
-        var items = await _context.ServiceItems
-            .Where(x => x.Category == "pris")
-            .OrderBy(x => x.SortOrder)
-            .ThenBy(x => x.Id)
-            .ToListAsync();
-
-        ViewBag.Phone = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value ?? "47 29 34 43";
-        return View(items);
+        return View();
     }
 
     public IActionResult OmOss()
