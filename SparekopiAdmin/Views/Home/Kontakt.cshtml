@@ -55,6 +55,7 @@
           class="contact-form"
           action="https://formspree.io/f/mjgpaown"
           method="POST"
+          enctype="multipart/form-data"
         >
           <!-- Skjulte Formspree-felt -->
           <input type="hidden" name="_subject" value="Ny henvendelse fra nettsiden – Sparekopi" />
@@ -80,6 +81,14 @@
             </select>
           </div>
           <div class="form-group"><label>Melding *</label><textarea name="message" rows="6" placeholder="Beskriv jobben — format, antall, spesifikasjoner…" required></textarea></div>
+          <div class="form-group">
+            <label>Fil / design <span style="font-weight:300;opacity:.6">(valgfritt — PDF, JPG, PNG, AI, maks 5 MB)</span></label>
+            <label class="file-upload-label">
+              <input type="file" name="attachment" accept=".pdf,.jpg,.jpeg,.png,.ai,.eps,.svg,.docx" style="display:none" onchange="this.parentElement.querySelector('span').textContent = this.files[0]?.name || 'Velg fil…'" />
+              <span>Velg fil…</span>
+              <em>Last opp</em>
+            </label>
+          </div>
           <button type="submit" class="form-submit">Send melding →</button>
           <div class="form-success" id="formSuccess">✓ Sendt! Vi tar kontakt så snart som mulig.</div>
         </form>
