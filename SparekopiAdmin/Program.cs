@@ -31,6 +31,7 @@ using (var scope = app.Services.CreateScope())
     SeedPrices(db);
     PatchServiceNames(db);
     RemovePricesFromFeatures(db);
+    PatchVindusdekorImage(db);
 }
 
 if (!app.Environment.IsDevelopment())
@@ -124,7 +125,7 @@ static void SeedServices(AppDbContext db)
             ShortDescription="Vindusdekor og skiltdekorasjon som gjør butikkfronten din til en magnet.",
             Description="Vindusdekor og skiltdekorasjon som gjør butikkfronten din til en magnet. Fargerikt, profesjonelt og holdbart.",
             Features="Egendefinerte størrelser\nKlar til montering\nPerfekt for butikkfronter\nUV-bestandig\nHoldbart materiale\nProfesjonell finish",
-            ImagePath="/assets/images/vindusdekor.jpg" },
+            ImagePath="/assets/images/20200208_151021.jpg" },
         new ServiceItem { Category="tjeneste", Section="Reklame & Skilt", SortOrder=9,
             Name="Fasadebanner & vanlig banner",
             ShortDescription="Bannere og fasadeskilt i alle størrelser — for utendørs og innendørs bruk.",
@@ -242,4 +243,14 @@ static void RemovePricesFromFeatures(AppDbContext db)
         item.Features = string.Join('\n', lines);
     }
     if (items.Count > 0) db.SaveChanges();
+}
+
+static void PatchVindusdekorImage(AppDbContext db)
+{
+    var item = db.ServiceItems.FirstOrDefault(x => x.Name == "Vindusdekor");
+    if (item != null && item.ImagePath == "/assets/images/vindusdekor.jpg")
+    {
+        item.ImagePath = "/assets/images/20200208_151021.jpg";
+        db.SaveChanges();
+    }
 }
