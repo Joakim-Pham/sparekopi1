@@ -126,7 +126,7 @@ static void SeedServices(AppDbContext db)
             Features="Egendefinerte størrelser\nKlar til montering\nPerfekt for butikkfronter\nUV-bestandig\nHoldbart materiale\nProfesjonell finish",
             ImagePath="/assets/images/vindusdekor.jpg" },
         new ServiceItem { Category="tjeneste", Section="Reklame & Skilt", SortOrder=9,
-            Name="Fasadebanner og vanlig banner",
+            Name="Fasadebanner & vanlig banner",
             ShortDescription="Bannere og fasadeskilt i alle størrelser — for utendørs og innendørs bruk.",
             Description="Vi produserer bannere og fasadeskilt i alle størrelser. Perfekt for butikkfronter, messer og arrangementer.",
             Features="Alle størrelser\nInnendørs og utendørs\nHoldbart materiale\nHøykvalitetstrykk\nRask levering\nKlar på 1–3 virkedager",
@@ -207,10 +207,13 @@ static void PatchServiceNames(AppDbContext db)
         db.SaveChanges();
     }
 
+    var fasade = db.ServiceItems.FirstOrDefault(x => x.Name == "Fasadebanner og vanlig banner");
+    if (fasade != null) { fasade.Name = "Fasadebanner & vanlig banner"; db.SaveChanges(); }
+
     var digital = db.ServiceItems.FirstOrDefault(x => x.Name == "Digitale bannere");
     if (digital != null)
     {
-        digital.Name = "Fasadebanner og vanlig banner";
+        digital.Name = "Fasadebanner & vanlig banner";
         digital.ShortDescription = "Bannere og fasadeskilt i alle størrelser — for utendørs og innendørs bruk.";
         digital.Description = "Vi produserer bannere og fasadeskilt i alle størrelser. Perfekt for butikkfronter, messer og arrangementer.";
         digital.Features = "Alle størrelser\nInnendørs og utendørs\nHoldbart materiale\nHøykvalitetstrykk\nRask levering\nKlar på 1–3 virkedager";
