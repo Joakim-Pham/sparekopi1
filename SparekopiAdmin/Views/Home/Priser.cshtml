@@ -1,4 +1,3 @@
-@model IEnumerable<SparekopiAdmin.Models.ServiceItem>
 @{ Layout = null; }
 <!DOCTYPE html>
 <html lang="no">
@@ -29,66 +28,99 @@
   </nav>
 
   <header class="page-hero" data-bg-text="NOK">
-    <p class="page-hero-label">Oversiktlig & ærlig</p>
+    <p class="page-hero-label">Tilpasset & ærlig</p>
     <h1 class="page-hero-title">Våre<br/><em>Priser</em></h1>
   </header>
 
-  @{
-      var sectionHeadings = new Dictionary<string, string>
-      {
-          ["Kopiering"]       = "Enkle priser,<br/><em>god kvalitet</em>",
-          ["Etterbehandling"] = "Finish som<br/><em>løfter resultatet</em>",
-      };
-      var sections = Model
-          .GroupBy(x => x.Section)
-          .OrderBy(g => g.Min(x => x.SortOrder))
-          .ToList();
-      int sIdx = 0;
-  }
+  <section class="services-section">
+    <div class="sec-header">
+      <div class="section-tag fade-up">Prising</div>
+      <h2 class="section-title fade-up delay-1">Pris etter<br/><em>ditt behov</em></h2>
+    </div>
 
-  @foreach (var grp in sections)
-  {
-      string secStyle = sIdx > 0 ? " style=\"padding-top:0\"" : "";
-      <section class="pricing-section"@Html.Raw(secStyle)>
-        <div class="sec-header">
-          <div class="section-tag fade-up">@grp.Key</div>
-          <h2 class="section-title fade-up delay-1">@Html.Raw(sectionHeadings.GetValueOrDefault(grp.Key, grp.Key))</h2>
-        </div>
-        <div class="pricing-grid">
-          @foreach (var item in grp.OrderBy(x => x.SortOrder))
-          {
-              <div class="pricing-card @(item.IsFeatured ? "featured" : "") fade-up">
-                <div class="pricing-name">@item.Name</div>
-                <div class="pricing-price">@item.PricePrefix@item.Price.ToString("N0"),-</div>
-                <div class="pricing-unit">@item.PriceUnit</div>
-                @if (!string.IsNullOrEmpty(item.Features))
-                {
-                    <ul class="pricing-features">
-                      @foreach (var feat in item.Features.Split('\n', System.StringSplitOptions.RemoveEmptyEntries))
-                      {
-                          <li class="pricing-feature">@feat.Trim()</li>
-                      }
-                    </ul>
-                }
-              </div>
-          }
-        </div>
-      </section>
-      sIdx++;
-  }
+    <div style="max-width:72ch;margin:0 auto 4rem;padding:0 var(--side-padding)">
+      <p class="fade-up" style="font-size:var(--fs-lg);color:var(--color-navy);line-height:1.85;margin-bottom:1.5rem">
+        Prisen avhenger av hva du trenger — format, antall, papirkvalitet og etterbehandling. Vi setter alltid av tid til å finne den beste løsningen for deg.
+      </p>
+      <p class="fade-up delay-1" style="font-size:var(--fs-base);color:var(--color-muted);line-height:1.9">
+        Ta kontakt med oss så gir vi deg et raskt og uforpliktende tilbud. Mange bestillinger kan vi hjelpe deg med samme dag.
+      </p>
+    </div>
 
-  <div style="padding:2.5rem var(--side-padding);background:var(--color-cream2);border-top:1px solid var(--color-cream3)">
-    <p class="fade-up" style="font-size:var(--fs-base);color:var(--color-muted);max-width:60ch;line-height:1.9">
-      <strong style="color:var(--color-navy)">Merk:</strong> Prisene er veiledende. Endelig pris avhenger av format, mengde og papirkvalitet. Kontakt oss for et nøyaktig tilbud!
+    <div class="services-grid" style="padding:0 var(--side-padding) 5rem">
+
+      <div class="service-card fade-up" style="cursor:default">
+        <div class="card-thumb"><div class="card-thumb-fallback">01</div><span class="card-num">01</span></div>
+        <div class="card-body">
+          <h3>Kopiering & Trykk</h3>
+          <p>Svart-hvitt og farge — enkeltark til store opplag. Pris varierer etter antall og format.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up delay-1" style="cursor:default">
+        <div class="card-thumb"><div class="card-thumb-fallback">02</div><span class="card-num">02</span></div>
+        <div class="card-body">
+          <h3>Brosjyrer & Plakater</h3>
+          <p>Fra flyere til storformat-plakater. Vi tilpasser pris etter opplag og ønsket finish.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up delay-2" style="cursor:default">
+        <div class="card-thumb"><div class="card-thumb-fallback">03</div><span class="card-num">03</span></div>
+        <div class="card-body">
+          <h3>Innbinding & Laminering</h3>
+          <p>Spiral, limrygg, stifting og laminering. Rask levering — ofte samme dag.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up" style="cursor:default">
+        <div class="card-thumb"><div class="card-thumb-fallback">04</div><span class="card-num">04</span></div>
+        <div class="card-body">
+          <h3>Skilt & Reklame</h3>
+          <p>Roll-ups, bannere, beach flags og vindusdekor. Pris oppgis etter størrelse og materiale.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up delay-1" style="cursor:default">
+        <div class="card-thumb"><div class="card-thumb-fallback">05</div><span class="card-num">05</span></div>
+        <div class="card-body">
+          <h3>Visittkort & Profilmateriell</h3>
+          <p>Profesjonelle visittkort og profileringsprodukter. Mengderabatt fra 100 stk.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up delay-2" style="cursor:default">
+        <div class="card-thumb"><div class="card-thumb-fallback">06</div><span class="card-num">06</span></div>
+        <div class="card-body">
+          <h3>Profilklær</h3>
+          <p>T-skjorter, caps og mer med logo. Pris oppgis etter antall og type plagg.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="background:var(--color-navy);padding:5rem var(--side-padding);text-align:center">
+    <div class="section-tag fade-up" style="margin:0 auto 1.5rem;color:var(--color-gold)">Få et tilbud</div>
+    <h2 class="fade-up delay-1" style="font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);color:#fff;font-weight:300;line-height:1.2;margin-bottom:1.5rem">
+      Vi svarer <em style="font-style:italic">raskt</em>
+    </h2>
+    <p class="fade-up delay-2" style="color:rgba(255,255,255,0.65);font-size:var(--fs-base);max-width:50ch;margin:0 auto 2.5rem;line-height:1.85">
+      Ring oss, send en e-post eller fyll ut kontaktskjemaet — så får du et uforpliktende tilbud tilpasset akkurat ditt behov.
     </p>
+    <div class="fade-up delay-3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="/Home/Kontakt" class="map-btn" style="background:var(--color-gold);color:var(--color-navy)">Send forespørsel →</a>
+      <a href="tel:+4747293443" class="map-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.35);color:#fff">Ring 47 29 34 43</a>
+    </div>
   </div>
 
   <div class="map-strip">
     <div>
-      <div class="map-tag">Trenger du et tilbud?</div>
-      <div class="map-address">Ring oss: @ViewBag.Phone</div>
+      <div class="map-tag">Hvor finner du oss?</div>
+      <div class="map-address">Torggata 17B, 2. etasje, Oslo</div>
+      <div class="map-sub">Mandag – Fredag: 09:00 – 17:00</div>
     </div>
-    <a href="/Home/Kontakt" class="map-btn">Send forespørsel →</a>
+    <a href="/Home/Kontakt" class="map-btn">Kontakt oss →</a>
   </div>
 
   <footer class="site-footer">
