@@ -20,6 +20,7 @@ public class HomeController : Controller
         ViewBag.HeroTitle    = _context.SiteContents.FirstOrDefault(x => x.Key == "hero_title")?.Value    ?? "Sparekopi Oslo";
         ViewBag.HeroSubtitle = _context.SiteContents.FirstOrDefault(x => x.Key == "hero_subtitle")?.Value ?? "Profesjonell printing og design";
         ViewBag.Phone        = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value         ?? "47 29 34 43";
+        ViewBag.OpeningHours = _context.SiteContents.FirstOrDefault(x => x.Key == "opening_hours")?.Value ?? "Man–Fre 10:00 – 17:00";
         return View();
     }
 
