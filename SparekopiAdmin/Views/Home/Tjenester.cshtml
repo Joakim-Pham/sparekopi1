@@ -77,6 +77,7 @@
           @foreach (var item in grp.OrderBy(x => x.SortOrder))
           {
               string featPipe = item.Features.Replace("\r\n", "|").Replace("\n", "|");
+              string thumbImg = item.ImagePath?.Split('~')[0] ?? "";
               <div class="service-card fade-up"
                    data-modal="item-@item.Id"
                    data-title="@item.Name"
@@ -84,9 +85,9 @@
                    data-features="@featPipe"
                    data-image="@item.ImagePath">
                 <div class="card-thumb">
-                  @if (!string.IsNullOrEmpty(item.ImagePath))
+                  @if (!string.IsNullOrEmpty(thumbImg))
                   {
-                      <img src="@item.ImagePath" alt="@item.Name" loading="lazy"
+                      <img src="@thumbImg" alt="@item.Name" loading="lazy"
                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
                       <div class="card-thumb-fallback" style="display:none">@item.SortOrder.ToString("D2")</div>
                   }
@@ -156,10 +157,14 @@
       card.addEventListener('click', () => {
         titleEl.textContent = card.dataset.title || '';
         descEl.textContent  = card.dataset.desc  || '';
-        const img = card.dataset.image;
+        const imgs = (card.dataset.image || '').split('~').filter(Boolean);
         const num = card.querySelector('.card-num')?.textContent || '';
-        if (img) {
-          imgWrap.innerHTML = `<img class="modal-image" src="${img}" alt="${card.dataset.title}"
+        if (imgs.length > 1) {
+          imgWrap.innerHTML = `<div style="display:flex;gap:6px">${imgs.map(src =>
+            `<img class="modal-image" style="width:50%;object-fit:cover" src="${src}" alt="${card.dataset.title}"
+              onerror="this.style.display='none'" />`).join('')}</div>`;
+        } else if (imgs.length === 1) {
+          imgWrap.innerHTML = `<img class="modal-image" src="${imgs[0]}" alt="${card.dataset.title}"
             onerror="this.parentElement.innerHTML='<div class=modal-image-placeholder>${num}</div>'" />`;
         } else {
           imgWrap.innerHTML = `<div class="modal-image-placeholder">${num}</div>`;
