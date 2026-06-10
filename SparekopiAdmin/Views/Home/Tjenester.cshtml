@@ -160,8 +160,8 @@
         const imgs = (card.dataset.image || '').split('~').filter(Boolean);
         const num = card.querySelector('.card-num')?.textContent || '';
         if (imgs.length > 1) {
-          imgWrap.innerHTML = `<div style="display:flex;gap:6px">${imgs.map(src =>
-            `<img class="modal-image" style="width:50%;object-fit:cover" src="${src}" alt="${card.dataset.title}"
+          imgWrap.innerHTML = `<div style="display:flex;gap:6px;align-items:center;background:#f5f2ee;border-radius:6px;padding:8px">${imgs.map(src =>
+            `<img style="width:50%;max-height:420px;object-fit:contain;border-radius:4px" src="${src}" alt="${card.dataset.title}"
               onerror="this.style.display='none'" />`).join('')}</div>`;
         } else if (imgs.length === 1) {
           imgWrap.innerHTML = `<img class="modal-image" src="${imgs[0]}" alt="${card.dataset.title}"
