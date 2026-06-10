@@ -29,6 +29,7 @@ using (var scope = app.Services.CreateScope())
     SeedContent(db);
     SeedServices(db);
     SeedPrices(db);
+    RemovePricesFromFeatures(db);
 }
 
 if (!app.Environment.IsDevelopment())
@@ -194,4 +195,17 @@ static void SeedPrices(AppDbContext db)
             Features="Profesjonell bok-finish\nOpp til 400 sider" }
     );
     db.SaveChanges();
+}
+
+static void RemovePricesFromFeatures(AppDbContext db)
+{
+    var items = db.ServiceItems.Where(x => x.Category == "tjeneste" && x.Features.Contains("kr")).ToList();
+    foreach (var item in items)
+    {
+        var lines = item.Features.Split('\n')
+            .Where(l => !l.Contains("kr"))
+            .ToArray();
+        item.Features = string.Join('\n', lines);
+    }
+    if (items.Count > 0) db.SaveChanges();
 }
