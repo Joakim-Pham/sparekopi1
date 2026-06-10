@@ -157,7 +157,7 @@
         titleEl.textContent = card.dataset.title || '';
         descEl.textContent  = card.dataset.desc  || '';
         const img = card.dataset.image;
-        const num = card.querySelector('.service-icon').textContent;
+        const num = card.querySelector('.card-num')?.textContent || '';
         if (img) {
           imgWrap.innerHTML = `<img class="modal-image" src="${img}" alt="${card.dataset.title}"
             onerror="this.parentElement.innerHTML='<div class=modal-image-placeholder>${num}</div>'" />`;
