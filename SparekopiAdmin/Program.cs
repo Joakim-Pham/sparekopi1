@@ -211,9 +211,9 @@ static void PatchServiceNames(AppDbContext db)
     }
 
     var skilt = db.ServiceItems.FirstOrDefault(x => x.Name == "Reklameplakater & Skilt");
-    if (skilt != null && skilt.ImagePath == "/assets/images/skilt.jpg")
+    if (skilt != null && !skilt.ImagePath.Contains("~"))
     {
-        skilt.ImagePath = "/assets/images/fasadeskilt.jpg";
+        skilt.ImagePath = "/assets/images/skilt.jpg~/assets/images/fasadeskilt.jpg";
         db.SaveChanges();
     }
 }
