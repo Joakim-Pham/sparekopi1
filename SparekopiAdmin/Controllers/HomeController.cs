@@ -49,7 +49,7 @@ public class HomeController : Controller
     public IActionResult Kontakt()
     {
         ViewBag.Phone        = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value        ?? "47 29 34 43";
-        ViewBag.Email        = _context.SiteContents.FirstOrDefault(x => x.Key == "email")?.Value        ?? "post@sparekopi.no";
+        ViewBag.Email        = _context.SiteContents.FirstOrDefault(x => x.Key == "email")?.Value        ?? "info@sparekopi.no";
         ViewBag.Address      = _context.SiteContents.FirstOrDefault(x => x.Key == "address")?.Value      ?? "Torggata 17B, 2. etasje, 0183 Oslo";
         ViewBag.OpeningHours = _context.SiteContents.FirstOrDefault(x => x.Key == "opening_hours")?.Value ?? "Man–Fre 09:00 – 17:00";
         return View();
