@@ -33,6 +33,7 @@
   height: 40px;
   width: auto;
   display: block;
+  mix-blend-mode: multiply;
 }
 
 .nav-links { display: flex; gap: 2rem; }
