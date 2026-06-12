@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--side-padding);
+  overflow: hidden;
 }
 
 .nav-logo {
@@ -30,8 +31,7 @@
   animation: pulse 2s ease infinite;
 }
 .nav-logo-img {
-  height: 90px;
-  max-height: 90px;
+  height: var(--nav-height);
   width: auto;
   display: block;
 }
