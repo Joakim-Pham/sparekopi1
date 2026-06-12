@@ -29,6 +29,12 @@
   background: var(--color-gold);
   animation: pulse 2s ease infinite;
 }
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  mix-blend-mode: multiply;
+  display: block;
+}
 
 .nav-links { display: flex; gap: 2rem; }
 .nav-links a {
