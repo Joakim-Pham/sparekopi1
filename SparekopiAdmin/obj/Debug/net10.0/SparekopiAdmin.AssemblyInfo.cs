@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SparekopiAdmin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+459b6b84114041aabab097d07ff7737b8c8d6819")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99525070cbb2df04c7a41da62c0ca5d826f4e859")]
 [assembly: System.Reflection.AssemblyProductAttribute("SparekopiAdmin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SparekopiAdmin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
