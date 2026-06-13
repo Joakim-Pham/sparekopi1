@@ -80,6 +80,8 @@
   border: none;
   cursor: pointer;
   padding: 4px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .nav-toggle span {
   display: block;

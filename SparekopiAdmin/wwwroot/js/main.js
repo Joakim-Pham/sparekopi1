@@ -4,14 +4,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks  = document.querySelector('.nav-links');
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
+    const toggleMenu = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       navToggle.classList.toggle('open');
       navLinks.classList.toggle('open');
+    };
+    navToggle.addEventListener('click', toggleMenu);
+    navToggle.addEventListener('touchend', toggleMenu);
+    navLinks.querySelectorAll('a').forEach(a => {
+      const closeMenu = () => {
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+      };
+      a.addEventListener('click', closeMenu);
+      a.addEventListener('touchend', closeMenu);
     });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navToggle.classList.remove('open');
-      navLinks.classList.remove('open');
-    }));
   }
 
   // ── 2. Aktiv nav-lenke ──
