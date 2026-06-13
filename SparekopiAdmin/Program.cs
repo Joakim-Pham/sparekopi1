@@ -32,6 +32,7 @@ using (var scope = app.Services.CreateScope())
     PatchServiceNames(db);
     RemovePricesFromFeatures(db);
     PatchVindusdekorImage(db);
+    PatchDigitalTrykkImage(db);
 }
 
 if (!app.Environment.IsDevelopment())
@@ -83,7 +84,7 @@ static void SeedServices(AppDbContext db)
             ShortDescription="Rask og presis utskrift i høy kvalitet — fra enkeltark til store opplag.",
             Description="Rask og presis digital utskrift i høy kvalitet — fra enkeltark til store opplag. Vi bruker vår Xerox PrimeLink C9200 for skarp detalj og ekte farger på alt vi produserer.",
             Features="A4, A3, A2 og storformat\nSvart-hvitt og farge\nFotokvalitet fargegjengivelse\nRask levering\nMengderabatt ved store opplag\nEnkelt- og dobbeltsidig",
-            ImagePath="/assets/images/digital_print.jpg" },
+            ImagePath="/assets/images/sparekopi-print.jpg" },
         new ServiceItem { Category="tjeneste", Section="Trykk & Kopiering", SortOrder=2,
             Name="Kopiering & Flyere",
             ShortDescription="Profesjonelle flyere og rask kopiering i svart-hvitt og farge.",
@@ -251,6 +252,16 @@ static void PatchVindusdekorImage(AppDbContext db)
     if (item != null && item.ImagePath == "/assets/images/vindusdekor.jpg")
     {
         item.ImagePath = "/assets/images/20200208_151021.jpg";
+        db.SaveChanges();
+    }
+}
+
+static void PatchDigitalTrykkImage(AppDbContext db)
+{
+    var item = db.ServiceItems.FirstOrDefault(x => x.Name == "Digital Trykk & Offsettrykk");
+    if (item != null && item.ImagePath != "/assets/images/sparekopi-print.jpg")
+    {
+        item.ImagePath = "/assets/images/sparekopi-print.jpg";
         db.SaveChanges();
     }
 }
