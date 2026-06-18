@@ -170,7 +170,7 @@ static void SeedServices(AppDbContext db)
             ShortDescription="Vi designer og bygger moderne nettsider for din bedrift — skreddersydd, mobilvenlig og klar til å ta imot kunder.",
             Description="I samarbeid med vår webdesigner tilbyr Sparekopi skreddersydde nettsider for bedrifter. Vi har erfaring med å bygge nettsider for alt fra trykkeri og restauranter til butikker i Oslo. Nettsiden din får et moderne design, er mobilvenlig, og inkluderer det du trenger for å ta imot kunder på nett. Vi tar oss av alt fra design og utvikling til domeneoppsett og hosting.",
             Features="Skreddersydd og moderne design\nMobilvenlig på alle enheter\nKontaktskjema og bestillingsløsning\nAdmin-panel for enkel oppdatering\nDomeneoppsett og hosting inkludert\nDriftsavtale tilgjengelig",
-            ImagePath="/assets/images/sparekopi-print.jpg" }
+            ImagePath="/assets/images/webutvikling.svg" }
     );
     db.SaveChanges();
 }
@@ -271,10 +271,12 @@ static void PatchDigitalTrykkImage(AppDbContext db)
 static void PatchWebServiceSection(AppDbContext db)
 {
     var item = db.ServiceItems.FirstOrDefault(x => x.Name == "Nettside & Webutvikling");
-    if (item != null && item.Section != "Profilklær")
+    if (item != null)
     {
-        item.Section = "Profilklær";
-        db.SaveChanges();
+        bool changed = false;
+        if (item.Section != "Profilklær") { item.Section = "Profilklær"; changed = true; }
+        if (item.ImagePath != "/assets/images/webutvikling.svg") { item.ImagePath = "/assets/images/webutvikling.svg"; changed = true; }
+        if (changed) db.SaveChanges();
     }
 }
 
@@ -288,7 +290,7 @@ static void PatchWebService(AppDbContext db)
         item.ShortDescription = "Vi designer og bygger moderne nettsider for din bedrift — skreddersydd, mobilvenlig og klar til å ta imot kunder.";
         item.Description = "I samarbeid med vår webdesigner tilbyr Sparekopi skreddersydde nettsider for bedrifter. Vi har erfaring med å bygge nettsider for alt fra trykkeri og restauranter til butikker i Oslo. Nettsiden din får et moderne design, er mobilvenlig, og inkluderer det du trenger for å ta imot kunder på nett. Vi tar oss av alt fra design og utvikling til domeneoppsett og hosting.";
         item.Features = "Skreddersydd og moderne design\nMobilvenlig på alle enheter\nKontaktskjema og bestillingsløsning\nAdmin-panel for enkel oppdatering\nDomeneoppsett og hosting inkludert\nDriftsavtale tilgjengelig";
-        item.ImagePath = "/assets/images/sparekopi-print.jpg";
+        item.ImagePath = "/assets/images/webutvikling.svg";
         db.SaveChanges();
     }
 }
