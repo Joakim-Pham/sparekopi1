@@ -2,6 +2,47 @@
    SPAREKOPI — Komponenter
    ============================================================ */
 
+/* ── ANNOUNCEMENT BAR ── */
+.announcement-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--color-navy);
+  border-top: 1px solid rgba(212,168,67,.15);
+  border-bottom: 1px solid rgba(212,168,67,.15);
+  padding: .75rem var(--side-padding);
+  flex-wrap: wrap;
+}
+.announcement-dot {
+  color: var(--color-gold);
+  font-size: .7rem;
+}
+.announcement-text {
+  font-size: var(--fs-xs);
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.7);
+}
+.announcement-text strong {
+  color: var(--color-gold2);
+  font-weight: 500;
+}
+.announcement-link {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border-bottom: 1px solid rgba(212,168,67,.3);
+  padding-bottom: 1px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+}
+.announcement-link:hover {
+  color: var(--color-gold2);
+  border-color: var(--color-gold2);
+}
+
 /* ── TJENESTEKORT ── */
 .services-section {
   padding: var(--space-2xl) var(--side-padding);
