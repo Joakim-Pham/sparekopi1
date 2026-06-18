@@ -33,6 +33,7 @@ using (var scope = app.Services.CreateScope())
     RemovePricesFromFeatures(db);
     PatchVindusdekorImage(db);
     PatchDigitalTrykkImage(db);
+    PatchWebService(db);
 }
 
 if (!app.Environment.IsDevelopment())
@@ -163,12 +164,12 @@ static void SeedServices(AppDbContext db)
             Description="Caps med brodert eller trykt logo — perfekt som profileringsgave eller uniformsdel. Tilgjengelig i mange farger og størrelser.",
             Features="Mange farger og varianter\nBrodert eller trykt logo\nOne size med justerbar rem\nMinimum 10 stk\nHoldbart og slitesterkt\nLeveringstid 5–10 virkedager",
             ImagePath="/assets/images/caps.jpg" },
-        new ServiceItem { Category="tjeneste", Section="Profilklær", SortOrder=15,
-            Name="Mer profilmateriell",
-            ShortDescription="Vi tilbyr et bredt utvalg av profilmateriell — ta kontakt for å høre om mulighetene.",
-            Description="Vi tilbyr et bredt utvalg av profilmateriell utover klær — ta kontakt for å høre om mulighetene.",
-            Features="Vesker og bager\nPenner og kontormateriell\nNøkkelringer og pins\nEgendefinerte produkter\nKontakt oss for tilbud\nLeveringstid varierer",
-            ImagePath="/assets/images/digital_print.jpg" }
+        new ServiceItem { Category="tjeneste", Section="Webutvikling", SortOrder=15,
+            Name="Nettside & Webutvikling",
+            ShortDescription="Vi designer og bygger moderne nettsider for din bedrift — skreddersydd, mobilvenlig og klar til å ta imot kunder.",
+            Description="I samarbeid med vår webdesigner tilbyr Sparekopi skreddersydde nettsider for bedrifter. Vi har erfaring med å bygge nettsider for alt fra trykkeri og restauranter til butikker i Oslo. Nettsiden din får et moderne design, er mobilvenlig, og inkluderer det du trenger for å ta imot kunder på nett. Vi tar oss av alt fra design og utvikling til domeneoppsett og hosting.",
+            Features="Skreddersydd og moderne design\nMobilvenlig på alle enheter\nKontaktskjema og bestillingsløsning\nAdmin-panel for enkel oppdatering\nDomeneoppsett og hosting inkludert\nDriftsavtale tilgjengelig",
+            ImagePath="/assets/images/sparekopi-print.jpg" }
     );
     db.SaveChanges();
 }
@@ -261,6 +262,21 @@ static void PatchDigitalTrykkImage(AppDbContext db)
     var item = db.ServiceItems.FirstOrDefault(x => x.Name == "Digital Trykk & Offsettrykk");
     if (item != null && item.ImagePath != "/assets/images/sparekopi-print.jpg")
     {
+        item.ImagePath = "/assets/images/sparekopi-print.jpg";
+        db.SaveChanges();
+    }
+}
+
+static void PatchWebService(AppDbContext db)
+{
+    var item = db.ServiceItems.FirstOrDefault(x => x.Name == "Mer profilmateriell");
+    if (item != null)
+    {
+        item.Name = "Nettside & Webutvikling";
+        item.Section = "Webutvikling";
+        item.ShortDescription = "Vi designer og bygger moderne nettsider for din bedrift — skreddersydd, mobilvenlig og klar til å ta imot kunder.";
+        item.Description = "I samarbeid med vår webdesigner tilbyr Sparekopi skreddersydde nettsider for bedrifter. Vi har erfaring med å bygge nettsider for alt fra trykkeri og restauranter til butikker i Oslo. Nettsiden din får et moderne design, er mobilvenlig, og inkluderer det du trenger for å ta imot kunder på nett. Vi tar oss av alt fra design og utvikling til domeneoppsett og hosting.";
+        item.Features = "Skreddersydd og moderne design\nMobilvenlig på alle enheter\nKontaktskjema og bestillingsløsning\nAdmin-panel for enkel oppdatering\nDomeneoppsett og hosting inkludert\nDriftsavtale tilgjengelig";
         item.ImagePath = "/assets/images/sparekopi-print.jpg";
         db.SaveChanges();
     }
