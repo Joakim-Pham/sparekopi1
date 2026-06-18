@@ -24,6 +24,14 @@
     <a href="/Home/Kontakt" class="nav-cta">Kontakt oss</a>
   </nav>
 
+  @if (!string.IsNullOrWhiteSpace(ViewBag.VacationNotice as string))
+  {
+    <div class="vacation-bar">
+      <span class="vacation-icon">✦</span>
+      <span>@ViewBag.VacationNotice</span>
+    </div>
+  }
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">

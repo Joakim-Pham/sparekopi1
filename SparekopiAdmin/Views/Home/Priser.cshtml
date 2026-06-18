@@ -29,6 +29,11 @@
     <a href="/Home/Kontakt" class="nav-cta">Kontakt oss</a>
   </nav>
 
+  @if (!string.IsNullOrWhiteSpace(ViewBag.VacationNotice as string))
+  {
+    <div class="vacation-bar"><span class="vacation-icon">✦</span><span>@ViewBag.VacationNotice</span></div>
+  }
+
   <header class="page-hero" data-bg-text="NOK">
     <p class="page-hero-label">Tilpasset & ærlig</p>
     <h1 class="page-hero-title">Våre<br/><em>Priser</em></h1>

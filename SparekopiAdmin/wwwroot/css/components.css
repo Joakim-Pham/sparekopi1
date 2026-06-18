@@ -2,6 +2,27 @@
    SPAREKOPI — Komponenter
    ============================================================ */
 
+/* ── FERIEVARSEL BANNER ── */
+.vacation-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  background: #7a3c00;
+  padding: .6rem var(--side-padding);
+  text-align: center;
+}
+.vacation-icon {
+  color: #f0c96a;
+  font-size: .65rem;
+  flex-shrink: 0;
+}
+.vacation-bar span:last-child {
+  font-size: var(--fs-xs);
+  letter-spacing: .07em;
+  color: rgba(255,240,210,.9);
+}
+
 /* ── NY TJENESTE BADGE (hero) ── */
 .hero-newbadge {
   display: inline-flex;

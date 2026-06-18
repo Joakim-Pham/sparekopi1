@@ -26,21 +26,22 @@ public class AdminController : Controller
     {
         ViewData["Title"] = "Kontaktinfo";
         ViewData["PageTitle"] = "Rediger kontaktinfo";
-        await EnsureKeysAsync("phone", "email", "address", "opening_hours");
+        await EnsureKeysAsync("phone", "email", "address", "opening_hours", "vacation_notice");
         var items = await _context.SiteContents
-            .Where(x => new[] { "phone", "email", "address", "opening_hours" }.Contains(x.Key))
+            .Where(x => new[] { "phone", "email", "address", "opening_hours", "vacation_notice" }.Contains(x.Key))
             .ToDictionaryAsync(x => x.Key, x => x.Value);
         return View(items);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Kontaktinfo(string phone, string email, string address, string opening_hours)
+    public async Task<IActionResult> Kontaktinfo(string phone, string email, string address, string opening_hours, string vacation_notice)
     {
         await UpsertAsync("phone", phone);
         await UpsertAsync("email", email);
         await UpsertAsync("address", address);
         await UpsertAsync("opening_hours", opening_hours);
+        await UpsertAsync("vacation_notice", vacation_notice);
         await _context.SaveChangesAsync();
         TempData["Success"] = "Kontaktinfo er oppdatert!";
         return RedirectToAction(nameof(Kontaktinfo));

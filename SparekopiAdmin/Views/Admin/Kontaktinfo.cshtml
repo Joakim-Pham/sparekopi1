@@ -30,10 +30,15 @@
                 <textarea name="address" id="address" class="form-control" rows="2"
                           placeholder="Torggata 17B, 2. etasje&#10;0183 Oslo">@Get("address")</textarea>
             </div>
-            <div class="mb-4">
+            <div class="mb-3">
                 <label class="form-label" for="opening_hours">Åpningstider</label>
                 <input type="text" name="opening_hours" id="opening_hours" class="form-control"
                        value="@Get("opening_hours")" placeholder="Mandag – Fredag: 10:00 – 17:00" />
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="vacation_notice">Ferievarsel <span style="font-weight:400;color:#71717a">(vises øverst på alle sider — la stå tom når dere er åpne)</span></label>
+                <input type="text" name="vacation_notice" id="vacation_notice" class="form-control"
+                       value="@Get("vacation_notice")" placeholder="Vi er på ferie 1.–14. juli. God sommer! 🌞" />
             </div>
             <button type="submit" class="btn-save">Lagre kontaktinfo</button>
         </form>
