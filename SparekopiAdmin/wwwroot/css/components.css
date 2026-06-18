@@ -11,6 +11,7 @@
   background: #7a3c00;
   padding: .6rem var(--side-padding);
   text-align: center;
+  margin-top: var(--nav-height);
 }
 .vacation-icon {
   color: #f0c96a;
@@ -22,6 +23,9 @@
   letter-spacing: .07em;
   color: rgba(255,240,210,.9);
 }
+/* Fjern dobbelt nav-avstand når ferievarsel er til stede */
+.vacation-bar + .hero { padding-top: 0; }
+.vacation-bar + header.page-hero { padding-top: var(--space-xl); }
 
 /* ── NY TJENESTE BADGE (hero) ── */
 .hero-newbadge {
