@@ -75,6 +75,14 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Webutvikling()
+    {
+        ViewBag.Phone          = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value        ?? "47 29 34 43";
+        ViewBag.Email          = _context.SiteContents.FirstOrDefault(x => x.Key == "email")?.Value        ?? "info@sparekopi.no";
+        ViewBag.VacationNotice = VacationNotice();
+        return View();
+    }
+
     public IActionResult Privacy() => View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,0 +1,275 @@
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sparekopi tilbyr skreddersydde nettsider for bedrifter i Oslo. Mobilvenlig design, admin-panel og hosting inkludert. Kontakt oss for uforpliktende tilbud." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>Nettside & Webutvikling – Sparekopi Oslo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/nav-footer.css" />
+  <link rel="stylesheet" href="/css/hero.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/forms.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="/" class="nav-logo"><img src="/assets/images/logo-sparekopi.png" alt="Sparekopi" class="nav-logo-img" height="48" /></a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="/Home/Tjenester">Tjenester</a></li>
+      <li><a href="/Home/Priser">Priser</a></li>
+      <li><a href="/Home/OmOss">Om oss</a></li>
+      <li><a href="/Home/Kontakt">Kontakt</a></li>
+    </ul>
+    <a href="/Home/Kontakt" class="nav-cta">Kontakt oss</a>
+  </nav>
+
+  @if (!string.IsNullOrWhiteSpace(ViewBag.VacationNotice as string))
+  {
+    <div class="vacation-bar"><span class="vacation-icon">✦</span><span>@ViewBag.VacationNotice</span></div>
+  }
+
+  <!-- HERO -->
+  <section class="web-hero">
+    <div class="web-hero-left">
+      <div class="hero-tag fade-up">Webutvikling — Oslo sentrum</div>
+      <h1 class="hero-title fade-up delay-1">Vi bygger<br/>nettsider som<br/><em>faktisk selger</em></h1>
+      <p class="hero-sub fade-up delay-2">Skreddersydd design, mobilvenlig på alle enheter, og et enkelt admin-panel så du kan oppdatere innholdet selv. Vi tar oss av alt fra idé til lansering.</p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="#kontakt" class="btn-gold">Få uforpliktende tilbud →</a>
+        <a href="#prosess" class="btn-ghost">Se hvordan det fungerer</a>
+      </div>
+    </div>
+    <div class="web-hero-right fade-up delay-2">
+      <img src="/assets/images/webutvikling.svg" alt="Nettside illustrasjon" class="web-hero-img" />
+    </div>
+  </section>
+
+  <!-- HVA DU FÅR -->
+  <section class="services-section" style="background:var(--color-cream2)">
+    <div class="sec-header">
+      <div class="section-tag fade-up">Hva er inkludert</div>
+      <h2 class="section-title fade-up delay-1">Alt du trenger —<br/><em>ingenting du ikke trenger</em></h2>
+    </div>
+    <div class="web-features-grid">
+      <div class="web-feature fade-up">
+        <div class="web-feature-num">01</div>
+        <h3>Skreddersydd design</h3>
+        <p>Ingen maler. Din nettside får et unikt design tilpasset din bransje, merkevare og kunder.</p>
+      </div>
+      <div class="web-feature fade-up delay-1">
+        <div class="web-feature-num">02</div>
+        <h3>Mobilvenlig på alle enheter</h3>
+        <p>Nettsiden ser bra ut og fungerer perfekt på mobil, nettbrett og desktop — alltid.</p>
+      </div>
+      <div class="web-feature fade-up delay-2">
+        <div class="web-feature-num">03</div>
+        <h3>Admin-panel</h3>
+        <p>Oppdater tekst, bilder og åpningstider selv — uten å kunne kode. Enkelt og raskt.</p>
+      </div>
+      <div class="web-feature fade-up">
+        <div class="web-feature-num">04</div>
+        <h3>Kontaktskjema & bestilling</h3>
+        <p>Kunder kan sende deg meldinger og forespørsler direkte fra nettsiden. Du mottar dem på e-post.</p>
+      </div>
+      <div class="web-feature fade-up delay-1">
+        <div class="web-feature-num">05</div>
+        <h3>Domeneoppsett & hosting</h3>
+        <p>Vi setter opp domenet ditt og sørger for at nettsiden er live og tilgjengelig hele døgnet.</p>
+      </div>
+      <div class="web-feature fade-up delay-2">
+        <div class="web-feature-num">06</div>
+        <h3>Driftsavtale tilgjengelig</h3>
+        <p>Vil du ha noen som passer på siden etter lansering? Vi tilbyr månedlig vedlikehold og support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROSESS -->
+  <section class="services-section" id="prosess">
+    <div class="sec-header">
+      <div class="section-tag fade-up">Slik jobber vi</div>
+      <h2 class="section-title fade-up delay-1">Fra idé til<br/><em>ferdig nettside</em></h2>
+    </div>
+    <div class="web-process">
+      <div class="web-step fade-up">
+        <div class="web-step-num">1</div>
+        <div class="web-step-body">
+          <h3>Møte & planlegging</h3>
+          <p>Vi starter med en prat om hva du trenger, hvem kundene dine er, og hva nettsiden skal gjøre for deg. Ingen teknisk kunnskap kreves.</p>
+        </div>
+      </div>
+      <div class="web-step fade-up delay-1">
+        <div class="web-step-num">2</div>
+        <div class="web-step-body">
+          <h3>Design & godkjenning</h3>
+          <p>Du ser designet før vi begynner å kode. Vi gjør justeringer til du er fornøyd — så det blir akkurat slik du ønsker.</p>
+        </div>
+      </div>
+      <div class="web-step fade-up delay-2">
+        <div class="web-step-num">3</div>
+        <div class="web-step-body">
+          <h3>Utvikling & testing</h3>
+          <p>Vi bygger nettsiden og tester den grundig på alle enheter og nettlesere. Du får en forhåndsvisning før lansering.</p>
+        </div>
+      </div>
+      <div class="web-step fade-up">
+        <div class="web-step-num">4</div>
+        <div class="web-step-body">
+          <h3>Lansering & opplæring</h3>
+          <p>Vi setter nettsiden live og lærer deg å bruke admin-panelet. Du er klar til å ta imot kunder fra dag én.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERANSE -->
+  <section class="services-section" style="background:var(--color-navy); padding-top: var(--space-2xl); padding-bottom: var(--space-2xl);">
+    <div class="sec-header">
+      <div class="section-tag fade-up" style="color:var(--color-gold2)">Referanse</div>
+      <h2 class="section-title fade-up delay-1" style="color:#fff">Se et eksempel —<br/><em>denne nettsiden</em></h2>
+    </div>
+    <div class="web-ref fade-up delay-1">
+      <div class="web-ref-img-wrap">
+        <img src="/assets/images/webutvikling.svg" alt="sparekopi.no" class="web-ref-img" />
+      </div>
+      <div class="web-ref-body">
+        <div class="section-tag" style="color:var(--color-gold2); margin-bottom:1rem">sparekopi.no</div>
+        <h3 style="font-family:var(--font-display);font-size:1.8rem;font-weight:300;color:#fff;margin-bottom:1rem">Sparekopi — trykkeri & kopiering</h3>
+        <p style="color:rgba(255,255,255,.65);font-size:var(--fs-sm);line-height:1.8;margin-bottom:1.5rem">Nettsiden du ser på nå er bygget av oss. Den har admin-panel, kontaktskjema, tjenesteoversikt, prisliste og ferievarsel — alt som trengs for en lokal bedrift.</p>
+        <ul class="web-ref-list">
+          <li>✦ Admin-panel for enkel oppdatering</li>
+          <li>✦ Mobilvenlig på alle enheter</li>
+          <li>✦ Kontaktskjema med e-postlevering</li>
+          <li>✦ Tjeneste- og prissider</li>
+          <li>✦ Ferievarsel og åpningstider</li>
+        </ul>
+        <a href="#kontakt" class="btn-gold" style="margin-top:1.5rem;display:inline-block">Vil du ha noe lignende? →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIS -->
+  <section class="services-section" style="background:var(--color-cream2)">
+    <div class="sec-header">
+      <div class="section-tag fade-up">Hva koster det?</div>
+      <h2 class="section-title fade-up delay-1">Ærlig pris —<br/><em>ingen overraskelser</em></h2>
+    </div>
+    <div class="web-pricing fade-up delay-1">
+      <div class="web-price-card">
+        <div class="web-price-label">Bedriftsnettside</div>
+        <div class="web-price-from">Fra</div>
+        <div class="web-price-num">15 000 kr</div>
+        <ul class="web-price-list">
+          <li>Skreddersydd design</li>
+          <li>Opptil 5 undersider</li>
+          <li>Kontaktskjema</li>
+          <li>Admin-panel</li>
+          <li>Mobilvenlig</li>
+          <li>Domeneoppsett & hosting</li>
+        </ul>
+        <a href="#kontakt" class="btn-gold" style="width:100%;text-align:center;display:block">Få tilbud →</a>
+      </div>
+      <div class="web-price-card web-price-card--featured">
+        <div class="web-price-badge">Mest populær</div>
+        <div class="web-price-label">Nettside + vedlikehold</div>
+        <div class="web-price-from">Fra</div>
+        <div class="web-price-num">15 000 kr<span style="font-size:1rem;opacity:.7"> + 500 kr/mnd</span></div>
+        <ul class="web-price-list">
+          <li>Alt i Bedriftsnettside</li>
+          <li>Månedlig oppdatering</li>
+          <li>Teknisk support</li>
+          <li>Sikkerhetskopi</li>
+          <li>Hosting inkludert</li>
+          <li>Prioritert responstid</li>
+        </ul>
+        <a href="#kontakt" class="btn-gold" style="width:100%;text-align:center;display:block">Få tilbud →</a>
+      </div>
+      <div class="web-price-card">
+        <div class="web-price-label">Nettbutikk</div>
+        <div class="web-price-from">Fra</div>
+        <div class="web-price-num">25 000 kr</div>
+        <ul class="web-price-list">
+          <li>Skreddersydd design</li>
+          <li>Produktkatalog</li>
+          <li>Betalingsløsning</li>
+          <li>Ordrehåndtering</li>
+          <li>Admin-panel</li>
+          <li>Mobilvenlig</li>
+        </ul>
+        <a href="#kontakt" class="btn-gold" style="width:100%;text-align:center;display:block">Få tilbud →</a>
+      </div>
+    </div>
+    <p class="fade-up" style="text-align:center;color:var(--color-muted);font-size:var(--fs-xs);margin-top:2rem;letter-spacing:.06em">Alle priser er inkl. mva. Pris avhenger av omfang — ta kontakt for et uforpliktende tilbud.</p>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="services-section" id="kontakt">
+    <div class="sec-header">
+      <div class="section-tag fade-up">Kom i gang</div>
+      <h2 class="section-title fade-up delay-1">La oss ta<br/><em>en prat</em></h2>
+    </div>
+    <div class="web-contact fade-up delay-1">
+      <div class="web-contact-info">
+        <p style="color:var(--color-muted);font-size:var(--fs-sm);line-height:1.8;margin-bottom:2rem">Send oss en melding, ring eller kom innom butikken. Vi gir deg et uforpliktende tilbud — uten faglig sjargong og uten skjulte kostnader.</p>
+        <div class="web-contact-item">
+          <span class="web-contact-label">Telefon</span>
+          <a href="tel:+47@(ViewBag.Phone?.ToString().Replace(" ",""))">@ViewBag.Phone</a>
+        </div>
+        <div class="web-contact-item">
+          <span class="web-contact-label">E-post</span>
+          <a href="mailto:@ViewBag.Email">@ViewBag.Email</a>
+        </div>
+        <div class="web-contact-item">
+          <span class="web-contact-label">Besøk oss</span>
+          <span>Torggata 17B, 2. etasje, Oslo</span>
+        </div>
+      </div>
+      <form class="web-contact-form" action="https://formspree.io/f/xeojpkqr" method="POST">
+        <div class="form-group">
+          <label class="form-label">Navn</label>
+          <input type="text" name="navn" class="form-control" placeholder="Ditt navn" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-post</label>
+          <input type="email" name="epost" class="form-control" placeholder="din@epost.no" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Hva trenger du?</label>
+          <textarea name="melding" class="form-control" rows="4" placeholder="Beskriv kort hva du ser etter — f.eks. nettside for restaurant, nettbutikk, eller noe annet." required></textarea>
+        </div>
+        <button type="submit" class="btn-gold" style="width:100%">Send forespørsel →</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="map-strip">
+    <div>
+      <div class="map-tag">Finn oss</div>
+      <div class="map-address">Torggata 17B, Oslo</div>
+      <div class="map-sub">2. etasje · Rett ved Pascal</div>
+    </div>
+    <a href="https://maps.google.com/?q=Torggata+17B,+0183+Oslo" target="_blank" rel="noopener" class="map-btn">Åpne Google Maps →</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-logo"><div class="footer-logo-dot"></div>Sparekopi</div>
+    <nav class="footer-links">
+      <a href="/Home/Tjenester">Tjenester</a>
+      <a href="/Home/Priser">Priser</a>
+      <a href="/Home/OmOss">Om oss</a>
+      <a href="/Home/Kontakt">Kontakt</a>
+    </nav>
+    <p class="footer-copy">© 2025 Sparekopi AS · Org.nr: 996 379 418 · Torggata 17B, 0183 Oslo</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
