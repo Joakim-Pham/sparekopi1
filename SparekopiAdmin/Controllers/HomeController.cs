@@ -23,7 +23,9 @@ public class HomeController : Controller
         ViewBag.HeroTitle       = _context.SiteContents.FirstOrDefault(x => x.Key == "hero_title")?.Value    ?? "Sparekopi Oslo";
         ViewBag.HeroSubtitle    = _context.SiteContents.FirstOrDefault(x => x.Key == "hero_subtitle")?.Value ?? "Profesjonell printing og design";
         ViewBag.Phone           = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value         ?? "47 29 34 43";
+        ViewBag.Address         = _context.SiteContents.FirstOrDefault(x => x.Key == "address")?.Value       ?? "Torggata 17B, 2. etasje, 0183 Oslo";
         ViewBag.OpeningHours    = _context.SiteContents.FirstOrDefault(x => x.Key == "opening_hours")?.Value ?? "Man–Fre 10:00 – 17:00";
+        ViewBag.AboutIndex      = _context.SiteContents.FirstOrDefault(x => x.Key == "about_index")?.Value ?? "";
         ViewBag.VacationNotice  = VacationNotice();
         ViewBag.ServiceNames    = _context.ServiceItems
             .Where(x => x.Category == "tjeneste")
@@ -46,6 +48,9 @@ public class HomeController : Controller
 
     public IActionResult Priser()
     {
+        ViewBag.Phone          = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value        ?? "47 29 34 43";
+        ViewBag.Address        = _context.SiteContents.FirstOrDefault(x => x.Key == "address")?.Value      ?? "Torggata 17B, 2. etasje, 0183 Oslo";
+        ViewBag.OpeningHours   = _context.SiteContents.FirstOrDefault(x => x.Key == "opening_hours")?.Value ?? "Man–Fre 10:00 – 17:00";
         ViewBag.VacationNotice = VacationNotice();
         return View();
     }
@@ -55,6 +60,7 @@ public class HomeController : Controller
         ViewBag.Phone          = _context.SiteContents.FirstOrDefault(x => x.Key == "phone")?.Value        ?? "47 29 34 43";
         ViewBag.Address        = _context.SiteContents.FirstOrDefault(x => x.Key == "address")?.Value      ?? "Torggata 17B, 2. etasje, 0183 Oslo";
         ViewBag.OpeningHours   = _context.SiteContents.FirstOrDefault(x => x.Key == "opening_hours")?.Value ?? "Man–Fre 10:00 – 17:00";
+        ViewBag.AboutOmOss     = _context.SiteContents.FirstOrDefault(x => x.Key == "about_omoss")?.Value ?? "";
         ViewBag.VacationNotice = VacationNotice();
         return View();
     }

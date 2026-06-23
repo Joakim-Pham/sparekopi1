@@ -7,24 +7,23 @@
     string Get(string key) => Model != null && Model.TryGetValue(key, out var v) ? v : "";
 }
 
-<div style="max-width:580px;">
+<div style="max-width:620px;">
     <div class="content-card">
         <div class="content-card-title">Forsideinnhold</div>
         <p style="font-size:0.8125rem;color:#71717a;margin-bottom:24px;">
-            Teksten som vises øverst på forsiden av nettsiden (hero-seksjonen).
+            Teksten som vises øverst på forsiden (hero-seksjonen) og i "Om Sparekopi"-blokken.
         </p>
         <form asp-action="Forside" method="post">
             @Html.AntiForgeryToken()
             <div class="mb-3">
-                <label class="form-label" for="hero_title">Tittel</label>
-                <input type="text" name="hero_title" id="hero_title" class="form-control"
-                       value="@Get("hero_title")" />
-                <div class="form-text">Vises som stor overskrift på forsiden.</div>
+                <label class="form-label" for="hero_subtitle">Hero-undertekst</label>
+                <textarea name="hero_subtitle" id="hero_subtitle" class="form-control" rows="3">@Get("hero_subtitle")</textarea>
+                <div class="form-text">Kortbeskrivelse under "Kvalitet som varer siden 1997".</div>
             </div>
             <div class="mb-4">
-                <label class="form-label" for="hero_subtitle">Undertekst</label>
-                <textarea name="hero_subtitle" id="hero_subtitle" class="form-control" rows="3">@Get("hero_subtitle")</textarea>
-                <div class="form-text">Kortbeskrivelse under tittelen.</div>
+                <label class="form-label" for="about_index">Om Sparekopi-tekst (forsiden)</label>
+                <textarea name="about_index" id="about_index" class="form-control" rows="5">@Get("about_index")</textarea>
+                <div class="form-text">Teksten i "Om Sparekopi"-seksjonen på forsiden.</div>
             </div>
             <button type="submit" class="btn-save">Lagre forsideinnhold</button>
         </form>

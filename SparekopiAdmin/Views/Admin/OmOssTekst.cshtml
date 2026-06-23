@@ -1,0 +1,26 @@
+@model Dictionary<string, string>
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Om oss-tekst";
+    ViewData["PageTitle"] = "Rediger Om oss-siden";
+    string Get(string key) => Model != null && Model.TryGetValue(key, out var v) ? v : "";
+}
+
+<div style="max-width:620px;">
+    <div class="content-card">
+        <div class="content-card-title">Om oss-siden</div>
+        <p style="font-size:0.8125rem;color:#71717a;margin-bottom:24px;">
+            Teksten som vises i hoveddelen av "Om oss"-siden.
+        </p>
+        <form asp-action="OmOssTekst" method="post">
+            @Html.AntiForgeryToken()
+            <div class="mb-4">
+                <label class="form-label" for="about_omoss">Om oss-tekst</label>
+                <textarea name="about_omoss" id="about_omoss" class="form-control" rows="7">@Get("about_omoss")</textarea>
+                <div class="form-text">Hoveddelen av teksten på Om oss-siden.</div>
+            </div>
+            <button type="submit" class="btn-save">Lagre Om oss-tekst</button>
+        </form>
+    </div>
+</div>

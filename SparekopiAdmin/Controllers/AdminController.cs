@@ -51,22 +51,43 @@ public class AdminController : Controller
     {
         ViewData["Title"] = "Forside-tekst";
         ViewData["PageTitle"] = "Rediger forside-tekst";
-        await EnsureKeysAsync("hero_title", "hero_subtitle");
+        await EnsureKeysAsync("hero_subtitle", "about_index");
         var items = await _context.SiteContents
-            .Where(x => new[] { "hero_title", "hero_subtitle" }.Contains(x.Key))
+            .Where(x => new[] { "hero_subtitle", "about_index" }.Contains(x.Key))
             .ToDictionaryAsync(x => x.Key, x => x.Value);
         return View(items);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Forside(string hero_title, string hero_subtitle)
+    public async Task<IActionResult> Forside(string hero_subtitle, string about_index)
     {
-        await UpsertAsync("hero_title", hero_title);
         await UpsertAsync("hero_subtitle", hero_subtitle);
+        await UpsertAsync("about_index", about_index);
         await _context.SaveChangesAsync();
         TempData["Success"] = "Forside-tekst er oppdatert!";
         return RedirectToAction(nameof(Forside));
+    }
+
+    public async Task<IActionResult> OmOssTekst()
+    {
+        ViewData["Title"] = "Om oss-tekst";
+        ViewData["PageTitle"] = "Rediger Om oss-siden";
+        await EnsureKeysAsync("about_omoss");
+        var items = await _context.SiteContents
+            .Where(x => new[] { "about_omoss" }.Contains(x.Key))
+            .ToDictionaryAsync(x => x.Key, x => x.Value);
+        return View(items);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> OmOssTekst(string about_omoss)
+    {
+        await UpsertAsync("about_omoss", about_omoss);
+        await _context.SaveChangesAsync();
+        TempData["Success"] = "Om oss-tekst er oppdatert!";
+        return RedirectToAction(nameof(OmOssTekst));
     }
 
     private async Task EnsureKeysAsync(params string[] keys)
@@ -78,7 +99,9 @@ public class AdminController : Controller
             ["address"]       = "Torggata 17B, 2. etasje, 0183 Oslo",
             ["opening_hours"] = "Mandag – Fredag: 10:00 – 17:00",
             ["hero_title"]    = "Kvalitet som varer siden 1997",
-            ["hero_subtitle"] = "Toppmoderne trykkeri midt i Oslo."
+            ["hero_subtitle"] = "Toppmoderne trykkeri midt i Oslo. Vi leverer trykk, kopiering og reklamemateriell med nesten tre tiår daglig erfaring bak oss.",
+            ["about_index"]   = "Vi er et av Oslos mest erfarne trykkerier. Siden oppstarten i 1997 har vi jobbet side om side med bedrifter, studenter og privatpersoner for å levere trykk som faktisk holder mål.\n\nMed toppmoderne maskinpark kan vi ta på oss det meste innen moderne trykk og reklameproduksjon.",
+            ["about_omoss"]   = "Sparekopi ble stiftet i 1997 og ligger midt i Oslo sentrum på Torggata 17B — rett ovenfor Pascal. Vi har toppmoderne maskinpark og de nyeste maskinene innen moderne teknologi.\n\nMed snart tre tiår daglig erfaring kan vi gjøre de fleste jobber innen reklamer, kopiering og trykk. Vi jobber side om side med alt fra store bedrifter til studenter og privatpersoner."
         };
 
         bool changed = false;
