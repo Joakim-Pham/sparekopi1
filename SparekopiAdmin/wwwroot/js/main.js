@@ -13,12 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.addEventListener('click', toggleMenu);
     navToggle.addEventListener('touchend', toggleMenu);
     navLinks.querySelectorAll('a').forEach(a => {
-      const closeMenu = () => {
+      a.addEventListener('click', () => {
         navToggle.classList.remove('open');
         navLinks.classList.remove('open');
-      };
-      a.addEventListener('click', closeMenu);
-      a.addEventListener('touchend', closeMenu);
+      });
+      a.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+        window.location.href = a.getAttribute('href');
+      });
     });
   }
 
