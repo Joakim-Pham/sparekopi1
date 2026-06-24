@@ -201,6 +201,34 @@
     .wh-sec-title em { font-style: italic; color: var(--color-gold3); }
     .wh-ref-section .wh-sec-title { color: #fff; }
 
+    /* ── UTVIKLER ── */
+    .wh-dev-section { background: var(--color-cream); }
+    .wh-dev {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .wh-dev-text { font-size: var(--fs-sm); color: var(--color-muted); line-height: 1.85; margin-bottom: 1.5rem; }
+    .wh-dev-name {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--color-navy);
+      margin-bottom: .3rem;
+    }
+    .wh-dev-role { font-size: var(--fs-xs); font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 1.5rem; }
+    .wh-dev-projects { display: flex; flex-direction: column; gap: 1rem; }
+    .wh-dev-project {
+      padding: 1.4rem 1.75rem;
+      border: 1px solid var(--color-cream3);
+      background: var(--color-cream2);
+    }
+    .wh-dev-project-tag { font-size: .65rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--color-gold); margin-bottom: .4rem; }
+    .wh-dev-project h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--color-navy); margin-bottom: .3rem; }
+    .wh-dev-project p { font-size: var(--fs-xs); color: var(--color-muted); line-height: 1.7; margin: 0; }
+
     /* ── RESPONSIVE ── */
     @@media (max-width: 900px) {
       .wh-hero { grid-template-columns: 1fr; padding-top: calc(var(--nav-height) + 3rem); gap: 2.5rem; }
@@ -213,6 +241,7 @@
       .wh-ref-img { display: none; }
       .wh-pricing { grid-template-columns: 1fr; }
       .wh-contact { grid-template-columns: 1fr; gap: 3rem; }
+      .wh-dev { grid-template-columns: 1fr; gap: 2.5rem; }
     }
   </style>
 </head>
@@ -297,6 +326,41 @@
           <li>Ferievarsel og åpningstider</li>
         </ul>
         <a href="#kontakt" class="btn-gold">Vil du ha noe lignende? →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- UTVIKLER -->
+  <section class="wh-section wh-dev-section">
+    <div class="wh-sec-tag fade-up">Din utvikler</div>
+    <h2 class="wh-sec-title fade-up delay-1">Hvem er det<br/><em>som bygger siden?</em></h2>
+    <div class="wh-dev">
+      <div class="fade-up delay-1">
+        <div class="wh-dev-name">Joakim Pham</div>
+        <div class="wh-dev-role">Data Science for Business · BI Norwegian Business School</div>
+        <p class="wh-dev-text">Jeg er 22 år, fra Oslo, og studerer Data Science for Business på BI — nesten ferdig. Jeg har alltid vært interessert i teknologi og hva som skjer under panseret, og de siste årene har jeg brukt mye tid på å lære webutvikling fra bunnen av.</p>
+        <p class="wh-dev-text">Jeg er vant til å jobbe effektivt og levere det jeg lover. Kombinasjonen av teknisk kompetanse og forretningsforståelse fra studiene gjør at jeg tenker på nettsiden din som et verktøy som skal gi deg kunder — ikke bare noe som ser fint ut.</p>
+        <p class="wh-dev-text">Har du spørsmål eller vil bare ta en uforpliktende prat? Ring eller send en melding.</p>
+        <a href="#kontakt" class="btn-gold" style="display:inline-block;margin-top:.5rem">Ta kontakt →</a>
+      </div>
+      <div class="fade-up delay-2">
+        <div class="wh-dev-projects">
+          <div class="wh-dev-project">
+            <div class="wh-dev-project-tag">Prosjekt · 2025</div>
+            <h4>sparekopi.no</h4>
+            <p>Komplett nettside med admin-panel, tjenesteoversikt, prissider, kontaktskjema, ferievarsel og mobilvenlig design. Bygget med ASP.NET Core og hostet på Railway.</p>
+          </div>
+          <div class="wh-dev-project">
+            <div class="wh-dev-project-tag">Prosjekt · 2024–2025</div>
+            <h4>Kaceni</h4>
+            <p>Eget webutviklingsprosjekt bygget fra bunnen av — et fullstack-prosjekt som viser bredden i det jeg kan levere, fra design til ferdig lansert løsning.</p>
+          </div>
+          <div class="wh-dev-project">
+            <div class="wh-dev-project-tag">Utdanning · 2023 – nåværende</div>
+            <h4>BI Norwegian Business School</h4>
+            <p>Data Science for Business — kombinerer programmering, dataanalyse og forretningsforståelse. Nesten ferdig med graden.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
