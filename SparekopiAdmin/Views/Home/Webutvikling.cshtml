@@ -231,17 +231,30 @@
 
     /* ── RESPONSIVE ── */
     @@media (max-width: 900px) {
-      .wh-hero { grid-template-columns: 1fr; padding-top: calc(var(--nav-height) + 3rem); gap: 2.5rem; }
+      .wh-section { padding: var(--space-xl) var(--side-padding); }
+      .wh-hero { grid-template-columns: 1fr; padding-top: calc(var(--nav-height) + 3rem); padding-bottom: 3.5rem; gap: 2rem; }
       .wh-hero-img { display: none; }
+      .wh-hero-actions { flex-direction: column; }
+      .wh-hero-actions a { text-align: center; }
       .wh-grid { grid-template-columns: 1fr; }
       .wh-feature { border-right: none; }
       .wh-feature:nth-last-child(-n+3) { border-bottom: 1px solid var(--color-cream3); }
       .wh-feature:last-child { border-bottom: none; }
+      .wh-step { grid-template-columns: 56px 1fr; gap: 1.2rem; }
+      .wh-step-num { font-size: 2.2rem; }
       .wh-ref { grid-template-columns: 1fr; }
       .wh-ref-img { display: none; }
       .wh-pricing { grid-template-columns: 1fr; }
       .wh-contact { grid-template-columns: 1fr; gap: 3rem; }
       .wh-dev { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @@media (max-width: 480px) {
+      .wh-hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .wh-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .wh-hero-title { font-size: 2.2rem; }
+      .wh-sec-title { font-size: 1.8rem; }
+      .wh-step { grid-template-columns: 44px 1fr; }
+      .wh-step-num { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -252,6 +265,7 @@
     <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="/Home/Tjenester">Tjenester</a></li>
+      <li><a href="/Home/Webutvikling" class="active">Webutvikling</a></li>
       <li><a href="/Home/Priser">Priser</a></li>
       <li><a href="/Home/OmOss">Om oss</a></li>
       <li><a href="/Home/Kontakt">Kontakt</a></li>
