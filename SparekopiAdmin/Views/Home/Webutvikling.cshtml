@@ -139,47 +139,50 @@
     .wh-ref-list li { font-size: var(--fs-sm); color: rgba(255,255,255,.55); }
     .wh-ref-list li::before { content: '✦ '; color: var(--color-gold2); font-size: .6rem; }
 
-    /* ── PRISER ── */
-    .wh-pricing-section { background: var(--color-cream2); }
-    .wh-pricing {
+    /* ── TILBUD ── */
+    .wh-offer-section { background: var(--color-cream2); }
+    .wh-offer-lead {
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      font-family: var(--font-display);
+      font-weight: 300;
+      color: var(--color-navy);
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 1.75rem 0 3rem;
+    }
+    .wh-offer-lead em { font-style: italic; color: var(--color-gold3); }
+    .wh-offer-factors {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .wh-price-card {
-      background: var(--color-cream);
+      gap: 0;
       border: 1px solid var(--color-cream3);
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
+      margin-bottom: 3rem;
     }
-    .wh-price-card--featured { background: var(--color-navy); border-color: var(--color-navy); }
-    .wh-price-badge {
-      display: inline-block;
-      background: var(--color-gold);
+    .wh-offer-factor {
+      padding: 2.25rem 2rem;
+      border-right: 1px solid var(--color-cream3);
+    }
+    .wh-offer-factor:last-child { border-right: none; }
+    .wh-offer-factor-num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--color-gold);
+      opacity: .45;
+      margin-bottom: .85rem;
+    }
+    .wh-offer-factor h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
       color: var(--color-navy);
-      font-size: .58rem;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: .25rem .75rem;
-      margin-bottom: 1.25rem;
-      align-self: flex-start;
+      margin-bottom: .4rem;
     }
-    .wh-price-label { font-size: var(--fs-xs); font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: .4rem; }
-    .wh-price-card--featured .wh-price-label { color: rgba(255,255,255,.5); }
-    .wh-price-from { font-size: var(--fs-xs); color: var(--color-muted); }
-    .wh-price-card--featured .wh-price-from { color: rgba(255,255,255,.4); }
-    .wh-price-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: var(--color-navy); margin: .3rem 0 1.75rem; line-height: 1.2; }
-    .wh-price-card--featured .wh-price-num { color: #fff; }
-    .wh-price-list { list-style: none; padding: 0; margin: 0 0 2rem; flex: 1; }
-    .wh-price-list li { font-size: var(--fs-sm); color: var(--color-muted); padding: .65rem 0; border-bottom: 1px solid var(--color-cream3); }
-    .wh-price-list li:first-child { border-top: 1px solid var(--color-cream3); }
-    .wh-price-card--featured .wh-price-list li { color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.08); }
+    .wh-offer-factor p { font-size: var(--fs-sm); color: var(--color-muted); line-height: 1.7; }
 
     /* ── KONTAKT ── */
-    .wh-contact-section { background: var(--color-cream); }
+    .wh-contact-section { background: var(--color-navy); }
+    .wh-contact-section .wh-sec-title { color: #fff; }
     .wh-contact {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
@@ -187,19 +190,33 @@
       align-items: start;
       margin-top: 3rem;
     }
-    .wh-contact-intro { font-size: var(--fs-sm); color: var(--color-muted); line-height: 1.85; margin-bottom: 2rem; }
-    .wh-contact-item { padding: 1.2rem 0; border-bottom: 1px solid var(--color-cream3); }
-    .wh-contact-item:first-of-type { border-top: 1px solid var(--color-cream3); }
-    .wh-contact-label { font-size: var(--fs-xs); font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--color-gold); margin-bottom: .3rem; }
-    .wh-contact-val { font-family: var(--font-display); font-size: 1.1rem; color: var(--color-navy); font-weight: 300; }
-    .wh-contact-val a { color: var(--color-navy); transition: color .2s; }
+    .wh-contact-intro { font-size: var(--fs-sm); color: rgba(255,255,255,.55); line-height: 1.85; margin-bottom: 2rem; }
+    .wh-contact-item { padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .wh-contact-item:first-of-type { border-top: 1px solid rgba(255,255,255,.1); }
+    .wh-contact-label { font-size: var(--fs-xs); font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--color-gold2); margin-bottom: .3rem; }
+    .wh-contact-val { font-family: var(--font-display); font-size: 1.1rem; color: #fff; font-weight: 300; }
+    .wh-contact-val a { color: #fff; transition: color .2s; }
     .wh-contact-val a:hover { color: var(--color-gold); }
+    .wh-contact-section .form-label { color: rgba(255,255,255,.6); }
+    .wh-contact-section .form-control {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.15);
+      color: #fff;
+    }
+    .wh-contact-section .form-control::placeholder { color: rgba(255,255,255,.3); }
+    .wh-contact-section .form-control:focus {
+      border-color: var(--color-gold);
+      background: rgba(255,255,255,.09);
+      outline: none;
+    }
 
     /* ── SEC HEADER ── */
     .wh-sec-tag { font-size: var(--fs-xs); font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--color-gold); margin-bottom: .75rem; }
     .wh-sec-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--color-navy); line-height: 1.15; }
     .wh-sec-title em { font-style: italic; color: var(--color-gold3); }
-    .wh-ref-section .wh-sec-title { color: #fff; }
+    .wh-ref-section .wh-sec-title,
+    .wh-contact-section .wh-sec-title { color: #fff; }
+    .wh-contact-section .wh-sec-tag { color: var(--color-gold2); }
 
     /* ── UTVIKLER ── */
     .wh-dev-section { background: var(--color-cream); }
@@ -244,7 +261,9 @@
       .wh-step-num { font-size: 2.2rem; }
       .wh-ref { grid-template-columns: 1fr; }
       .wh-ref-img { display: none; }
-      .wh-pricing { grid-template-columns: 1fr; }
+      .wh-offer-factors { grid-template-columns: 1fr; }
+      .wh-offer-factor { border-right: none; border-bottom: 1px solid var(--color-cream3); }
+      .wh-offer-factor:last-child { border-bottom: none; }
       .wh-contact { grid-template-columns: 1fr; gap: 3rem; }
       .wh-dev { grid-template-columns: 1fr; gap: 2.5rem; }
     }
@@ -379,41 +398,29 @@
     </div>
   </section>
 
-  <!-- PRISER -->
-  <section class="wh-section wh-pricing-section">
-    <div class="wh-sec-tag fade-up">Hva koster det?</div>
-    <h2 class="wh-sec-title fade-up delay-1">Ærlig pris —<br/><em>ingen overraskelser</em></h2>
-    <div class="wh-pricing">
-      <div class="wh-price-card fade-up">
-        <div class="wh-price-label">Enkel nettside</div>
-        <div class="wh-price-from">Fra</div>
-        <div class="wh-price-num">4 990 kr</div>
-        <ul class="wh-price-list">
-          <li>1–3 undersider</li><li>Mobilvenlig design</li><li>Kontaktskjema</li><li>Domene & hosting</li><li>Leveringstid ca. 1 uke</li>
-        </ul>
-        <a href="#kontakt" class="btn-gold" style="text-align:center;display:block">Få tilbud →</a>
+  <!-- TILBUD -->
+  <section class="wh-section wh-offer-section">
+    <div class="wh-sec-tag fade-up">Investering</div>
+    <h2 class="wh-sec-title fade-up delay-1">Prisen settes etter<br/><em>ditt prosjekt</em></h2>
+    <p class="wh-offer-lead fade-up delay-1">Ingen prisliste — fordi hvert prosjekt er ulikt. Etter en kort prat om hva du trenger, setter vi en fast pris. <em>Ingen timepris, ingen skjulte kostnader.</em> Du vet nøyaktig hva du betaler før vi starter.</p>
+    <div class="wh-offer-factors">
+      <div class="wh-offer-factor fade-up">
+        <div class="wh-offer-factor-num">01</div>
+        <h3>Omfang & innhold</h3>
+        <p>Antall sider, mengde tekst og bilder, og om du allerede har innhold klart — alt dette påvirker tidsbruken.</p>
       </div>
-      <div class="wh-price-card wh-price-card--featured fade-up delay-1">
-        <div class="wh-price-badge">Mest populær</div>
-        <div class="wh-price-label">Bedriftsnettside</div>
-        <div class="wh-price-from">Fra</div>
-        <div class="wh-price-num">7 990 kr<br/><span style="font-size:1rem;opacity:.6">+ 299 kr/mnd</span></div>
-        <ul class="wh-price-list">
-          <li>Opptil 6 undersider</li><li>Skreddersydd design</li><li>Admin-panel</li><li>Kontaktskjema</li><li>Hosting & vedlikehold</li><li>Løpende support</li>
-        </ul>
-        <a href="#kontakt" class="btn-gold" style="text-align:center;display:block">Få tilbud →</a>
+      <div class="wh-offer-factor fade-up delay-1">
+        <div class="wh-offer-factor-num">02</div>
+        <h3>Funksjonalitet</h3>
+        <p>Et enkelt kontaktskjema koster mindre enn et fullt admin-panel, booking-system eller nettbutikk. Vi bygger det du faktisk trenger.</p>
       </div>
-      <div class="wh-price-card fade-up delay-2">
-        <div class="wh-price-label">Større prosjekter</div>
-        <div class="wh-price-from">Fra</div>
-        <div class="wh-price-num">12 000 kr</div>
-        <ul class="wh-price-list">
-          <li>Nettbutikk / booking</li><li>Mange undersider</li><li>Skreddersydd funksjonalitet</li><li>Admin-panel</li><li>Hosting & support</li>
-        </ul>
-        <a href="#kontakt" class="btn-gold" style="text-align:center;display:block">Få tilbud →</a>
+      <div class="wh-offer-factor fade-up delay-2">
+        <div class="wh-offer-factor-num">03</div>
+        <h3>Driftsavtale</h3>
+        <p>Du kan velge en engangsleveranse eller løpende support og vedlikehold etter lansering — det er opp til deg.</p>
       </div>
     </div>
-    <p class="fade-up" style="text-align:center;color:var(--color-muted);font-size:var(--fs-xs);margin-top:2rem;letter-spacing:.05em">Priser varierer etter omfang og ønsker — ta kontakt for et uforpliktende tilbud.</p>
+    <a href="#kontakt" class="btn-gold fade-up">Ta kontakt for et tilbud →</a>
   </section>
 
   <!-- KONTAKT -->
