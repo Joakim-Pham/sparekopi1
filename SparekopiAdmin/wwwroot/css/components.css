@@ -9,19 +9,20 @@
   justify-content: center;
   gap: .75rem;
   background: #7a3c00;
-  padding: .6rem var(--side-padding);
+  padding: .9rem var(--side-padding);
   text-align: center;
   margin-top: var(--nav-height);
 }
 .vacation-icon {
   color: #f0c96a;
-  font-size: .65rem;
+  font-size: .8rem;
   flex-shrink: 0;
 }
 .vacation-bar span:last-child {
-  font-size: var(--fs-xs);
-  letter-spacing: .07em;
-  color: rgba(255,240,210,.9);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: rgba(255,240,210,.95);
 }
 /* Fjern dobbelt nav-avstand når ferievarsel er til stede */
 .vacation-bar + .hero { padding-top: 0; }
